@@ -1,0 +1,20 @@
+注意：必须有后台
+
+
+1.learningPixi-master
+中文教程	https://github.com/Zainking/learningPixi
+
+2.pixi.js-dev
+官网		http://www.pixijs.com/tutorials
+
+3.github官网	https://github.com/pixijs/pixi.js
+
+4.Pixi设置文档
+		http://pixijs.download/release/docs/PIXI.Application.html
+
+5.成员函数？	如果你想要canvas在任何浏览器中统一尺寸
+		https://github.com/kittykatattack/scaleToWindow
+
+
+#要效果
+		https://www.goodboydigital.com/

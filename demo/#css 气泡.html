@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>气泡</title>
+	<style>
+		nav, ul, li {
+		  transform-style: preserve-3d;
+		}
+		nav, li {
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		}
+		nav, li a {
+		  border-radius: 50%;
+		}
+		/*nav {
+		  width: 18em;
+		  height: 18em;
+		  transform: translate(-50%, -50%) rotateX(75deg);
+		}*/
+		ul, li a {
+		  width: 100%;
+		  height: 100%;
+		}
+		ul {
+		  list-style: none;
+		}
+
+		li {
+		  animation: idle 4s ease-in-out infinite;
+		  text-align: center;
+		  width: 100px;
+		  height: 100px;
+		  transform: translate(-50%, -50%);
+		}
+		li a {
+		  box-shadow: 0 0 0 0.1em #0cf inset, 0 0 1em #0cf inset;
+		  color: currentColor;
+		  display: inline-block;
+		  text-decoration: none;
+		  transition: transform 0.4s linear,  box-shadow 0.15s linear,  margin 0.1s linear,  width 0.1s linear,  height 0.1s linear;
+		}
+		li a span {
+		  transition: color 0.15s linear;
+		}
+		li a:before {
+		  background-color: #fff;
+		  border-radius: 50%;
+		  content: "";
+		  display: block;
+		  opacity: 0.5;
+		  position: absolute;
+		  top: 1em;
+		  left: 1em;
+		  width: 1em;
+		  height: 0.5em;
+		  transform: rotate(-45deg);
+		}
+		li a:focus, li a.current {
+		  box-shadow: 0 0 0 0.1em #ff0 inset, 0 0 1em #ff0 inset;
+		  outline: 0;
+		}
+		li a:focus span, li a.current span {
+		  color: #ff0;
+		}
+		li a:hover {
+		  margin: -5% 0 0 -5%;
+		  width: 110%;
+		  height: 110%;
+		}
+
+	</style>
+</head>
+<body>
+	<nav>
+	<ul>
+		<li>
+      		<a href="#phone" data-item="0"></a>
+   		</li>
+	</ul>
+	</nav>
+</body>
+</html>

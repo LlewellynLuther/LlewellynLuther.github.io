@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>色彩灵敏度</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		#colorful{width: 427px;height: 427px;border: 1px solid #707070;margin: 10px auto;padding: 1px 0 0 1px;background-color: gray;
+			text-align: center;line-height: 427px;color: #fff;}
+		.color{width: 60px;height: 60px;background-color: #000;float: left;cursor: pointer;margin: 0 1px 1px 0;}
+		.info,.titlebox{width: 430px;margin: 10px auto;height: 20px;}
+		p{float: left;width: 200px;}
+		.title2{float: right;width: 80px;}
+		#start{width: 100px;height: 24px;line-height: 24px;text-align: center;border-radius: 10px;border: 1px solid #000;cursor: pointer;float: right;}
+		#start:hover{background-color: #666;color: #fff;}
+		#daojishi,#wrong{color: #aaa;}
+	</style>
+</head>
+<body>
+	<div class="titlebox">
+		<p>倒计时 <span id="daojishi">60</span>秒</p>
+		<p class="title2">第 <span id="grade">1</span> 关</p>
+	</div>
+	<div id="colorful">
+		点击开始按钮开始游戏
+	</div>
+	<div class="info">		
+		<p>点错次数<span id="wrong">0</span>次</p>
+		<p id="start">开始</p>
+	</div>
+	<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){ });
+		//开始
+		$("#start").click(function(){
+			var daojishi = 60;
+			$("#daojishi").text(daojishi);
+			clearInterval(t);
+			$("#grade").text(1);
+			$("#wrong").text(0);
+			$("#colorful").css("background-color","#fff").text("");
+			$(this).css("display","none").text("重新开始");
+			var t = setInterval(setTimes,1000);
+			function setTimes(){
+				daojishi--;
+				var suc = $("#start").css("display");
+				if(suc == "block"){		//是否胜利
+					clearInterval(t);
+				}else{					
+					$("#daojishi").text(daojishi);
+					if(daojishi == 0){
+						clearInterval(t);
+						daojishi = 60;
+						gameover(0);
+					}
+				}
+			}
+			getcolors(0);
+		});
+		// 生成盒子
+		function getcolors(grade){
+			if(grade < arr.color.length){
+				$("#colorful").children().remove();							//初始化（清空）
+				for(var i=0;i<49;i++){										//生成盒子
+					$("#colorful").append('<div class="color"></div>');
+				}				
+				$(".color").css("background-color",arr.color[grade].grade);	// 设置背景颜色				
+				var ran = Math.floor(Math.random()*49);						// 随机位置变色
+				$(".color").eq(ran).css("background-color",arr.color[grade].defined);				
+			}else{		//完成时
+				$("#grade").text(grade);
+				gameover(1);
+			}
+			//点选答案
+			$(".color").click(function(){
+				var ind = $(this).index();
+				if( ind == ran){				//是否点对
+					$("#grade").text(parseInt($("#grade").text())+1);
+					getcolors(grade+1);
+				}else{
+					$("#wrong").text(parseInt($("#wrong").text())+1);
+				}
+			})
+		};
+		function gameover(success){
+			$("#colorful").children().remove();
+			$("#colorful").css("background-color","gray");
+			if(success)$("#colorful").text("恭喜胜利");
+			else $("#colorful").text("游戏结束");
+			$("#start").css("display","block");
+		};
+		// 关卡颜色
+		var arr = {
+			"color":[
+				{"grade":"#bf3f3e","defined":"#c1543d"},
+				{"grade":"#986562","defined":"#a27474"},
+				{"grade":"#cbdd9f","defined":"#c0dea0"},
+				{"grade":"#a7a7a7","defined":"#b9b9b9"},
+				{"grade":"#4a4eb1","defined":"#5d5eba"},
+				{"grade":"#f7b68e","defined":"#fab993"},
+				{"grade":"#fb53a0","defined":"#f14fa2"},
+				{"grade":"#464652","defined":"#64656a"},
+				{"grade":"#e0c0ff","defined":"#eac0ff"},
+				{"grade":"#00ff01","defined":"#0bf906"},
+				{"grade":"#ff00fe","defined":"#fb5afa"},
+				{"grade":"#7f00ff","defined":"#8d19fe"},
+				{"grade":"#4cb151","defined":"#5db962"},
+				{"grade":"#8ebbf4","defined":"#8ebeef"}				
+			]
+		};
+	</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+*{margin:0;padding:0;}
+header{width:100%;}
+body{color: #333;}
+li{list-style: none;}a{text-decoration: none;}
+
+/*登录窗*/
+#logBoxShadow{width: 100%;height:100%;background-color: rgba(0,0,0,.4);position: fixed;display: none;}
+#logBoxShadow #logBox{width: 500px;height: 380px;background-color: #fff;position: absolute;left: 50%;
+	top:50%;margin-left: -250px;margin-top: -224px;border-radius: 6px;}
+#logBox .close{position: absolute;right: 0;color: #fff;margin-top: -26px;margin-right: 8px;cursor: pointer;font-size: 14px;}
+#logBoxShadow #logBox .logbtn{background-color: #e8f1e2;width: 250px;height: 70px;float: left;text-align: center;
+	line-height: 70px;font-weight: bold;color: #72747f;cursor: pointer;}
+#logBoxShadow #logBox .active{background-color: #fff;color: #96b880;}
+#logBoxShadow #logBox .userbtn{border-top-left-radius: 6px;}
+#logBoxShadow #logBox .conbtn{border-top-right-radius: 6px;}
+
+#logBoxShadow #logBox .log_showBox{width: 100%;height: 270px;overflow: hidden;margin-top: 40px;float: left;}
+#logBoxShadow #logBox .inputbox{float: left;}
+#logBoxShadow #logBox .log_showA{height: 270px;float: left;}
+#logBoxShadow #logBox .log_showB{height: 270px;float: left;display: none;}
+#logBoxShadow #logBox input.writeIn{width: 330px;height: 34px;float: left;margin: 20px 58px;
+	border:1px solid #aaa;border-radius: 4px;border:1px solid #aaa;font-size: 16px;color: #333;padding-left:50px;}
+#logBoxShadow #logBox .log_inputImg{position: absolute;width: 34px;height: 34px;margin: 22px 0 0 70px;}
+#logBoxShadow #logBox .logsubBtn{background-color: #a0b880;width: 384px;height: 40px;border-radius: 4px;
+	color: #fff;margin-left: 58px;margin-top: 26px;float: left;text-align: center;line-height: 40px;
+	font-size: 18px;font-weight: bold;cursor: pointer;}
+#logBoxShadow #logBox .logsubBtn:hover{background-color: #96b97d;}
+#logBoxShadow #logBox .remberCheck{float: left;margin-top: 2px;margin-left: 60px;}
+#logBoxShadow #logBox .rember{float: left;font-size: 10px;color: #333;margin-left: 4px;}
+#logBoxShadow #logBox .forget{float: right;color: #96b97d;margin-right: 60px;font-size: 10px;}
+/*顶部*/
+#header_top{width: 1024px;margin:0 auto;height: 30px;}
+#header_top #logo_img{width: 300px;height: 30px;}
+#header_top #person{float: right;height: 30px;margin-top: 8px}
+#header_top #person #login{font-size: 13px;cursor: pointer;}
+#header_top #person #login:hover{color: #333;}
+	/*基础导航*/
+nav{width:100%;height:34px;background-color: #96b97d;}
+#nav_ul{width: 1024px;margin:0 auto;height: 100%;overflow: hidden;}
+#nav_ul li.navList{width:120px;height:100%;float: left;}
+#nav_ul li.navList:hover{background-color: #a0b880;}
+#nav_ul li.navList a{color: #fff;text-align: center;line-height:34px;width:100%;height:100%;display:block;}
+/*中部*/
+#main{width: 100%;overflow: hidden;background-color: #f6f6f6;border-bottom: 1px solid #fff;}
+#main #main_inner{width: 1024px;margin: 0 auto;overflow: hidden;}
+	/*左侧2、3级导航*/
+#main #main_inner #leftNav{width: 200px;background-color: #fff;padding: 5px;margin: 6px 0;float: left;}
+#main #main_inner #leftNav ul.leftNavUl{overflow: hidden;}
+#main #main_inner #leftNav ul.leftNavUl li.leftNavList{width: 186px;background-color: #f6f4f0;border: 1px solid #efefef;
+	padding: 6px;cursor: pointer;float: left;}
+#main #main_inner #leftNav ul.leftNavUl li.leftNavList .ListLabel{float: left;width: 170px;height: 28px;line-height: 28px;
+	font-weight: bold;color: #64854c;}
+#main #main_inner #leftNav ul.leftNavUl li.leftNavList .ListMoreBtn{float: right;width: 16px;text-align: center;}
+#main #main_inner #leftNav ul.leftNavUl li.leftNavList .ListAddBtn{float: right;width: 16px;text-align: center;}
+#main #main_inner #leftNav ul.leftNavUl li.leftNavList .thrNavListBox{width: 100%;float: left;display: none;}
+#main #main_inner #leftNav ul.leftNavUl li.leftNavList .thrNavListBox .thrNavLists{width: 174px;height: 26px;padding: 6px;
+	font-size: 16px;color: #333;}
+#main #main_inner #leftNav ul.leftNavUl li.leftNavList .thrNavListBox .thrNavLists:hover{background-color: #96b97d;color: #fff;}
+	/*右侧菜单*/
+#main #main_inner #rightNav{width: 200px;background-color: #fff;padding:5px;margin: 6px 0;float:right;} 
+#main #main_inner #rightNav ul.rightNavUl{overflow: hidden;} 
+#main #main_inner #rightNav ul.rightNavUl li.rightNavLabel{width: 186px;background-color: #f6f4f0;border: 1px solid #efefef;padding: 6px;cursor: pointer;float: left;
+	height: 28px;line-height: 28px;}
+#main #main_inner #rightNav ul.rightNavUl li.rightNavLabel .navHugeBox{position: absolute;margin-left: -200px;padding: 6px;
+	width:176px;line-height: 28px;float: left;background-color: #fff;overflow: hidden;margin-top: -40px;display: none;}
+#main #main_inner #rightNav ul.rightNavUl li.rightNavLabel .navHugeBox .navHugeList{background-color: #f6f4f0;
+	border: 1px solid #efefef;}
+	/*短中部*/
+#main #middle{width: 580px;margin-left: 12px;float: left;margin: 6px;background-color: #fff;overflow: hidden;}
+/*#main #middle #middle_inner{width: 568px;height: 200px;background-color: #f6f4f0;margin: 6px;}*/
+#main #middle #middleLabel{width: 578px;height: 30px;background-color: #fbfbfb;border: 1px solid #e7eaf1;margin-bottom: 4px;}
+#main #middle #middleLabel .midBehindBtn{font-size: 16px;line-height: 30px;color: #666;cursor: pointer;}
+#main #middle #middleLabel .midLeftBtn{float: left;margin-left: 6px;}
+#main #middle #middleLabel .midRightBtn{float: right;margin-right: 6px;}
+#main #middle #midthrInfo{float: left;width: 100%;overflow: hidden;height: 400px;}
+/*底部*/
+#footer{background-color: #f6f6f6;width: 100%;overflow: hidden;float: left;}
+#footer #footer_top{background-color: #fff;width: 100%;height: 200px;border-top: 1px solid #e4e4e4;border-bottom: 1px solid #e4e4e4;}
+#footer #footer_top #footer_top_inner{width: 1024px;margin: 0 auto;height: 100%;overflow: hidden;}
+#footer #footer_top #footer_top_inner .footerTopBox{float: left;height: 160px;width: 203px;border-right: 1px solid #e4e4e4;
+	margin:20px 0;}
+#footer #footer_top #footer_top_inner .footerTopBox:first-child{border-left: 1px solid #e4e4e4;margin-left: 2px;}
+#footer #footer_top #footer_top_inner .footerTopBox ul.fBoxLabel{width: 180px;height: 100%;overflow: hidden;padding:0 10px;
+	color: #333;font-size: 14px;}
+#footer #footer_top #footer_top_inner .footerTopBox ul.fBoxLabel li.fBoxList{float: left;width: 160px;padding:0 10px;height: 22px;
+	overflow: hidden;text-overflow: ellipsis;white-space: nowrap;display: block;font-size: 14px;color: #666;}
+	#footer #footer_top #footer_top_inner .footerTopBox ul.fBoxLabel li.fBoxList:first-child{margin-top: 4px;}
+#footer #footer_top #footer_top_inner .footerTopBox .twoLabel{color: #999;font-weight: bold;font-size: 18px;margin-left: 41px;}
+#footer #footer_top #footer_top_inner .footerTopBox #two{width: 120px;height: 120px;margin-top: 12px;float: right;margin-right: 40px;}
+#footer #footer_bottom{width: 1024px;height: 36px;margin: 0 auto;text-align: center;color: #666;line-height: 36px;}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		.xtop{width: 700px;height: 80px;background-color: #eee;border: 1px solid #cdc8ce;position: absolute;left: 170px;top: 60px;transform: skewX(-60deg);border-radius: 10px;}
+		.xright{width: 136px;height: 400px;background-color: #eee;border: 1px solid #cdc8ce;position: absolute;left: 802px;top: 102px;transform: skewY(-30deg);border-radius: 10px;}
+		.xiang{width: 700px;height: 400px;border: 1px solid #cdc8ce;border-radius: 10px;position: absolute;left: 100px;top: 141px;background-color: #eee;}
+		.door_out{width: 551px;height: 371px;border: 1px solid #cdc8ce;border-radius: 10px;float: right;margin-right: 15px;margin-top: 15px;background-color: #fff;}
+		.peijian{background-color: #444;position: absolute;}
+		.zhou1{width: 10px;height: 30px;border-radius: 3px;top: 76px;left:130px}
+		.zhou2{width: 10px;height: 30px;border-radius: 3px;top: 300px;left:130px}
+		.lock1{width: 16px;height: 1px;left: 600px;top: 21px;}
+		.lock2{width: 16px;height: 1px;left: 600px;top: 383px;}
+		.lock3{width: 1px;height: 16px;left: 678px;top: 100px;}
+		.lock4{width: 6px;height: 16px;left: 678px;top: 270px;}
+
+		.door{width: 500px;height: 320px;border: 1px solid #cdc8ce;padding: 20px;border-radius: 10px;margin-left: 3px;margin-top: 5px;background-color: #eee;z-index: 2;position: relative;}
+		.tang{position: absolute;z-index: 1;right: 40px;top: 40%;}
+		.open_door{transition:transform 5s linear;transform:rotateY(145deg);transform-origin: left;}
+		.rotz{animation: rotz 1s ease-out normal;-webkit-animation: rotz 1s ease-out normal;}
+		@-webkit-keyframes rotz {
+			0% {-webkit-transform-origin: 50% 50%;-webkit-transform: rotate(0deg);}
+			100% {-webkit-transform-origin: 50% 50%;-webkit-transform: rotate(-720deg);}
+		}
+		@keyframes rotz {
+			0% {transform-origin: 50% 50%;transform: rotate(0deg);}
+			100% {transform-origin: 50% 50%;transform: rotate(-720deg);}
+		}
+		.rotf{animation: rotf 1s ease-out normal;-webkit-animation: rotf 1s ease-out normal;}
+		@-webkit-keyframes rotf {
+			0% {-webkit-transform-origin: 50% 50%;-webkit-transform: rotate(0deg);}
+			100% {-webkit-transform-origin: 50% 50%;-webkit-transform: rotate(720deg);}
+		}
+		@keyframes rotf {
+			0% {transform-origin: 50% 50%;transform: rotate(0deg);}
+			100% {transform-origin: 50% 50%;transform: rotate(720deg);}
+		}
+		.lockon{animation: lockon 1s ease-out normal forwards;-webkit-animation: lockon 1s ease-out normal forwards;}
+		@-webkit-keyframes lockon {
+			0% {width: 0;}
+			100% {width: 7px;}
+		}
+		@keyframes lockon {
+			0% {width: 0;}
+			100% {width: 7px;}
+		}
+		.lockoff{animation: lockoff 1s ease-out normal forwards;-webkit-animation: lockoff 1s ease-out normal forwards;}
+		@-webkit-keyframes lockoff {
+			0% {width: 0;}
+			100% {width: 0;}
+		}
+		@keyframes lockoff {
+			0% {width: 7px;}
+			100% {width: 0;}
+		}
+		
+		.show{width: 230px;height: 270px;float: left;margin-top: 12px;}
+		.showwin{background-color: #cdc8ce;display: block;height: 26px;line-height: 26px;padding: 8px;color: #fff;font-size: 22px;border-radius: 12px;}
+		.boll{width: 200px;height: 200px;background-color: #cdc8ce;border-radius: 50%;position: relative;left: 20px;top: 30px;}
+		.bollpoint{width: 8px;height: 8px;border-radius: 50%;background-color: #666;position: absolute;left: 180px;top: 96px}
+
+		.keybord{background-color: #cdc8ce;width: 200px;height: 270px;padding: 10px;border-radius: 20px;float: right;margin-top: 12px;}
+		.number{margin: 10px;width: 46px;height: 46px;border-radius: 50%;background-color: #fff;text-align: center;float: left;line-height: 46px;cursor: pointer;}
+	</style>
+</head>
+<body>
+<div class="xtop"></div>
+<div class="xiang">
+	<div class="zhou1 peijian"></div>
+	<div class="zhou2 peijian"></div>
+	<div class="lock3 peijian"></div>
+	<div class="lock4 peijian"></div>
+<div class="door_out">
+	<div class="tang">复制此代码发送给<br>我即可领取奖品</div>
+	<div class="door">
+		<div class="show">
+			<span class="showwin">请输入密码</span>
+			<div class="boll"><div class="bollpoint"></div></div>
+		</div>
+		<div class="keybord">
+			<div class="number numkey">1</div>
+			<div class="number numkey">2</div>
+			<div class="number numkey">3</div>
+			<div class="number numkey">4</div>
+			<div class="number numkey">5</div>
+			<div class="number numkey">6</div>
+			<div class="number numkey">7</div>
+			<div class="number numkey">8</div>
+			<div class="number numkey">9</div>
+			<div class="number" style="color: #e00;">*</div>
+			<div class="number numkey">0</div>
+			<div class="number enter" style="color: #0e0;">#</div>
+		</div>
+	</div>
+</div>
+</div>
+<div class="xright"></div>
+	<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+	<script>
+		var arr = [];
+		$(document).ready(function(){
+			$(".boll").removeClass("rotf").addClass("rotz");
+			$(".lock3").addClass("lockon");
+			$(".lock4").addClass("lockon");
+		})
+		$(".number").mousedown(function(){
+			$(this).css("background-color","#eee");
+		})
+		$(".number").mouseup(function(){
+			$(this).css("background-color","#fff");
+		})
+		$(".numkey").click(function(){
+			var txt = $(this).text();
+			arr.push(txt);
+			var arr2 = arr.join('');
+			$(".showwin").text(arr2);
+			$(".enter").click(function(){
+				if(arr2 == 12345){
+					$(".showwin").text("成功");
+					$(".boll").removeClass("rotz").addClass("rotf");
+					$(".lock3").addClass("lockoff");
+					$(".lock4").addClass("lockoff");
+					$(".door").addClass("open_door");
+				}else{
+					arr = [];
+					$(".showwin").text("猜错了，再试试吧");
+				}
+			})
+		})
+
+	</script>
+</body>
+</html>

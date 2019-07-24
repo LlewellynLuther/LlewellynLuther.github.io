@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>渐变色</title>
+<head>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		.example{width: 150px;height: 40px;margin: 6px;color: #fff;text-align: center;line-height: 40px;}
+		#big1{float: left;}
+		.example1{
+			background: -webkit-linear-gradient(top,red,blue);
+			background:    -moz-linear-gradient(top,red,blue);
+			background:      -o-linear-gradient(top,red,blue);
+		}
+		.example2{
+			background: -webkit-gradient(linear,0 50%,100% 50%,from(red),to(blue));/*Old gradient for webkit*/
+			background: -webkit-linear-gradient(left,red,blue);/*new gradient for Webkit*/
+			background:   -moz-linear-gradient(left,red,blue);/*Mozilla*/
+			background:     -o-linear-gradient(left,red,blue); /*Opera11*/
+		}
+		.example3{
+			background: -webkit-gradient(linear,top,from(red),to(blue));/* Safari 4-5, Chrome 1-9 */
+			background: -webkit-linear-gradient(top, red, blue);/* Safari 5.1+, Chrome 10+ */
+			background:    -moz-linear-gradient(top, red, blue); /* Firefox 3.6+ */
+			background:      -o-linear-gradient(top, red, blue);/* Opera 11.10+ */
+		}
+		.example4{
+			background: -webkit-linear-gradient(left top, red, blue);
+			background:    -moz-linear-gradient(left top, red, blue);
+			background:      -o-linear-gradient(left top, red, blue);
+		}
+		.example5{
+			background: -webkit-gradient(linear, left top, right top, from(red), color-stop(0.25, blue), color-stop(0.5, red), color-stop(0.75, blue), to(red)); /* Safari 4-5, Chrome 1-9 */ 
+			background: -webkit-linear-gradient(left, red, blue, red, blue, red); /* Safari 5.1+, Chrome 10+ */ 
+			background:    -moz-linear-gradient(left, red, blue, red, blue, red); /* Firefox 3.6+ */
+			background:      -o-linear-gradient(left, red, blue, red, blue, red); /* Opera 11.10+ */
+		}
+		.example6{
+			background: -webkit-gradient(linear, left top, right top, from(red), color-stop(0.05, blue), color-stop(0.5, red), color-stop(0.95, blue), to(red)); /* Safari 4-5, Chrome 1-9 */ 
+			background: -webkit-linear-gradient(left, red, blue 5%, red, blue 95%, red); /* Safari 5.1+, Chrome 10+ */
+			background:    -moz-linear-gradient(left, red, blue 5%, red, blue 95%, red); /* Firefox 3.6+ */
+			background:      -o-linear-gradient(left, red, blue 5%, red, blue 95%, red); /* Opera 11.10+ */ 
+		}
+		.example7{
+			background: -webkit-gradient(linear, 0 0, 100% 100%, from(red),to(blue));
+			background: -moz-linear-gradient(left 30deg, red, blue);
+			background:   -o-linear-gradient(30deg, red, blue);
+		}
+		#big2{float: left;}
+		.deg0 {
+			background: -webkit-gradient(linear,0 50%,100% 50%,from(red),to(blue));
+			background: -webkit-linear-gradient(0deg, red, blue);
+			background:    -moz-linear-gradient(0deg, red, blue);
+			background:      -o-linear-gradient(0deg, red, blue);
+		}
+		.deg45 {
+			background: -webkit-gradient(linear,0 100%,100% 0%,from(red),to(blue));
+			background: -webkit-linear-gradient(45deg, red, blue);
+			background:    -moz-linear-gradient(45deg, red, blue);
+			background:      -o-linear-gradient(45deg, red, blue);
+		}
+		.deg90 {
+			background: -webkit-gradient(linear,50% 100%,50% 0%,from(red),to(blue));
+			background: -webkit-linear-gradient(90deg, red, blue);
+			background:    -moz-linear-gradient(90deg, red, blue);
+			background:      -o-linear-gradient(90deg, red, blue);
+		}
+		.deg135 {
+			background: -webkit-gradient(linear,100% 100%,0 0,from(red),to(blue));
+			background: -webkit-linear-gradient(135deg, red, blue);
+			background:    -moz-linear-gradient(135deg, red, blue);
+			background:      -o-linear-gradient(135deg, red, blue);
+		}
+		.deg180 {
+			background: -webkit-gradient(linear,100% 50%,0 50%,from(red),to(blue));
+			background: -webkit-linear-gradient(180deg, red, blue);
+			background:    -moz-linear-gradient(180deg, red, blue);
+			background:      -o-linear-gradient(180deg, red, blue);
+		}
+		.deg225 {
+			background: -webkit-gradient(linear,100% 0%,0 100%,from(red),to(blue));
+			background: -webkit-linear-gradient(225deg, red, blue);
+			background:    -moz-linear-gradient(225deg, red, blue);
+			background:      -o-linear-gradient(225deg, red, blue);
+		}
+		.deg270 {
+			background: -webkit-gradient(linear,50% 0%,50% 100%,from(red),to(blue));
+			background: -webkit-linear-gradient(270deg, red, blue);
+			background:    -moz-linear-gradient(270deg, red, blue);
+			background:      -o-linear-gradient(270deg, red, blue);
+		}
+		.deg315 {
+			background: -webkit-gradient(linear,0% 0%,100% 100%,from(red),to(blue));
+			background: -webkit-linear-gradient(315deg, red, blue);
+			background:    -moz-linear-gradient(315deg, red, blue);
+			background:      -o-linear-gradient(315deg, red, blue);
+		}
+		.deg360 {
+			background: -webkit-gradient(linear,0 50%,100% 50%,from(red),to(blue));
+			background: -webkit-linear-gradient(360deg, red, blue);
+			background:    -moz-linear-gradient(360deg, red, blue);
+			background:      -o-linear-gradient(360deg, red, blue);
+		}
+		#big3{float: left;}
+		.exa1{
+			background: -moz-linear-gradient(left, red, #f96, yellow, green, #ace);
+			background: -webkit-linear-gradient(left,red,#f96,yellow,green,#ace);
+			background: -o-linear-gradient(left, red, #f96, yellow, green, #ace);
+		}
+		.exa2{
+			background: -moz-linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1)),url(http://demos.hacks.mozilla.org/openweb/resources/images/patterns/flowers-pattern.jpg);
+			background: -webkit-linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1)),url(http://demos.hacks.mozilla.org/openweb/resources/images/patterns/flowers-pattern.jpg);
+			background: -o-linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1)),url(http://demos.hacks.mozilla.org/openweb/resources/images/patterns/flowers-pattern.jpg);
+		}
+		.exa3{
+			background: -moz-radial-gradient(#ace, #f96, #1E90FF);
+			background: -webkit-radial-gradient(#ace, #f96, #1E90FF);
+		}
+		.exa4{
+			background: -moz-radial-gradient(#ace 5%, #f96 25%, #1E90FF 50%);
+			background: -webkit-radial-gradient(#ace 5%, #f96 25%, #1E90FF 50%);
+		}
+		.exa5{
+			background: -moz-radial-gradient(bottom left, circle, #ace, #f96, #1E90FF);
+			background: -webkit-radial-gradient(bottom left, circle, #ace, #f96, #1E90FF);
+		}
+		.exa6{
+			background: -moz-radial-gradient(bottom left, ellipse, #ace, #f96, #1E90FF);
+			background: -webkit-radial-gradient(bottom left, ellipse, #ace, #f96, #1E90FF);
+		}
+		.exa7{
+			background: -moz-radial-gradient(ellipse closest-side, #ace, #f96 10%, #1E90FF 50%, #f96);
+			background: -webkit-radial-gradient(ellipse closest-side, #ace, #f96 10%, #1E90FF 50%, #f96);
+		}
+		.exa8{
+			background: -moz-radial-gradient(ellipse farthest-corner, #ace, #f96 10%, #1E90FF 50%, #f96);
+			background: -webkit-radial-gradient(ellipse farthest-corner, #ace, #f96 10%, #1E90FF 50%, #f96);
+		}
+		.exa9{
+			background: -moz-radial-gradient(circle closest-side, #ace, #f96 10%, #1E90FF 50%, #f96);
+			background: -webkit-radial-gradient(circle closest-side, #ace, #f96 10%, #1E90FF 50%, #f96);
+		}
+		.exa10{
+			background: -moz-radial-gradient(circle farthest-side, #ace, #f96 10%, #1E90FF 50%, #f96);
+			background: -webkit-radial-gradient(circle farthest-side, #ace, #f96 10%, #1E90FF 50%, #f96);
+		}
+		.exa11{
+			background: -moz-radial-gradient(#ace, #f96, #1E90FF);
+			background: -webkit-radial-gradient(#ace, #f96, #1E90FF);
+		}
+		.exa12{
+			background: -moz-radial-gradient(contain, #ace, #f96, #1E90FF);
+			background: -webkit-radial-gradient(contain, #ace, #f96, #1E90FF);
+		}
+		.exa13{
+			 /* Firefox 3.6+ */ 
+			 background: -moz-radial-gradient(circle, #ace, #f96); 
+			 /* Safari 4-5, Chrome 1-9 */ 
+			 /* Can't specify a percentage size? Laaaaaame. */ 
+			 background: -webkit-gradient(radial, center center, 0, center center, 460, from(#ace), to(#f96)); 
+			 /* Safari 5.1+, Chrome 10+ */ 
+			 background: -webkit-radial-gradient(circle, #ace, #f96);
+		}
+		.exa14{
+			/* Firefox 3.6+ */ 
+			/* -moz-radial-gradient( [ || ,]? [ || ,]? , [, ]* ) */
+			background: -moz-radial-gradient(80% 20%, closest-corner, #ace, #f96); 
+			/* Safari 4-5, Chrome 1-9 */
+			background: -webkit-gradient(radial, 80% 20%, 0, 80% 40%, 100, from(#ace), to(#f96)); 
+			/* Safari 5.1+, Chrome 10+ */
+			background: -webkit-radial-gradient(80% 20%, closest-corner, #ace, #f96);
+		}
+		#big4{float: left;}
+		.more1{
+			background: -moz-repeating-radial-gradient(#ace, #ace 5px, #f96 5px, #f96 10px);
+			background: -webkit-repeating-radial-gradient(#ace, #ace 5px, #f96 5px, #f96 10px);
+		}
+		.more2{
+			background: -moz-repeating-linear-gradient(top left -45deg, #ace, #ace 5px, #f96 5px, #f96 10px);
+			background: -webkit-repeating-linear-gradient(top left -45deg, #ace, #ace 5px, #f96 5px, #f96 10px);
+		}
+		ul {
+			overflow: hidden;
+			margin-top: 20px;
+		}
+		li{
+			width: 150px;
+			height: 80px;
+			margin-bottom: 10px;
+			/*float: left;*/
+			margin-right: 5px;
+			background: #ace;
+			/*Controls the size*/
+			-webkit-background-size: 20px 20px;
+			-moz-background-size: 20px 20px;
+			background-size: 20px 20px; 
+		}
+		li.gradient1 {
+			background-image: -webkit-gradient(
+				linear,
+				0 100%, 100% 0,
+				color-stop(.25, rgba(255, 255, 255, .2)), 
+				color-stop(.25, transparent),
+				color-stop(.5, transparent), 
+				color-stop(.5, rgba(255, 255, 255, .2)),
+				color-stop(.75, rgba(255, 255, 255, .2)), 
+				color-stop(.75, transparent),
+				to(transparent)
+			);
+			background-image: -moz-linear-gradient(
+				45deg, 
+				rgba(255, 255, 255, .2) 25%, 
+				transparent 25%,
+				transparent 50%, 
+				rgba(255, 255, 255, .2) 50%, 
+				rgba(255, 255, 255, .2) 75%,
+				transparent 75%, 
+				transparent
+			);
+				background-image: -o-linear-gradient(
+				45deg, 
+				rgba(255, 255, 255, .2) 25%, 
+				transparent 25%,
+				transparent 50%, 
+				rgba(255, 255, 255, .2) 50%, 
+				rgba(255, 255, 255, .2) 75%,
+				transparent 75%, 
+				transparent
+			);
+				background-image: linear-gradient(
+				45deg, 
+				rgba(255, 255, 255, .2) 25%, 
+				transparent 25%,
+				transparent 50%, 
+				gba(255, 255, 255, .2) 50%, 
+				rgba(255, 255, 255, .2) 75%,
+				transparent 75%, 
+				transparent
+			);
+		}
+		li.gradient2 {
+			background-image: -webkit-gradient(linear, 0 0, 100% 100%,
+				color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent),
+				color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .2)),
+				color-stop(.75, rgba(255, 255, 255, .2)), color-stop(.75, transparent),
+				to(transparent));
+			background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+				transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+				transparent 75%, transparent);
+			background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+				transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+				transparent 75%, transparent);
+			background-image: linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+				transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+				transparent 75%, transparent);
+		}
+		li.gradient3 {
+			background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent));
+			background-image: -moz-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+			background-image: -o-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+			background-image: linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+		}
+		li.gradient4 {
+			background-image: -webkit-gradient(linear, 0 0, 100% 0, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent));
+			background-image: -moz-linear-gradient(0deg, rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+			background-image: -o-linear-gradient(0deg, rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+			background-image: linear-gradient(0deg, rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+		}
+		li.gradient5 {background-color: #fff;
+			background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, red), color-stop(.25, transparent), to(transparent)),
+			  -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, red), color-stop(.25, transparent), to(transparent)),
+			  -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, red)),
+			  -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, red));
+			background-image: -moz-linear-gradient(45deg, red 25%, transparent 25%, transparent),
+			 -moz-linear-gradient(-45deg, red 25%, transparent 25%, transparent),
+			 -moz-linear-gradient(45deg, transparent 75%, red 75%),
+			 -moz-linear-gradient(-45deg, transparent 75%, red 75%);
+			background-image: -o-linear-gradient(45deg, red 25%, transparent 25%, transparent),
+			 -o-linear-gradient(-45deg, red 25%, transparent 25%, transparent),
+			 -o-linear-gradient(45deg, transparent 75%, red 75%),
+			 -o-linear-gradient(-45deg, transparent 75%, red 75%);
+			background-image: linear-gradient(45deg, red 25%, transparent 25%, transparent),
+			linear-gradient(-45deg, red 25%, transparent 25%, transparent),
+			linear-gradient(45deg, transparent 75%, red 75%),
+			linear-gradient(-45deg, transparent 75%, red 75%);
+		}
+		li.gradient6 {
+			background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, transparent), color-stop(.5, rgba(200, 0, 0, .5)), to(rgba(200, 0, 0, .5))),
+			 -webkit-gradient(linear, 0 0, 100% 0, color-stop(.5, transparent), color-stop(.5, rgba(200, 0, 0, .5)), to(rgba(200, 0, 0, .5)));
+			background-image: -moz-linear-gradient(transparent 50%, rgba(200, 0, 0, .5) 50%, rgba(200, 0, 0, .5)),
+			 -moz-linear-gradient(0deg, transparent 50%, rgba(200, 0, 0, .5) 50%, rgba(200, 0, 0, .5));
+			background-image: -o-linear-gradient(transparent 50%, rgba(200, 0, 0, .5) 50%, rgba(200, 0, 0, .5)),
+			 -o-linear-gradient(0deg, transparent 50%, rgba(200, 0, 0, .5) 50%, rgba(200, 0, 0, .5));
+			background-image: linear-gradient(transparent 50%, rgba(200, 0, 0, .5) 50%, rgba(200, 0, 0, .5)),
+			 linear-gradient(0deg, transparent 50%, rgba(200, 0, 0, .5) 50%, rgba(200, 0, 0, .5));
+		}
+	</style>
+</head>
+<body>
+	<div id="big1">
+		<div class="example example1"></div>
+		<div class="example example2"></div>
+		<div class="example example3"></div>
+		<div class="example example4"></div>
+		<div class="example example5"></div>
+		<div class="example example6"></div>
+		<div class="example example7">30度</div>
+	</div>
+	<div id="big2">
+		<div class="example deg0">0度</div>
+		<div class="example deg45">45度</div>
+		<div class="example deg90">90度</div>
+		<div class="example deg135">135度</div>
+		<div class="example deg180">180度</div>
+		<div class="example deg225">225度</div>
+		<div class="example deg270">270度</div>
+		<div class="example deg315">315度</div>
+		<div class="example deg360">360度</div>
+	</div>
+	<div id="big3">
+		<div class="example exa1"></div>
+		<div class="example exa2"></div>
+		<div class="example exa3">No opera</div>
+		<div class="example exa4"></div>
+		<div class="example exa5"></div>
+		<div class="example exa6"></div>
+		<div class="example exa7"></div>
+		<div class="example exa8"></div>
+		<div class="example exa9"></div>
+		<div class="example exa10"></div>
+		<div class="example exa11"></div>
+		<div class="example exa12"></div>
+		<div class="example exa13"></div>
+		<div class="example exa14"></div>
+	</div>
+	<div id="big4">
+		<div class="example more1"></div>
+		<div class="example more2"></div>
+		<ul>
+			<li class="gradient gradient1"></li>
+			<li class="gradient gradient2"></li>
+			<li class="gradient gradient3"></li>
+			<li class="gradient gradient4"></li>
+			<li class="gradient gradient5"></li>
+			<li class="gradient gradient6"></li>
+		</ul>
+	</div>
+</body>
+</html>

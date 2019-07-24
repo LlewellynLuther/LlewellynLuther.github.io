@@ -1,0 +1,47 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Using aliases</title>
+<body>
+<script src="../pixi/pixi.min.js"></script>
+<script>
+
+//Aliases 别名
+let Application = PIXI.Application,
+    loader = PIXI.loader,
+    resources = PIXI.loader.resources,
+    Sprite = PIXI.Sprite;
+
+let app = new Application({
+    width: 256, 
+    height: 256,
+    antialiasing: true,
+    transparent: false,
+    resolution: 1
+  }
+);
+
+document.body.appendChild(app.view);
+
+loader
+  .add("images/cat.png")
+  .load(setup);
+
+function setup() {
+
+  let cat = new Sprite(resources["images/cat.png"].texture);
+
+  app.stage.addChild(cat);
+
+  //If you ever need to, here's how you can clean out WebGL's GPU
+  //如果需要的话，下面介绍如何清除WebGL的GPU
+  //memory manually  手动记忆
+  /*
+  /*
+  Object.keys(TextureCache).forEach(function(texture) {
+    TextureCache[texture].destroy(true);
+  });
+  */
+}
+</script>
+</body>
+

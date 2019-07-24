@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.myDiv2 {
+		    width: 75px;
+		    height: 75px;
+		    background-color: red;
+		    position:relative;
+		    animation:mymove 5s 1 2s;
+		    color: #fff;
+		    font-size: 12px;
+		    line-height: 75px;
+		    text-align: center;
+		    margin-top: 1px;
+		}
+		@keyframes mymove {
+		    from {left:0px; background-color:green;}
+		    to {left:200px; background-color: blue;}
+		}
+		.forwards { animation-fill-mode:forwards; }
+		.bkforwards { animation-fill-mode:backwards; }
+		.both { animation-fill-mode:both;} 
+	</style>
+</head>
+<body>
+<span>animation-fill-mode</span>
+<div class="myDiv2">啥也没有</div>
+<div class="myDiv2 forwards">forwards</div>
+<div class="myDiv2 bkforwards">bkforwards</div>
+<div class="myDiv2 both">both</div>
+</html>

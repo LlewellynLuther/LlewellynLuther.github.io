@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		.main_banner_wrap{
+			width: 1000px;
+			height: 600px;
+			border: 1px solid #000;
+		}
+		#myCanvas{
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div class="main_banner_wrap">
+		<img src="images/foot_ball.png" alt="" id="myCanvas">
+	</div>
+	<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+	<script>
+		$(function(){
+		//myCanvas---------------------------------------------------------------------------
+			var clock_x = $(".main_banner_wrap").width()-50;
+			var clock_y = $(".main_banner_wrap").height()-50;	//设置活动区域（盒宽高-表宽高）不让球显示不全
+
+			// $("#myCanvas").css({"left":clock_x,"top":clock_y});	//起点在右下
+
+			var moveTimer = null;
+			var disX = 0, disY = 0;
+			var prevX = 0, prevY = 0;							//上一记录点
+			var iSpeedX = 0, iSpeedY = 0;						//松手速度 = 松手点 - 上一记录点
+
+			$("#myCanvas").mousedown(function(ev){	
+				$(this).css("opacity",0.9);//点中半透明
+				var seft = $(this);
+				disX = ev.pageX-$(this).offset().left+$(this).parent().offset().left;
+				disY = ev.pageY-$(this).offset().top+$(this).parent().offset().top;
+				//点击位坐标（距左边框距离） = 鼠标点 - 顶点距离左边框距离 + 父级距左边框距离
+
+				prevX = ev.pageX;
+				prevY = ev.pageY;						//鼠标点击位置
+
+				$(document).mousemove(function(ev){
+					var x = ev.pageX - disX;
+					var y = ev.pageY - disY;			//鼠标松开位置 - 点击位坐标（距左/上边框距离）
+					if(x<=0){
+						x = 0;
+					}else if(x > clock_x){
+						x = clock_x;
+					}
+					if(y<=0){
+						y = 0;
+					}else if(y > clock_y){
+						y = clock_y;
+					}//不超出
+					seft.css({"left":x,"top":y});
+
+					iSpeedX = ev.pageX - prevX;			//松手速度（位置差） = 松手点 - 上一记录点
+					iSpeedY = ev.pageY - prevY;
+
+					prevX = ev.pageX;					//随着拖动 不断更新 上一记录点
+					prevY = ev.pageY;
+
+				});
+				$(document).mouseup(function(){
+					seft.css("opacity",0.8);
+					$(document).off();					//移除效果	相当于unbind()、die() 和 undelegate() 方法的新的替代品
+					move();
+				});
+				return false;
+			});
+
+			function move(){							//松开鼠标时触发
+				clearInterval(moveTimer);				//清空时间
+				moveTimer = setInterval(function(){
+					iSpeedY += 1;
+					var iL = $("#myCanvas").position().left+iSpeedX;
+					var iT = $("#myCanvas").position().top+iSpeedY;				//运动轨迹
+					var havy = 0.95;											//锐减比例
+					if(iL>clock_x){												//横向递减
+						iL = clock_x;
+						iSpeedX *= -1;
+						iSpeedX *= havy;
+					}else if(iL < 0){
+						iL = 0;
+						iSpeedX *= -1;
+						iSpeedX *= havy;
+					}
+					if(iT>clock_y){												//纵向递减
+						iT = clock_y;
+						iSpeedY *= -1;
+						iSpeedY *= havy;
+						iSpeedX *= havy;
+					}else if(iT < 0){
+						iT = 0;
+						iSpeedY *= -1;
+						iSpeedY *= havy;
+					}
+					if(Math.abs(iSpeedX)<1&&Math.abs(iSpeedY)<1&&Math.abs(iT-clock_y)<1){	// 绝对值近0时停止动作
+						clearInterval(moveTimer);
+					}
+					$("#myCanvas").css({"left": iL,"top": iT});			
+				},30);
+			};
+		})
+	</script>
+</body>
+</html>

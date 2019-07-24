@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		#desks{width: 1000px;height: 80px;}
+		.box{width: 200px;height: 40px;float: left;line-height: 40px;text-align: center;}
+		#btn{margin-left: 100px;border: 1px solid #000;width: 80px;text-align: center;float: left;cursor: pointer;}
+	</style>
+</head>
+<body>
+<div id="desks"></div>
+<div id="btn"> 开始 </div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script>
+	var arr = ["1","2","3","4","5","6","7","8","9","0"];
+	var arr2 = [];
+	// var oBtn = document.getElementById("btn");
+	// var desks = document.getElementById("desks");
+	// oBtn.onclick = function(){
+	// 	choseo();
+	// }
+
+	$("#btn").click(function(){
+		chose();
+	})
+	function chose(){
+		var rol = Math.floor(Math.random()*10);
+		if(arr2.length == 0){
+			arr2.push(arr[rol]);
+			$("#desks").append("<div class='box'>" + arr[rol] + "</div>");
+			console.log(arr[rol])
+		}else{
+			for(var i=0;i<arr2.length;i++){
+				if(arr2[i] == arr[rol]){
+					chose();
+					return;
+				}
+			}
+			arr2.push(arr[rol])
+			console.log(arr[rol])
+			$("#desks").append("<div class='box'>" + arr[rol] + "</div>");
+		}
+	}
+
+// $(document).ready(function(){
+// 	var array = ["a", "b", "c"];
+// 	// 自定义 contains(arr, "c")方法
+// 	function contains(arr, obj) {
+// 	    //while
+// 	    var i = array.length;
+// 	    while(i--) {
+// 	        if(array[i] === obj) {
+// 	            return i;
+// 	        }
+// 	    }
+// 	    // return -1;
+// 	}
+// 	var result1 = contains(array, "c"); //返回index为2
+// 	console.log(result1)
+// })
+</script>
+</body>
+</html>

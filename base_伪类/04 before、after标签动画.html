@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+        .a1 {  
+            position: relative;  
+            display: inline-block;  
+            outline: none;  
+            text-decoration: none;  
+            color: #000;  
+            font-size: 32px;  
+            padding: 5px 10px;  
+            margin-left: 40px;
+        }  
+        .a1:hover::before, .a1:hover::after { 
+            position: absolute;
+        }  
+        .a1:hover::before { 
+            content: "\5B"; left: -20px; 
+        }  
+        .a1:hover::after { 
+            content: "\5D"; right:  -20px; 
+        } 
+
+        .a2 {  
+            position: relative;  
+            display: inline-block;  
+            outline: none;  
+            text-decoration: none;  
+            color: #000;  
+            font-size: 32px;  
+            padding: 0 10px;  
+        }  
+          
+        /* 大框 */  
+        .a2:hover::before, .a2:hover::after {   
+            content: "";  
+            display: block;  
+            position: absolute;  
+            top: -15%%;  
+            left: -10%%;  
+            width: 120%;  
+            height: 120%;  
+            border-style: solid;  
+            border-width: 4px;  
+            border-color: #DDD;  
+         }  
+        .a3 {  
+            position: relative;  
+            display: inline-block;  
+            outline: none;  
+            text-decoration: none;  
+            color: #000;  
+            font-size: 32px;  
+            padding: 0 40px;  
+        }  
+        .a3:hover::before{
+            content: "";  
+            display: block;  
+            position: absolute;  
+            top: -15%%;  
+            left: -10%%;  
+            width: 120%;  
+            height: 120%;  
+            border-style: solid;  
+            border-width: 4px;  
+            border-color: #DDD;  
+         }
+          
+        /* 小框 */  
+         .a3:hover::after {  
+            top: 0%;  
+            left: 0%;  
+            width: 100%;  
+            height: 100%;  
+            border-width: 2px;  
+         }   
+	</style>
+</head>
+<body>
+	<a href="" class="a1">标签1</a>
+    <a href="" class="a2">标签2</a>
+    <a href="" class="a3">标签3</a>
+</body>
+</html>

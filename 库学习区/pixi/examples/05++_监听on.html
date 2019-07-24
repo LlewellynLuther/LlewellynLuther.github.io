@@ -1,0 +1,43 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Make a sprite from and image</title>
+<body>
+<script src="../pixi/pixi.min.js"></script>
+<script>
+	let Application = PIXI.Application,
+		Container = PIXI.Container,
+		loader = PIXI.loader,
+		resources = PIXI.loader.resources,
+		TextureCache = PIXI.utils.TextureCache,
+		Sprite = PIXI.Sprite;
+
+	let app = new Application({ 
+		width: 256, 
+		height: 256,                       
+		antialiasing: true, 
+		transparent: false, 
+		resolution: 1
+	  }
+	);
+
+	document.body.appendChild(app.view);
+
+	PIXI.loader
+		.add([
+			"images/one.png",
+			"images/two.png",
+			"images/three.png"
+		])
+// Pixi的加载器有一个特殊的progress事件，它将会调用一个可以定制的函数，这个函数将在每次文件加载时调用。progress事件将会被loader的on方法调用
+		.on("progress", loadProgressHandler)
+		.load(setup);
+
+		function loadProgressHandler(){
+			console.log("loading");
+		}
+// 每一个文件加载，progress事件调用loadProgressHandler函数在控制台输出 "loading"。当三个文件都加载完毕，setup方法将会运行
+
+		function setup() {
+			console.log("setup");
+		}
+</script>

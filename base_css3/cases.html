@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画库</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		body{background-color: #ccc;}
+		#main{width: 100%;overflow: hidden;}
+		#nav{width: 1200px;margin: 0 auto;}
+		li{list-style-type: none;float: left;margin: 5px;}
+		.main_inner{width: 1200px;margin: 0 auto;}
+		.box{width: 180px;height: 180px;margin: 10px;float: left;border: 1px solid #eee;box-sizing: border-box;background-color: #fff;position: relative;}
+		.black_box{background-color: #333;position: relative;color: #fff;}
+		.title{width: 100%;height: 22px;float:left;text-align: center;margin-top: 20px;}		
+	</style>
+</head>
+<body>
+	<div id="main">
+		<ul id="nav">
+			<li>水平</li>
+			<li>垂直</li>
+			<li>旋转</li>
+			<li>轴动</li>
+			<li>闪烁</li>
+			<li>水平方向动画</li>
+		</ul>
+		<div class="main_inner">
+			<span class="title">一、水平方向动画</span>
+			<div class="box">1<div class="vanishIn"></div></div>
+			<style>
+				.vanishIn {width: 9.225rem;height: 6.3rem;background: url(images/index-ningm2.png)no-repeat;background-size: 100% 100%;
+				animation: vanishIn 2s ease-in-out infinite;-webkit-animation: vanishIn 2s ease-in-out infinite;}
+				@-webkit-keyframes vanishIn {
+					0% {opacity: 0;-webkit-transform-origin: 50% 50%;-webkit-transform: scale(2, 2);-webkit-filter: blur(90px);}
+					70% {opacity: 1;-webkit-transform-origin: 50% 50%;-webkit-transform: scale(1, 1);-webkit-filter: blur(0px);}
+					100% {opacity: 1;-webkit-transform-origin: 50% 50%;-webkit-transform: scale(1, 1);-webkit-filter: blur(0px);}
+				}
+				@keyframes vanishIn {
+					0% {opacity: 0;transform-origin: 50% 50%;transform: scale(2, 2);filter: blur(90px);}
+					70% {opacity: 1;transform-origin: 50% 50%;transform: scale(1, 1);filter: blur(0px);}
+					100% {opacity: 1;transform-origin: 50% 50%;transform: scale(1, 1);filter: blur(0px);}
+				}
+			</style>
+			<div class="box">2<div class="puffIn"></div></div>
+			<style>
+				.puffIn {width: 9.225rem;height: 6.3rem;background: url(images/index-ningm2.png)no-repeat;background-size: 100% 100%;
+				animation: puffIn 2s ease-in-out infinite;-webkit-animation: puffIn 2s ease-in-out infinite;}
+				@keyframes puffIn {
+					0% {opacity: 0;transform-origin: 50% 50%;transform: scale(2,2);filter: blur(2px);}
+					100% {opacity: 1;transform-origin: 50% 50%;transform: scale(1,1);filter: blur(0px);}
+				}
+				@-webkit-keyframes puffIn {
+					0% {opacity: 0;-webkit-transform-origin: 50% 50%;-webkit-transform: scale(2,2);filter: blur(2px);}
+					100% {opacity: 1;-webkit-transform-origin: 50% 50%;-webkit-transform: scale(1,1);filter: blur(0px);}
+				}
+			</style>
+			<div class="box">3
+				<div class="title-box">
+					<div class="line-box line-pos1 scqj-pos2l">
+						<div class="line-ani1 title-ani"></div>
+						<div class="line-ani2 line-blank title-ani1"></div>
+						<div class="line-ani1 line-blank title-ani2"></div>
+					</div>
+					<div class="line-box line-pos2 scqj-pos2r">
+						<div class="line-ani1 title-ani title-ani3"></div>
+						<div class="line-ani2 line-ani3 line-blank title-ani1 title-ani3"></div>
+						<div class="line-ani1 line-blank title-ani2 title-ani3"></div>
+					</div>
+				</div>
+			</div>
+			<style>				
+				.title-box{position: relative;width: 100%;}
+				.line-box{position: absolute;width: 2rem;height: 2rem;}
+				.line-ani1{width: 2rem;height:.2rem;background: #000;border-radius: .1rem;}
+				.line-ani2{margin-left: 0.75rem;width: 1.25rem;height:.2rem;background: #000;border-radius: .1rem;}
+				.line-ani3{margin-left: 0;}
+				.line-blank{margin-top: .4rem;}
+				.title-ani{
+					animation:title-line 1s infinite .3s ease alternate;
+					-webkit-animation:title-line 1s infinite .3s ease alternate;
+					transform-origin: right top;
+					-webkit-transform-origin: right top;
+					z-index: 10;
+				}
+				.title-ani1{
+					animation:title-line 1.5s infinite ease 0.3s alternate;
+					-webkit-animation:title-line 1.5s infinite ease 0.3s alternate;
+					transform-origin: right top;
+					-webkit-transform-origin: right top;
+					z-index: 10;
+				}
+				.title-ani2{
+					animation:title-line 1s infinite ease 0.8s alternate;
+					-webkit-animation:title-line 1s infinite ease 0.8s alternate;
+					transform-origin: right top;
+					-webkit-transform-origin: right top;
+					z-index: 10;
+				}
+				.title-ani3{-webkit-transform-origin: left top;transform-origin: left top;}
+				.line-pos1{left: 1.7rem;top: 2.98rem;}
+				.line-pos2{right: 1.7rem;top: 2.98rem;}
+				@-webkit-keyframes title-line{
+					0%{-webkit-transform: scaleX(1);}
+					100%{-webkit-transform: scaleX(0.1);}
+				}
+				@keyframes title-line{
+					0%{transform: scaleX(1);}
+					100%{transform: scaleX(0.1);}
+				}
+			</style>
+
+			<div class="box">4
+				<div class="widyi4">
+					<div class="qiuoutyi4">
+						<div class="qiuyi4">图片</div>
+					</div>
+					<span id="yi4">产品清单</span>
+				</div>
+			</div>
+			<style>
+				.widyi4{width: 25px;height: 50px;background-color: #395078;display: block;position: absolute;
+					animation:wid 3s forwards .2s linear;-webkit-animation:wid 3s forwards .2s linear; }
+					@-webkit-keyframes wid {
+						from{width: 25px;}
+						to{width: 155px;}
+					}@keyframes wid {
+						from{width: 25px;}
+						to{width: 155px;}
+					}
+				.qiuoutyi4{animation:move 3s forwards .2s linear;-webkit-animation:move 3s forwards .2s linear;position: absolute;z-index: 3;}
+					@-webkit-keyframes move {
+						from{-webkit-transform: translateX(0px);}
+						to{-webkit-transform: translateX(150px);}
+					}@keyframes move {
+						from{transform: translateX(0px);}
+						to{transform: translateX(130px);}
+					}
+				.qiuyi4{width: 50px;height: 50px;border-radius: 50%;background-color: red;text-align: center;line-height: 50px;
+					animation:throw 3s forwards .2s linear;-webkit-animation:throw 3s forwards .2s linear; }
+					@-webkit-keyframes throw {
+						from{-webkit-transform: rotate(0deg)}
+						to{-webkit-transform: rotate(360deg)}
+					}@keyframes throw {
+						from{transform: rotate(0deg)}
+						to{transform: rotate(360deg)}
+					}
+				#yi4{color: #fff;position: absolute;left: 50px;top: 20px;z-index: 1;width: 200px;}
+			</style>
+
+			<div class="box">5
+				<div class="view_port">
+					<div class="cylon_eye"></div>
+				</div>
+				<style>
+					.view_port {
+						background-color: black;
+						height:25px;
+						width:100%;
+						overflow: hidden;
+					}
+					.cylon_eye {
+						color:white;
+						height: 100%;
+						width: 19%;
+						background-color: #fff;
+						background-image: linear-gradient(to right, rgba( 0,0,0,0.9 ) 25%, rgba( 0,0,0,0.1 ) 50%, rgba( 0,0,0,0.9 ) 75%);
+						animation: move_eye 4s linear 0s infinite alternate;
+					}
+					@keyframes move_eye { from {margin-left:-20%;} to {margin-left:100%;}  }
+				</style>
+			</div>
+		</div>
+		<div class="main_inner">
+			<span class="title">二、垂直方向动画</span>
+
+			<div class="box">1<div class="index-ningm2"></div></div>
+			<style>
+				.index-ningm2{width: 9.225rem;height: 6.3rem;background: url(images/index-ningm2.png)no-repeat;background-size: 100% 100%;
+				-webkit-animation:mud 4s ease-in-out normal infinite;animation:mud 4s ease-in-out normal infinite;}
+				@keyframes mud {
+					  0% {transform:translateY(0);}
+					 30% {transform:translateY(-0.6rem);}
+					 70% {transform:translateY(0.2rem);}
+					100% {transform:translateY(0);}
+				}
+				@-webkit-keyframes mud {
+					  0% {-webkit-transform:translateY(0);}
+					 30% {-webkit-transform:translateY(-0.6rem);}
+					 70% {-webkit-transform:translateY(0.2rem);}
+					100% {-webkit-transform:translateY(0);}
+				}
+			</style>
+
+			<div class="box">2<div class="xcht-1-0-1"></div></div>
+			<style>
+				.xcht-1-0-1{width:3.775rem;height:4.975rem;background:url(images/xcht-1-0-png1.png) no-repeat;background-size:100% 100%;
+				-webkit-animation: up 6s ease-in-out infinite;animation: up 6s ease-in-out infinite;}
+				@keyframes up{
+					 0%{transform:translateY(0);}
+					50%{transform:translateY(0.5rem);}
+				}@-webkit-keyframes up{
+					 0%{-webkit-transform:translateY(0);}
+					50%{-webkit-transform:translateY(0.5rem);}
+				}
+			</style>
+
+			<div class="box">3
+				<div class="lunbo3">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img src="images/xcht-1-0-png1.png"></div>
+						<div class="swiper-slide"><img src="images/xcht-1-0-png1.png"></div>
+						<div class="swiper-slide"><img src="images/xcht-1-0-png1.png"></div>
+						<div class="swiper-slide"><img src="images/xcht-1-0-png1.png"></div>
+					</div>
+				</div>
+			</div>
+			<style>
+				.lunbo3{width: 3.7rem;height: 10rem;overflow: hidden;margin-left: 1.15rem;position: absolute;}
+				.lunbo3 .swiper-wrapper{width: 3rem;height: 16rem;-webkit-animation: move3 6s linear normal infinite;animation:move3 6s linear normal infinite;}
+				.lunbo3 .swiper-slide{width: 3rem;height: 3.5rem;display: block;margin-bottom: 0.5rem;}
+				.lunbo3 .swiper-slide img{width: 100%;height: 100%;}
+				@keyframes move3 {
+					  0% {transform: translateY(0);}
+					100% {transform: translateY(-8rem);}
+				}
+				@-webkit-keyframes move3 {
+					  0% {-webkit-transform: translateY(0);}
+					100% {-webkit-transform: translateY(-8rem);}
+				}
+			</style>
+
+			<div class="box">4
+				<div class="box4"></div>
+				<style>
+					.box4{
+						width:50px;height:50px;
+						background-color: #00f;
+						margin:0 auto;
+						border-radius: 50%;
+						position: relative;
+						top:110px;
+						/*transition:transform .7s ease-in-out;*/
+						animation:jump 3s infinite linear;
+					}
+					@keyframes jump{
+						0%{transform:scaleX(1.3) scaleY(0.6);}
+						2%{transform:scaleX(1.1) scaleY(0.8);} 
+						5%{transform:scaleX(1) scaleY(1) translateY(-5px);}
+						50%{transform:scaleX(1) scaleY(1) translateY(-120px);}
+						90%{transform:scaleX(1) scaleY(1) translateY(-10px);}
+						95%{transform:scaleX(1) scaleY(1) translateY(-5px);}
+						98%{transform:scaleX(1.1) scaleY(0.8);}
+						100%{transform:scaleX(1.3) scaleY(0.6);}
+					}
+				</style>
+			</div>
+			<div class="box">5</div>
+		</div>
+		<div class="main_inner">
+			<span class="title">三、旋转动画</span>	
+			<div class="box black_box">1<div class="xcht-1-1"></div></div>
+			<style>
+				.xcht-1-1{width:4.525rem;height:4.35rem;background:url(images/xcht-1-png1.png) no-repeat;background-size:100% 100%;
+				animation:throw 12s infinite .2s linear;-webkit-animation:throw 12s infinite .2s linear; }
+				@-webkit-keyframes throw {
+					from{-webkit-transform: rotate(0deg);transform: rotate(0deg);}
+					to{-webkit-transform: rotate(360deg);transform: rotate(360deg);}
+				}@keyframes throw {
+					from{-webkit-transform: rotate(0deg);transform: rotate(0deg);}
+					to{-webkit-transform: rotate(360deg);transform: rotate(360deg);}
+				}
+			</style>
+		</div>
+		<div class="main_inner">
+			<span class="title">四、转轴动画</span>
+
+			<div class="box">1<div class="index-ye"></div></div>
+			<style>
+				.index-ye{width: 5.325rem;height: 6.375rem;background: url(images/index-ye.png)no-repeat;background-size: 100% 100%;
+				-webkit-animation: rot 2s ease-out alternate infinite;animation:rot 2s ease-out alternate infinite;}
+				@keyframes rot {
+					  0% {transform:rotate(10deg);transform-origin: left bottom;}
+					100% {transform:rotate(15deg);transform-origin: left bottom;}
+				}@-webkit-keyframes rot {
+					  0% {-webkit-transform:rotate(10deg);-webkit-transform-origin: left bottom;}
+					100% {-webkit-transform:rotate(15deg);-webkit-transform-origin: left bottom;}
+				}
+			</style>
+
+			<div class="box">2<div class="businessKid02"></div></div>
+			<style>
+				.businessKid02{width: 5.2rem;height: 2.4rem;background: url(images/businessKid02.png)no-repeat;background-size: 100% 100%;
+				-webkit-animation: rotate1 .5s ease-in infinite;animation: rotate1 .5s ease-in infinite;}
+				@keyframes rotate1{
+					  0%{transform:rotate(2deg);}
+					 25%{transform:rotate(-2deg);}
+					 50%{transform:rotate(2deg);}
+					 75%{transform:rotate(-2deg);}
+					100%{transform:rotate(2deg);}
+				}
+				@-webkit-keyframes rotate1{
+					  0%{-webkit-transform:rotate(2deg);}
+					 25%{-webkit-transform:rotate(-2deg);}
+					 50%{-webkit-transform:rotate(2deg);}
+					 75%{-webkit-transform:rotate(-2deg);}
+					100%{-webkit-transform:rotate(2deg);}
+				}
+			</style>
+
+			<div class="box">3
+				<div class="butterflyX">
+					<div id="butterfly1" >
+						<div class="left wing1"></div>
+						<div class="right wing1"></div>
+					</div>
+				</div>
+			</div>
+			<style>	
+				#butterfly1 {
+					position: absolute;
+					transform: rotateZ(-27deg) rotate3d(0, 1, 0, 71deg) scale3d(0.3, 0.3, 0.3);
+					transform-origin: 51% 50%;
+					/*right: -150px;*/
+					/*top: 234px;*/
+					/*width: 400px;*/
+					/*height: 299px;*/
+					transform-style: preserve-3d;
+				}			
+				/*.butterflyX{animation:butterflyX 14s infinite 0.1s ease;-webkit-animation:butterflyX 14s infinite 0.1s ease;}
+				@keyframes butterflyX{
+					0%{transform:translate(-200px,-100px)}
+					50%{transform:translate(-500px,300px)}
+					100%{transform:translate(-2200px,-100px)}
+				}
+				@-webkit-keyframes butterflyX{
+					0%{-webkit-transform:translate(-200px,-100px)}
+					50%{-webkit-transform:translate(-500px,300px)}
+					100%{-webkit-transform:translate(-2200px,-100px)}
+				}*/
+
+				.wing1 {
+					transform: rotateX(30deg)  translate3d(-200px, 0px, 0px) rotate3d(0, 1, 0, 160deg);
+					transform-origin: top right;
+					position: absolute;
+					left: 200px;
+					top: 0px;
+					width: 200px;
+					height: 299px;
+					background: url(images/butterfly1.png) no-repeat;
+					animation-name: rightwingani;
+					animation-duration: 0.5s;
+					animation-iteration-count: infinite;
+					animation-timing-function: ease-out;
+				}
+
+				#butterfly1 .left{
+					transform: rotateX(30deg) rotate3d(0, 1, 0, 0deg);
+					animation-name: leftwingani;
+					left: 0px;
+					top: 0px;
+				}
+				@keyframes rightwingani {
+					from {
+						transform:rotateX(30deg) translate3d(-200px, 0px, 0px) rotate3d(0, 1, 0, 160deg);
+					}
+					50% {
+						transform:rotateX(30deg) translate3d(-200px, 0px, 0px) rotate3d(0, 1, 0, 100deg);
+					}
+					to{
+						transform:rotateX(30deg) translate3d(-200px, 0px, 0px) rotate3d(0, 1, 0, 160deg);
+					}
+				}
+
+				@keyframes leftwingani {
+					from {
+						transform:rotateX(30deg) rotate3d(0, 1, 0, 0deg);
+					}
+					50% {
+						transform:rotateX(30deg) rotate3d(0, 1, 0, 80deg);
+					}
+					to{
+						transform:rotateX(30deg) rotate3d(0, 1, 0, 00deg);
+					}
+				}
+			</style>
+			<div class="box">4
+				<div  class="butterflyX2">
+					<div id="butterfly2" >
+						<div class="left wing2"></div>
+						<div class="right wing2"></div>
+					</div>
+				</div>
+			</div>
+			<style>
+				#butterfly2 {
+					position: absolute;
+					transform: rotateZ(25deg) rotate3d(0, 1, 0, -103deg) scale3d(0.3, 0.3, 0.3);
+					transform-origin: 51% 50%;
+					/*left: 150px;
+					top: 434px;
+					width: 300px;
+					height: 219px;*/
+					transform-style: preserve-3d;
+					/*Fly in a loop below*/
+					/*animation-name: butterflyani;
+					animation-duration: 5s;
+					animation-iteration-count: infinite;
+					animation-timing-function: linear;*/
+				}
+				.wing2 {
+					transform: rotateX(30deg)  translate3d(-200px, 0px, 0px) rotate3d(0, 1, 0, 160deg);
+					transform-origin: top right;
+					position: absolute;
+					left: 200px;
+					top: 0px;
+					width: 150px;
+					height: 219px;
+					background: url(images/butterfly2.png) no-repeat;
+					animation-name: rightwingani;
+					animation-duration: 0.5s;
+					/*animation-delay: 2s;*/
+					animation-iteration-count: infinite;
+					animation-timing-function: ease-out;
+				}
+				#butterfly2 .left{
+					transform: rotateX(30deg) rotate3d(0, 1, 0, 0deg);
+					animation-name: leftwingani;
+					left: 0px;
+					top: 0px;
+				}
+			</style>
+			<div class="box">5
+				<div  class="butterflyX3">
+					<div id="butterfly3" >
+						<div class="left wing3"></div>
+						<div class="right wing3"></div>
+					</div>
+				</div>
+			</div>
+			<style>
+				#butterfly3 {
+					position: absolute;
+					transform: rotateZ(31deg) rotate3d(0, 1, 0, -43deg) scale3d(0.5, 0.5, 0.5);
+					transform-origin: 51% 50%;
+					/*left: -140px;top: -70px;
+					width: 200px;
+					height: 125px;*/
+					transform-style: preserve-3d;
+					z-index: 20;
+					/*Fly in a loop below*/
+					/*animation-name: butterflyani;
+					animation-duration: 5s;
+					animation-iteration-count: infinite;
+					animation-timing-function: linear;*/
+				}
+				.wing3 {
+					transform: rotateX(30deg)  translate3d(-200px, 0px, 0px) rotate3d(0, 1, 0, 160deg);
+					transform-origin: top right;
+					position: absolute;
+					left: 200px;
+					top: 0px;
+					width: 100px;
+					height: 125px;
+					background: url(images/butterfly3.png) no-repeat;
+					animation-name: rightwingani;
+					animation-duration: 0.5s;
+					/*animation-delay: 2s;*/
+					animation-iteration-count: infinite;
+					animation-timing-function: ease-out;
+				}
+				#butterfly3 .left{
+					transform: rotateX(30deg) rotate3d(0, 1, 0, 0deg);
+					animation-name: leftwingani;
+					left: 0px;
+					top: 0px;
+				}
+			</style>
+			<div class="box">6
+			  <div id="butterfly4" >
+				<div class="left wing4"></div>
+				<div class="right wing4"></div>
+			  </div>
+			</div>
+			<style>				
+				#butterfly4 {
+					position: absolute;
+					transform: rotateZ(0deg) rotate3d(0, 1, 0, -379deg) scale3d(0.5, 0.5, 0.5);
+					transform-origin: 51% 50%;
+					/*right: 150px;*/
+					/*top: 591px;*/
+					/*width: 200px;*/
+					/*height: 105px;*/
+					transform-style: preserve-3d;
+				}
+				.wing4 {
+					transform: rotateX(30deg)  translate3d(-200px, 0px, 0px) rotate3d(0, 1, 0, 160deg);
+					transform-origin: top right;
+					position: absolute;
+					left: 200px;
+					top: 0px;
+					width: 100px;
+					height: 105px;
+					background: url(images/butterfly4.png) no-repeat;
+					animation-name: rightwingani;
+					animation-duration: 0.5s;
+					/*animation-delay: 2s;*/
+					animation-iteration-count: infinite;
+					animation-timing-function: ease-out;
+				}
+				#butterfly4 .left{
+					transform: rotateX(30deg) rotate3d(0, 1, 0, 0deg);
+					animation-name: leftwingani;
+					left: 0px;
+					top: 0px;
+				}
+			</style>
+			<div class="box">7
+				<div id="butterfly">
+					<div class="left wing"></div>
+					<div class="right wing"></div>
+				</div>
+			</div>
+			<style>
+				#butterfly {
+					position: absolute;
+					transform: rotateZ(-30deg) rotate3d(0, 1, 0, 0deg) scale3d(0.3, 0.3, 0.3);
+					transform-origin: 51% 50%;
+					/*left: 0px;
+					top: 0px;
+					width: 400px;
+					height: 238px;*/
+					transform-style: preserve-3d;
+					/*Fly in a loop below*/
+					/*animation-name: butterflyani;
+					animation-duration: 5s;
+					animation-iteration-count: infinite;
+					animation-timing-function: linear;*/
+				}
+				#butterfly .left{
+				transform: rotateX(30deg) rotate3d(0, 1, 0, 0deg);
+				animation-name: leftwingani;
+				left: 0px;
+				top: 0px;
+				}
+				.wing {
+					transform: rotateX(30deg)  translate3d(-200px, 0px, 0px) rotate3d(0, 1, 0, 160deg);
+					transform-origin: top right;
+					position: absolute;
+					left: 200px;
+					top: 0px;
+					width: 200px;
+					height: 238px;
+					background: url(images/butterfly.png) no-repeat;
+					animation-name: rightwingani;
+					animation-duration: 0.6s;
+					/*animation-delay: 2s;*/
+					animation-iteration-count: infinite;
+					animation-timing-function: ease-out;
+				}
+			</style>
+
+		</div>
+		<div class="main_inner">
+			<span class="title">五、闪烁动画</span>
+			<div class="box black_box">1
+				<div class="index-cir1"></div>
+				<div class="index-cir2"></div>
+				<div class="index-cir3"></div>
+			</div>
+			<style>
+				.index-cir1{position:absolute;left:0.8rem;top:0.3rem;width:1.85rem;height:1.8rem;background:url(images/index-cir1.png) no-repeat;background-size:100% 100%;
+				-webkit-animation: opac1-1a 2s linear alternate infinite;animation: opac1-1a 2s linear alternate infinite;}
+				@keyframes opac1-1a { 0% {opacity: 0;}75%{opacity: 1;}100% {opacity: 1;} }
+				@-webkit-keyframes opac1-1a { 0% {opacity: 0;}75%{opacity: 1;}100% {opacity: 1;} }
+				.index-cir2{position:absolute; left:1.15rem; top:0.625rem;width:1.125rem;height:1.125rem;background:url(images/index-cir2.png) no-repeat;background-size:100% 100%;
+				-webkit-animation: opac1-1b 2s linear alternate infinite;animation: opac1-1b 2s linear alternate infinite;}
+				@keyframes opac1-1b { 0% {opacity: 0;} 50%{opacity: 1;} 100% {opacity: 1;} }
+				@-webkit-keyframes opac1-1b { 0% {opacity: 0;} 50%{opacity: 1;} 100% {opacity: 1;} }
+				.index-cir3{position:absolute;left:1.425rem;top:0.9rem;width:0.6rem;height:0.6rem;background:url(images/index-cir3.png) no-repeat;background-size:100% 100%;
+				-webkit-animation: opac1-1c 2s linear alternate infinite;animation: opac1-1c 2s linear alternate infinite;}
+				@keyframes opac1-1c { 0% {opacity: 0;} 25%{opacity: 1;} 100% {opacity: 1;} }
+				@-webkit-keyframes opac1-1c { 0% {opacity: 0;} 25%{opacity: 1;} 100% {opacity: 1;} }
+			</style>
+
+			<div class="box black_box">2
+				<img src="images/marketKid03.png" class="kid kid3">
+				<img src="images/marketKid0301.png" class="kid kid3_m">
+			</div>
+			<style>
+				.kid3{width: 4.2rem;height: 10.2rem;position: absolute;}
+				.kid3_m{width: 4.2rem;height: 10.2rem;position: absolute;
+
+					animation-name:bigger2;  /*动画名*/
+					-o-animation-name:bigger2;
+					-ms-animation-name:bigger2;
+					-moz-animation-name:bigger2;
+					-webkit-animation-name:bigger2;
+
+					animation-duration: 2s;/*动画时间*/
+					-o-animation-duration: 2s;
+					-ms-animation-duration: 2s;
+					-moz-animation-duration: 2s;
+					-webkit-animation-duration: 2s;
+
+					animation-timing-function:ease-in;
+					-o-animation-timing-function:ease-in;
+					-ms-animation-timing-function:ease-in;
+					-moz-animation-timing-function:ease-in;
+					-webkit-animation-timing-function:ease-in;
+
+					animation-iteration-count:infinite;/*动画无限循环*/
+					-o-animation-iteration-count:infinite;
+					-ms-animation-iteration-count:infinite;
+					-moz-animation-iteration-count:infinite;
+					-webkit-animation-iteration-count:infinite;
+				}
+				@-webkit-keyframes bigger2{
+					  0%{transform:scale(1,1);opacity: 0;}
+					 50%{transform:scale(1.1,1.1);opacity: .6;}
+					100%{transform:scale(1,1);opacity: 0;}
+				}
+			</style>
+
+			<div class="box black_box">3
+				<img src="images/marketKid04.png" class="kid kid4">
+				<img src="images/marketKid0401.png" class="kid kid4_m">
+			</div>
+			<style>
+				.kid4{width: 3.9rem;height: 7.8rem;position: absolute;}
+				.kid4_m{width: 3.9rem;height: 7.8rem;position: absolute;
+
+					animation-name:bigger3;  /*动画名*/
+					-o-animation-name:bigger3; 
+					-ms-animation-name:bigger3; 
+					-moz-animation-name:bigger3; 
+					-webkit-animation-name:bigger3; 
+
+					animation-duration: 2s;/*动画时间*/
+					-o-animation-duration: 2s;
+					-ms-animation-duration: 2s;
+					-moz-animation-duration: 2s;
+					-webkit-animation-duration: 2s;
+
+					animation-timing-function:ease-in;
+					-o-animation-timing-function:ease-in;
+					-ms-animation-timing-function:ease-in;
+					-moz-animation-timing-function:ease-in;
+					-webkit-animation-timing-function:ease-in;
+
+					animation-iteration-count:infinite;/*动画无限循环*/
+					-o-animation-iteration-count:infinite;
+					-ms-animation-iteration-count:infinite;
+					-moz-animation-iteration-count:infinite;
+					-webkit-animation-iteration-count:infinite;
+				}
+				@-webkit-keyframes bigger3{
+					  0%{transform:scale(1,1);opacity: .8;}
+					100%{transform:scale(1.6,1.6);opacity: 0;}
+				}
+			</style>
+
+			<div class="box black_box">4
+				<div class="zbfc-png1-box">
+					<div class="zbfc-png1-a zbfc-png1"></div>
+					<div class="zbfc-png1-b zbfc-png1"></div>
+					<div class="zbfc-png1-c zbfc-png1"></div>
+				</div>				
+			</div>
+			<style>
+				.zbfc-box{position: relative;height: 0;}
+				.zbfc-png1{width: 0.6rem;height: 0.375rem;background: url(images/zbfc-png1.png) no-repeat;background-size: 100% 100%;margin-left: 1rem;
+				  -webkit-animation: opac 4s linear infinite;animation: opac 4s linear infinite;}
+				@keyframes opac { 
+					  0% {opacity: 0;}
+					 33% {opacity: 1;}
+					 66% {opacity: 0;}
+					100% {opacity: 0;}
+				}
+				@-webkit-keyframes opac {
+					  0% {opacity: 0;}
+					 33% {opacity: 1;}
+					 66% {opacity: 0;}
+					100% {opacity: 0;}
+				}
+				.zbfc-png1-a{-webkit-animation-delay: 0.5s;animation-delay:0.5s;}
+				.zbfc-png1-b{-webkit-animation-delay: 1s;animation-delay:1s;}
+				.zbfc-png1-c{-webkit-animation-delay: 1.5s;animation-delay:1.5s;}
+			</style>
+
+			<div class="box">5</div>
+		</div>
+		<div class="main_inner">
+			<span class="title">六、滑屏动画</span>
+			<div class="box"></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+yarn add swiper
+import Swiper from 'swiper'; 
+import 'swiper/dist/css/swiper.min.css';
+
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+   <div class="swiper-slide">
+    <img src="../../static/images/ad1.jpg" alt="">
+   </div>
+   <div class="swiper-slide">
+    <img src="../../static/images/ad2.jpg" alt="">
+   </div>
+   <div class="swiper-slide">
+    <img src="../../static/images/ad3.jpg" alt="">
+   </div>
+  </div>
+</div>
+
+mounted(){
+  var mySwiper = new Swiper('.swiper-container', {
+   autoplay:true,
+   loop:true
+  })
+},
+
+
+
+如果想要从后台请求图片放上去 new Swiper要写在网络请求成功的函数里面，否则不会出来数据。
+slider组件的内容如下：
+
+<template>
+ <swiper :options="swiperOption" ref="mySwiper">
+  <!-- slides -->
+  <swiper-slide v-for="(picitem,index) in items" :key="index">
+   <img :src="picitem.src" alt="">
+  </swiper-slide>
+ </swiper>
+</template>
+<script type="text/ecmascript-6">
+ import {swiper, swiperSlider} from 'vue-awesome-swiper'
+ 
+ export default {
+  data() {
+   return {
+    swiperOption: {
+     notNextTick: true,
+     loop: true,
+     autoplay: true,
+     speed: 1000,
+     direction: 'horizontal',
+     grabCursor: true,
+     setWrapperSize: true,
+     autoHeight: true,
+     pagination: '.swiper-pagination',
+     paginationClickable: true,
+     mousewheelControl: true,
+     observeParents: true,
+     debugger: true
+    },
+    items: [
+     {src: 'http://localhost/static/images/1.jpg'},
+     {src: 'http://localhost/static/images/2.jpg'},
+     {src: 'http://localhost/static/images/3.jpg'},
+     {src: 'http://localhost/static/images/4.jpg'},
+     {src: 'http://localhost/static/images/5.jpg'}
+    ],
+   }
+  },
+  components: {
+   swiper,
+   swiperSlider
+  }
+ }
+</script>
+<style lang="stylus" rel="sheetstylus">
+ 
+</style>

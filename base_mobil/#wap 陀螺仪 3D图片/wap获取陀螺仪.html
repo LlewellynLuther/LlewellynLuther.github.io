@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D卡片演示效果</title>
+	<style>
+		html, body {height: 100%;background-color: #000;}
+		body {
+			display: flex;
+		}
+		.cards {
+			background-color: #fff;
+			width: 260px;
+			height: 190px;
+			-webkit-transform-origin: 50% 50%;
+			      transform-origin: 50% 50%;
+			-webkit-transform-style: preserve-3d;
+			      transform-style: preserve-3d;
+			-webkit-transform: rotateX(11deg) rotateY(16.5deg);
+			      transform: rotateX(11deg) rotateY(16.5deg);
+		}
+		.card {
+			display: inline-block;
+			height: 250px;
+			overflow: hidden;
+			position: relative;
+			-webkit-transform-style: preserve-3d;
+			      transform-style: preserve-3d;
+			-webkit-transform: translatez(35px);
+			      transform: translatez(35px);
+			transition: -webkit-transform 200ms ease-out;
+			transition: transform 200ms ease-out;
+			transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
+			width: 175px;
+		}
+		.card__img {position: relative;height: 100%;}
+		/*.card__bg {
+			bottom: -50px;
+			left: -50px;
+			position: absolute;
+			right: -50px;
+			top: -50px;
+			-webkit-transform-origin: 50% 50%;
+					transform-origin: 50% 50%;
+			-webkit-transform: translateZ(-50px);
+					transform: translateZ(-50px);
+			z-index: 0;
+		}*/
+		.card .card__img {top: 14px;right: -10px;height: 110%;}
+		.card .card__bg {background: url("./使用CSS转换的3D深度UI_files//3dr_monobg.jpg") center/cover no-repeat;}
+	</style>
+</head>
+<body>
+	<div class="cards">
+		<div class="card">
+			<!-- <div class="card__bg"></div> -->
+			<img class="card__img" id="aaa" src="./使用CSS转换的3D深度UI_files/3dr_mono.png" >
+		</div>
+	</div>
+	<script>
+		var cards = document.querySelector(".cards");				//白盒
+		var images = document.querySelectorAll(".card__img");		//主图
+		var backgrounds = document.querySelectorAll(".card__bg");	//背景图
+		window.addEventListener("deviceorientation", orientationHandler, false); 
+		var timeout = null;
+		function orientationHandler(event) {
+			window.cancelAnimationFrame(timeout);//动画停止
+			timeout = window.requestAnimationFrame(function () {
+
+				var beta = ((Math.round(event.beta) - 65)/3).toFixed(1); //-15,9
+				var gamma = (Math.round(event.gamma)/3).toFixed(1);    //-7,7
+				if(beta<=-15)beta = -15;
+				if(beta>=9)beta = 9;
+				if(gamma<=-7)gamma = -7;
+				if(gamma>=7)gamma = 7;
+
+				cards.style.transform = "rotateX(" + beta + "deg) rotateY(" + gamma + "deg)";	//白盒动
+	
+				// 简化了 Array.prototype.forEach.call
+				[].forEach.call(images, function (image) {
+				  image.style.transform = "translateX(" + -gamma + "px) translateY(" + -beta + "px)";
+				});
+	
+				[].forEach.call(backgrounds, function (background) {
+					background.style.backgroundPosition = gamma * .45 + "px " + beta * .45 + "px";
+				});
+			});
+		};
+	</script>
+</body>
+</html>

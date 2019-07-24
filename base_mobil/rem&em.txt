@@ -1,0 +1,11 @@
+em
+	只跟父级有关，父级px=1em
+ 
+
+rem
+
+	引入插件
+	<script src = "fontsizeset.js"></script>
+	
+	js中有docE1.style.fontSize = 100*(clientWidth / 640) + 'px';
+	640是设计图的宽度，100是一个基准宽度（html的font-size值）clientWidth是宽度

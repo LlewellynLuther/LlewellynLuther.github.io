@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		h1.titre_qui_suis_je {
+		    font-size: 16px;
+			text-align: center;
+		}
+		h1.titre_section {
+		    font-size: 5rem;
+		    background: url(fond_titre3-20190409.jpg) -100px -40px no-repeat;
+		    -webkit-background-clip: text;
+		    -moz-background-clip: text;
+		    background-clip: text;
+		    -webkit-text-fill-color: transparent;
+		    -moz-text-fill-color: transparent;
+		    text-fill-color: transparent;
+		    -webkit-animation: titre_section_animation 30s ease infinite;
+		    -moz-animation: titre_section_animation 30s ease infinite;
+		    animation: titre_section_animation 30s ease infinite;
+		}
+		@keyframes titre_section_animation{
+			0% {
+			    background-position: 0 50%;
+			}
+			50% {
+			    background-position: 100% 50%;
+			}
+			100% {
+			    background-position: 0 50%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<h1 class="f1 tl titre_section titre_qui_suis_je ng-binding">哇哈哈哈</h1>
+</body>
+</html>

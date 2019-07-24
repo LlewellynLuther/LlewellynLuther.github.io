@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>该叫啥叫啥</title>
+</head>
+<body>
+	<input type="text" placeholder="叫大哥" id="call">
+	<script>
+		var call = document.getElementById("call");
+		call.onchange = function(){
+			if(call.value == "大哥"){
+				location.href = "http://www.sina.com.cn/";
+			}
+		}
+	</script>
+</body>
+</html>

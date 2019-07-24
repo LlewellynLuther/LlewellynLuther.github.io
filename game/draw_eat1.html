@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>吃啥听天由命吧</title>
+<style>
+	*{margin: 0;padding: 0; font-family: 'å¾®è½¯é›…é»‘';}
+	.title{width: 500px;height:200px;margin: 0 auto;font-size: 30px;color: red;font-weight: bold;background: url(images/draw_eat1.png) no-repeat center center;padding-top: 150px;margin-top: 100px;}
+	.bs{width: 210px;margin: 0 auto;}
+	.bs span{display: inline-block;width:100px;background-color: #708098;color: #fff;height: 30px;line-height: 30px;text-align: center;border-radius: 5px;cursor: pointer;border: #ccc solid 1px;}
+</style>
+<script type="text/javascript" src="getlucky.js"></script>
+</head>
+<body>
+
+<div class="main">
+	<center class="title">吃啥听天由命吧</center>
+	<div class="bs">
+		<span class="begin">开  始</span>
+		<span class="stop">停  止</span>
+	</div>
+</div>
+<script>
+	var data=['麻辣烫','虾滑','面皮','担担面','肉夹馍','凉皮','寿司','锅盔','烛光晚餐','过桥米线','咖啡','狗不理包子','饺子','肯德基','手抓饼',
+	'盖浇饭','麻辣香锅','别吃了','土豆粉','广东肠粉','热干面','炸酱面','锅贴','酸辣粉','刀削面','喝西北风','麻辣火锅','北京烤鸭','生煎包','烤冷面',
+	'驴肉火烧','奶茶','熏肉大饼','毛血旺','生煎包','北京爆肚','老婆饼','麻辣小龙虾','泡面','沙拉','牛排','墨西哥烤肉','法式辣猪排','鹅肝酱煎鲜贝',
+	'法式锔蜗牛','大酱汤','松露煎扒','黑森林蛋糕','蚵仔煎','海底捞','鲜鱼火锅','钵钵鸡','龙抄手','双皮奶','蓝莓山药','川味凉粉','烤地瓜','水果捞',
+	'串串香','海鲜自助','豆浆油条','胡辣汤','糯米团','汤圆','牛肉面','大猪蹄子','花甲粉','芝士排骨','周黑鸭','大吉大利 今天吃鸡'];
+		timer=null;
+		flag=0;
+
+	function getByClass(clsName,parent){
+		var oParent=parent?document.getElementById(parent):document,
+			eles=[],
+			elements=oParent.getElementsByTagName('*');
+
+		for(var i=0;i<elements.length;i++){
+			if(elements[i].className == clsName){
+				eles.push(elements[i]);
+				console.log(eles)
+			}
+		}
+		return eles;
+	}
+
+	window.onload=function(){
+		var oTitle=getByClass('title')[0],
+			begin=getByClass('begin')[0],
+			stop=getByClass('stop')[0];
+
+
+		begin.onclick=fnplay;
+		stop.onclick=fnstop;
+
+		//键盘事件 针对的是整个document
+		document.onkeyup=fnkey;
+
+		function fnplay(){
+			clearInterval(timer);
+			timer=setInterval(function(){
+				var random=Math.floor(Math.random()*data.length);
+				oTitle.innerHTML=data[random];
+			},50);
+			begin.style.background="#999";
+		}
+
+		function fnstop(){
+			clearInterval(timer);
+			begin.style.background="#708098";
+		}
+
+		function fnkey(event){
+			console.log(event.keyCode);
+			event = event || window.event;
+			if(event.keyCode == 13){  //当按下回车键的时候
+				if(flag == 0){
+					fnplay();
+					flag =1;
+				}else{
+					fnstop();
+					flag=0;
+				}
+			}
+		}
+	}
+
+
+
+
+
+</script>
+</body>
+</html>

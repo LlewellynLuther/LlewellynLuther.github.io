@@ -1,0 +1,69 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Make a sprite from and image</title>
+<body>
+<script src="../pixi/pixi.min.js"></script>
+<script>
+	let Application = PIXI.Application,
+		Container = PIXI.Container,
+		loader = PIXI.loader,
+		resources = PIXI.loader.resources,
+		TextureCache = PIXI.utils.TextureCache,
+		Sprite = PIXI.Sprite;
+
+	let app = new Application({ 
+		width: 256, 
+		height: 256,                       
+		antialiasing: true, 
+		transparent: false, 
+		resolution: 1
+	  }
+	);
+
+	document.body.appendChild(app.view);
+
+	
+		// add(name, url, optionObject, callbackFunction)
+		// name (string): 加载源文件的别名,如果没设置，url就会被放在这.
+		// url (string): 源文件的地址，是加载器 baseUrl的相对地址.
+		// options (object literal): 加载设置.
+		// options.crossOrigin (Boolean): 源文件请求跨域不？默认是自动设定的。
+		// options.loadType: 源文件是怎么加载进来的？默认是Resource.LOAD_TYPE.XHR。 options.xhrType: 用XHR的时候该怎么处理数据？ 默认是Resource.XHR_RESPONSE_TYPE.DEFAULT。
+		// callbackFunction: 当这个特定的函数加载完，这个特定的函数将会被执行。
+		
+		
+		// 常用语法
+	loader
+		.add('key', 'http://...', function(){})
+		.add('http://...', function(){})
+		.add('http://...')
+
+		// 对象语法
+		.add({
+		  name: 'key2',
+		  url: 'http://...'
+		}, function () {})
+
+		.add({
+		  url: 'http://...'
+		}, function () {})
+
+		.add({
+		  name: 'key3',
+		  url: 'http://...',
+		  onComplete: function(){}
+		})
+		.add({
+		  url: 'https://...',
+		  onComplete: function () {},
+		  crossOrigin: true
+		})
+
+		// 也可以给add方法传一个对象的数组，或者既使用对象数组，又使用链式加载：
+		.add([
+			{name: 'key4', url: 'http://...', onComplete: function(){}},
+			{url: 'http://...', onComplete: function(){}},
+			'http://...'
+		]);
+
+</script>

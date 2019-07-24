@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.myDiv1 {
+		    width: 75px;
+		    height: 75px;
+		    background-color: red;
+		    position:relative;
+		    animation:aDirection 5s infinite;
+		} 
+		@keyframes aDirection {
+		    from {left:0px;}
+		    to {left:200px;}
+		}
+		.alter { animation-direction:alternate; }
+		.alterR { animation-direction:alternate-reverse;} 
+	</style>
+</head>
+<body>
+<div class="myDiv1"></div>
+<div class="myDiv1 alter"></div>
+<div class="myDiv1 alterR"></div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Displaying text</title>
+<body>
+<script src="../pixi/pixi.min.js"></script>
+<script>
+
+//Aliases
+let Application = PIXI.Application,
+    Text = PIXI.Text,             //特有
+    TextStyle = PIXI.TextStyle;   //特有
+
+//Create a Pixi Application
+let app = new Application({ 
+    width: 256, 
+    height: 256,                       
+    antialiasing: true, 
+    transparent: false, 
+    resolution: 1,
+    backgroundColor: 0x6699ff
+  }
+);
+
+document.body.appendChild(app.view);
+
+//1. Simple text
+let message = new Text("Hello Pixi!");   //特有
+
+//Position it and add it to the stage
+message.position.set(54, 96);
+app.stage.addChild(message);
+
+//2. Styled text
+let style = new TextStyle({
+  fontFamily: "Arial",
+  fontSize: 36,
+  fill: "white",
+  stroke: '#ff3300',    //划
+  strokeThickness: 4,   //厚度 
+  dropShadow: true,     //下落 影子
+  dropShadowColor: "#000000",
+  dropShadowBlur: 4,
+  dropShadowAngle: Math.PI / 6,
+  dropShadowDistance: 6,      //距离
+});
+
+let styledMessage = new Text("Styled Text", style);
+
+styledMessage.position.set(54, 128);
+app.stage.addChild(styledMessage);
+
+</script>
+</body>
+
+

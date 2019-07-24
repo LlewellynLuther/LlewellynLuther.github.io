@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>替换</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		#inp{width: 400px;height: 30px;margin: 30px;margin-left: 6%;font-size: 24px;}
+		.btn{width: 70px;height: 30px;}
+		#show{font-size: 24px;padding-left: 30px;width: 90%;float: left;}
+		#shuo{width: 90%;float: left;margin-left: 6%;margin-top: 20px;}
+		.node span{float: left;width: 94%;margin-left: 6%;}
+	</style>
+</head>
+<body>
+	<span id="shuo">替换 \ 为 / </span>
+	<input type="text" id="inp">
+	<button onclick="btn()" class="btn">翻译</button>
+	<button onclick="cle()" class="btn">清空</button>
+	<span id="show"></span>
+	<div class="node">
+		<span>QQ:2745284400</span>
+		<span>密码是:Ll402310065</span>
+		<span>-</span>
+		<span><a href="http://192.168.0.248/wordpress/">服务器博客</a></span>
+		<span>-</span>
+		<span>账号是HUAWEI开头的</span>
+		<span>密码是jishuzhichi</span>
+		<span>-</span>
+		<span>新无线名称：品牌1</span>
+		<span>密码：pinpaiwuxian</span>
+		<span>-</span>
+		<span><a href="http://192.168.0.248/wss/user_login.php">任务系统</a></span>
+		<span>账号：lutianye</span>
+		<span>密码：ltyqwert</span>
+		<span>信息系统	http://192.168.0.248/webinfo2.0/admin.php/Home/Webinfo/index</span>
+		<span>账号：admin </span>
+		<span>密码：good</span>
+		<span>-</span>
+		<span><a href="wz.croooo.com">网站信息管理系统</a></span>
+		<span>账号：administrator</span>
+		<span>密码：kC2WCNbd</span>
+		<span>-</span>
+		<span><a href="https://tinypng.com/">jpg & png图片压缩</a></span>
+		<span><a href="https://img.top/">gif图片压缩，注意会不会失真</a></span>
+		<span>-</span>
+		<span><a href="http://192.168.0.99:8080/login?from=%2F">正是域名系统</a></span>
+		<span>账号：lutianye</span>
+		<span>密码：ltyweb</span>
+		<span>-</span>
+		<span>开发完用来上线	不用FTP了<a href="https://daneden.github.io/animate.css/">SVN</a></span>
+		<span>账号：lutianye</span>
+		<span>密码：nnxRA6yb</span>
+		<span>-</span>
+		<span>音频存储 <a href="https://sso.qiniu.com/?client_id=BG0o9WIbVw0QTMMF4nnnimetSKUlf5xy67pcymZMKW1otjBQePCr6DrGhYifj1gH&redirect_url=https://www.qiniu.com&ref=www.qiniu.com">七牛云</a></span>
+		<span>账号：2623991663@qq.com</span>
+		<span>秘密：$qudaoyun</span>
+		<span>对象存储	audio传音频，video传视频</span>
+		<span>内容管理，上传文件</span>
+		<span>路径设置为xxx/		e.g.bengongdecha/	然后选择文件</span>
+		<span>选择复制外链（音乐上传前压缩）</span>
+		<span>-</span>
+		<span>D:\program\wamp\www	下创建文件名文件></span>
+		<span>PC的</span>
+		<span>m.datagram手机资料 > 日期 > bkcp爆款产品/mainsite/vi</span>
+		<span>-</span>
+		<span>www里右键空白，SVNcheckout，选取地址，找到H5，ok</span>
+		<span>H5，右键，tortoiseSVN，Export到桌面</span>
+		<span>里面的文件放到目标文件里</span>
+		<span>-</span>
+		<span>打开httpd.conf</span>
+		<span>搜索“AddType text/html .shtml”</span>
+		<span>搜索结果：</span>
+		<span>AddType text/html .shtml .html .htm</span>
+		<span>AddOutputFilter INCLUDES .shtml .html .htm</span>
+		<span>把这两行前面的#去掉。</span>
+		<span>然后搜索“Options Indexes FollowSymLinks”</span>
+		<span>在搜索到的那一行后面添加“ Includes”</span>
+		<span>即将该行改变为 Options Indexes FollowSymLinks Includes</span>
+		<span>保存httpd.conf，重起即可</span>
+		<span>-</span>
+		<span>253服务器</span>
+		<span>CEhua2019</span>
+		<span>-</span>
+		<span>共享链接\\192.168.0.253</span>
+		<span>administrator</span>
+		<span>Qudao123456</span>
+		<span>通知：Honey-T-PC官网站点已创建</span>
+		<span>服务器：211.149.133.230</span>
+		<span>站点名称：honey-t._cn</span>
+		<span>-</span>
+		<span>网址：http://www.fkw.com/</span>
+		<span>用户名：jg16486767</span>
+		<span>密码：qudaosujian</span>
+</span>
+	</div>
+	<script>
+		var num = 0;
+		function btn(){
+			var inp = document.getElementById("inp").value;
+			var show = document.getElementById("show");
+			var shuo = document.getElementById("shuo");
+			num++
+			if(num%2==0){
+				show.innerHTML = inp.replace(/\\/g,"/");
+				shuo.innerHTML = "替换 \\ 为 /"
+			}else{
+				show.innerHTML = inp.replace(/\//g,"\\");
+				shuo.innerHTML = "替换 / 为 \\"
+			}
+		};
+		function cle(){
+			inp.value = "";
+			show.innerHTML = "";
+		};
+	</script>
+</body>
+</html>

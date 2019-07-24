@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3动画</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		.transverse{float: left;width: 100%;height: 30px;}
+		.name_lable{color: red;}
+		.duration_label{color: pink;}
+		.timing_label{color: orange;}
+		.delay_label{color: green;}
+		.count_label{color: blue;}
+		.direction_label{color: #027dfe;}
+		.state_label{color: #c201fc;}
+		.mode_label{color: #ff0080;}
+		.vartical{float: left;width: 160px;height: 30px;font-size: 12px;text-align: center;line-height: 30px;}
+		.show_box{width: 100%;float: left;margin: 10px 0;}
+		.show{width: 50px;height: 50px;background-color: red;float: left;}
+		#show{animation: ani1 5s ease-in-out infinite;}
+		.delay_input{height: 26px;width: 60px;}
+		.times{height: 30px;}
+		#start{width: 80px;height: 30px;text-align: center;border: 1px solid red;color: red;line-height: 30px;cursor: pointer;border-radius: 10px;}
+		@keyframes ani1{ 
+			  0%{transform: translateX(0);}
+			100%{transform: translateX(500px);}
+		}
+
+		#tduration{
+			float: left;
+			width: 50px;
+			height:50px;
+			background:blue;
+			transition-property:width;
+			transition-duration:5s;
+			/* Firefox 4 */
+			-moz-transition-property:width;
+			-moz-transition-duration:5s;
+			/* Safari and Chrome */
+			-webkit-transition-property:width;
+			-webkit-transition-duration:5s;
+			/* Opera */
+			-o-transition-property:width;
+			-o-transition-duration:5s;
+		}
+		#tduration:hover{width:300px;}
+	</style>
+</head>
+<body>
+	<h2>CSS3动画</h2>
+	<div class="transverse">
+		<div class="vartical name_lable">动画名称</div>
+		<div class="vartical duration_label">动画时间</div>
+		<div class="vartical timing_label">速度曲线</div>
+		<div class="vartical delay_label">动画延迟</div>
+		<div class="vartical count_label">动画次数</div>
+		<div class="vartical direction_label">反向播放</div>
+		<div class="vartical state_label">动画状态</div>
+		<div class="vartical mode_label">外属性</div>
+	</div>
+	<div class="transverse">
+		<div class="vartical name_lable">animation-name</div>
+		<div class="vartical duration_label">animation-duration</div>
+		<div class="vartical timing_label">animation-timing-function</div>
+		<div class="vartical delay_label">animation-delay</div>
+		<div class="vartical count_label">animation-iteration-count</div>
+		<div class="vartical direction_label">animation-direction</div>
+		<div class="vartical state_label">animation-play-state</div>
+		<div class="vartical mode_label">animation-fill-mode</div>
+	</div>
+	<div class="transverse">
+		<div class="vartical name_lable">ani1</div>
+		<div class="vartical duration_label">s</div>
+		<div class="vartical timing_label">ease</div>
+		<div class="vartical delay_label">无延迟</div>
+		<div class="vartical count_label">times</div>
+		<div class="vartical direction_label">fab</div>
+		<div class="vartical state_label">set</div>
+		<div class="vartical mode_label">none</div>		
+	</div>
+	<div class="transverse">
+		<select id="name" class="vartical name_lable" onChange="tname()">
+			<option value="1" name="动画1" selected>ani1</option>
+			<option value="2" name="动画2">ani2</option>
+			<option value="3" name="动画3">ani3</option>
+		</select>		
+		<div class="vartical duration_label">
+			<input type="text" class="duration_label delay_input" value="1">
+			<select id="duration" class="duration_label times" onChange="duration()">
+				<option value="1" name="秒" selected>s</option>
+				<option value="2" name="豪秒">ms</option>
+			</select>
+		</div>
+		<select id="timing" class="vartical timing_label" onChange="timing()">
+			<option value="1" name="默认值，先快再慢" selected>ease</option>
+			<option value="2" name="匀速过渡">linear</option>
+			<option value="3" name="加速冲刺">ease-in</option>
+			<option value="4" name="减速到停止">ease-out</option>
+			<option value="5" name="先加速后减速">ease-in-out</option>
+		</select>
+		<div class="vartical delay_label">
+			<input type="text" class="delay_label delay_input" value="0">
+			<select id="delay" class="delay_label times" onChange="delay()">
+				<option value="1" name="秒">s</option>
+				<option value="2" name="豪秒">ms</option>
+			</select>
+		</div>	
+		<div class="vartical count_label">
+			<input type="text" class="count_label delay_input" value="1">
+			<select id="count" class="count_label times" onChange="count()">
+				<option value="1" selected>次</option>
+				<option value="2" name="无限循环播放">infinite</option>
+			</select>
+		</div>
+		<select id="direction" class="vartical direction_label" onChange="direction()">
+			<option value="1" name="默认" selected>normal</option>
+			<option value="2" name="轮转正向播放动画（奇数正向）">alternate</option>
+			<option value="3" name="反向播放（奇数反向，偶数反向）">alternate-reverse</option>
+		</select>
+		<select id="state" class="vartical state_label" onChange="state()">
+			<option value="1" name="默认值，表示正在播放动画" selected>running</option>
+			<option value="2" name="表示暂停动画">paused</option>
+		</select>
+		<select id="mode" class="vartical mode_label" onChange="mode()">
+			<option value="1" name="默认值，动画播完后，恢复到初始状态" selected>none</option>
+			<option value="2" name="保持@keyframes里最后一帧的属性">forwards</option>
+			<option value="3" name="开始播动画时，应用@keyframes里第一帧">backwards</option>
+			<option value="4" name="上面两个都应用">both</option>
+		</select>
+	</div>
+	<div class="show_box"><div id="start" onClick="start()">开始</div></div>
+	<div class="show_box"><div id="show" class="show"></div></div>
+	<div class="show_box"><div id="tduration"></div></div>
+	<script>
+		function tname(){
+			
+		}
+		function duration(){}
+		function timing(){}
+		function delay(){}
+		function count(){}
+		function direction(){}
+		function state(){}
+		function mode(){}
+
+		function start(){
+
+		}
+		window.onLoad = start();
+	</script>
+</body>
+</html>

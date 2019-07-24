@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">  <!-- 移动端头 -->
+	<script src="../script/fontsizeset.js"></script>
+	<script src="../script/zepto.js"></script>
+	<script src="../script/touch.js"></script>
+	<title>商城外框</title>
+	<link rel="stylesheet" href="../style/double-box.css">
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+		border-sizing:border-box;
+	}
+	.section{
+		float: left;
+		height: 100%;
+	}
+	.section .list-box{
+		float: left;
+		height: 74%;
+		overflow-y: auto;
+		position:fixed;
+		left:0;
+	}
+	.section .list-box .list{
+		list-style: none;
+	}
+	::-webkit-scrollbar { display:none;}
+	.section .list-box .list span{
+		float: left;
+		width: 100%;
+		text-align:center;
+	}
+	.section .tab{
+		height: 1500px;
+		overflow-y:auto;
+		float: left;
+		margin-left: 40%;
+	}
+	</style>
+</head>
+<body>
+	<header class="header">
+		<!-- <a href="#"><div class="back"><img src="../images/back.gif" class="back-pic"></div></a> -->
+		<div class="classify">
+			<h3 class="class-h3">产品分类</h3>
+		</div>
+	</header>
+	<div class="main">
+		<!-- 查找商品 -->
+		<div class="lookup clearFix">
+			<div class="lookup-box">	
+				<img src="../images/question.gif" class="lookup-pic">
+				<input type="text" value="查找商品" class="lookpu-txt">
+			</div>
+		</div>
+		<!-- 中间大块布局 -->
+		<section class="section">
+			<!-- 侧边栏 -->
+			<div class="list-box">
+				<ul class="list">
+					<li class="nav1">生鲜</li>
+					<li><span>食品</span></li>
+					<li><span>服装</span></li>
+					<li><span>母婴</span></li>
+					<li><span>美妆</span></li>
+					<li><span>洗护</span></li>
+					<li><span>医药</span></li>
+					<li><span>数码3C</span></li>
+					<li><span>家电</span></li>
+					<li><span>电工五金</span></li>
+					<li><span>家纺</span></li>
+					<li><span>汽车配饰</span></li>
+					<li><span>生产资料</span></li>
+				</ul>
+			</div>
+			<!-- 右侧选项卡 -->
+			<div class="tab">
+				<!-- index1 生鲜-->
+				<div class="tab-box tab-box-show">
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/001.jpg">
+								<p>海鲜水产</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/002.jpg">
+								<p>新鲜水果</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/003.jpg">
+								<p>农家蔬菜</p>
+							</div>
+						</a>
+					</div>
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/004.jpg">
+								<p>肉类</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/005.jpg">
+								<p>蛋类</p>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- index2 食品 -->
+				<div class="tab-box">
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/011.jpg">
+								<p>休闲零食</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/012.jpg">
+								<p>茶饮冲调</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/013.jpg">
+								<p>酒类</p>
+							</div>
+						</a>
+					</div>
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/014.jpg">
+								<p>粮油干调</p>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- index3 服装 -->
+				<div class="tab-box">
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/021.jpg">
+								<p>女装</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/022.jpg">
+								<p>男装</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/023.jpg">
+								<p>精品内衣</p>
+							</div>
+						</a>
+					</div>
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/025.jpg">
+								<p>女鞋</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/024.jpg">
+								<p>男鞋</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/026.jpg">
+								<p>箱包</p>
+							</div>
+						</a>
+					</div>
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/027.jpg">
+								<p>配饰</p>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- index4 母婴 -->
+				<div class="tab-box">
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/031.jpg">
+								<p>奶粉辅食</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/032.jpg">
+								<p>孕妈专区</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/033.jpg">
+								<p>喂养洗护</p>
+							</div>
+						</a>
+					</div>
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/034.jpg">
+								<p>童车/床/出行</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/035.jpg">
+								<p>玩具</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/036.jpg">
+								<p>童装</p>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- index5 美妆 -->
+				<div class="tab-box">
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/041.jpg">
+								<p>护肤套装</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/042.jpg">
+								<p>面膜</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/043.jpg">
+								<p>洁面卸妆</p>
+							</div>
+						</a>
+					</div>
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/044.jpg">
+								<p>时尚彩妆</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/045.jpg">
+								<p>护理/防晒</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/046.jpg">
+								<p>化妆工具</p>
+							</div>
+						</a>
+					</div>
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/047.jpg">
+								<p>男士护肤</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/048.jpg">
+								<p>香水</p>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- index6 洗护 -->
+				<div class="tab-box">
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/051.jpg">
+								<p>个人洗护</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/052.jpg">
+								<p>女性护理</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/053.jpg">
+								<p>制品/成裤</p>
+							</div>
+						</a>
+					</div>
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/054.jpg">
+								<p>衣物家庭清洁</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/055.jpg">
+								<p>美发造型</p>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- index7 医药 -->
+				<div class="tab-box">
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/061.jpg">
+								<p>常用药物</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/062.jpg">
+								<p>营养保健</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/063.jpg">
+								<p>隐形眼镜</p>
+							</div>
+						</a>
+					</div>
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/064.jpg">
+								<p>医疗器械</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/065.jpg">
+								<p>保健食品</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/066.jpg">
+								<p>滋补养生</p>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- index8 数码3C -->
+				<div class="tab-box">
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/071.jpg">
+								<p>手机</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/072.jpg">
+								<p>平板电脑</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/073.jpg">
+								<p>摄影摄像</p>
+							</div>
+						</a>
+					</div>
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/074.jpg">
+								<p>办公文教游戏</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/075.jpg">
+								<p>配件数码影音</p>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- index9 家电 -->
+				<div class="tab-box">
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/081.jpg">
+								<p>彩电影音</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/082.jpg">
+								<p>冰洗空调</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/083.jpg">
+								<p>烟机灶具</p>
+							</div>
+						</a>
+					</div>
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/084.jpg">
+								<p>厨房电器</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/085.jpg">
+								<p>生活电器</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/086.jpg">
+								<p>个人护理</p>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- index10 家装 -->
+				<div class="tab-box">
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/091.jpg">
+								<p>开关插座</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/092.jpg">
+								<p>插线板</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/093.jpg">
+								<p>空气开关</p>
+							</div>
+						</a>
+					</div>
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/094.jpg">
+								<p>工具套装</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/095.jpg">
+								<p>门锁</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/096.jpg">
+								<p>电钻</p>
+							</div>
+						</a>
+					</div>
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/097.jpg">
+								<p>电线</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/098.jpg">
+								<p>拉手</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/099.jpg">
+								<p>仪器仪表</p>
+							</div>
+						</a>
+					</div>
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/0100.jpg">
+								<p>电线</p>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- index11 家纺 -->
+				<div class="tab-box">
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/101.jpg">
+								<p>床品套件</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/102.jpg">
+								<p>被子/被芯</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/103.jpg">
+								<p>保健枕芯</p>
+							</div>
+						</a>
+					</div>
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/104.jpg">
+								<p>其他家纺</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/105.jpg">
+								<p>家居布艺</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/106.jpg">
+								<p>家居饰品</p>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- index12 汽车配饰 -->
+				<div class="tab-box">
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/111.jpg">
+								<p>精品车饰</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/112.jpg">
+								<p>电子导航</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/113.jpg">
+								<p>汽车配件</p>
+							</div>
+						</a>
+					</div>
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/114.jpg">
+								<p>美容保养</p>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- index13 生产资料 -->
+				<div class="tab-box">
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/121.jpg">
+								<p>种子</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/122.jpg">
+								<p>农药/化肥</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/123.jpg">
+								<p>生产工具</p>
+							</div>
+						</a>
+					</div>
+					<div class="tab-line">
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/124.jpg">
+								<p>饲料</p>
+							</div>
+						</a>
+						<a href="#" class="things-box">
+							<div class="things">
+								<img src="../images/125.jpg">
+								<p>农机配件</p>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	
+
+
+	<!-- 以下是Js文件 -->
+	<script src="../script/jquery.js"></script>
+	<script>
+		$(".list li").click(function(){
+			$(this).addClass("nav1");
+			$(this).siblings().removeClass("nav1")
+			var index = $(this).index();
+			$(".tab .tab-box").eq(index).addClass("tab-box-show");
+			$(".tab .tab-box").eq(index).siblings().removeClass("tab-box-show")
+		})
+		
+	</script>
+</body>
+</html>

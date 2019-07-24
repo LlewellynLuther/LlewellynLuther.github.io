@@ -1,0 +1,132 @@
+*{
+	margin: 0;
+	padding: 0;
+	border-sizing:border-box;
+	}
+.clearFix:before,.clearFix:after{
+			content:"";
+			display: block;
+			clear:both;
+		}
+
+/*body{
+	background-color: #f4f4f4;
+}*/
+.header{
+	width: 6.4rem;
+	height: 0.98rem;
+	background-color: #2fbddd;
+	position: relative;
+	position:fixed;
+	top:0;
+}
+.classify{
+	width: 3.24rem;
+	height: 0.42rem;
+	border-radius: 0.1rem;
+	border:0.02rem solid #dde0e3;
+	background-color: #fff;
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+}
+.back{
+	width: 0.76rem;
+	height: 1rem;
+	position: relative;
+}
+.back-pic{
+	width: 0.24rem;
+	height: 0.42rem;
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+
+}
+.class-h3{
+	font-size: 0.3rem;
+	line-height: 0.42rem;
+	text-align: center;
+	color:#6f7783;
+}
+.lookup{
+	width: 6.4rem;
+	height: 0.86rem;
+	position: relative;
+	position:fixed;
+	top:0.98rem;
+	background-color: #fff;
+}
+.lookup-box{
+	width: 5.98rem;
+	height: 0.54rem;
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+}
+.lookup-pic{
+	float: left;
+	width: 0.74rem;
+	height: 0.54rem;
+}
+.lookpu-txt{
+	float: left;
+	background-color:#f4f4f4;
+	border:none;
+	width: 5.24rem;
+	height: 0.54rem;
+	font-size: 0.34rem;
+	color:#999999;
+}
+.section{
+	margin-top: 2rem;
+}
+.list{
+	float: left;
+}
+.list li{
+	width: 1.78rem;
+	height: 0.78rem;
+	border:0.02rem solid #f4f4f4;
+	font-size: 0.3rem;
+	line-height: 0.78rem;
+	text-align: center;
+}
+.list .nav1{
+	box-shadow: 0.08rem 0rem 0 0 #2fbddd inset;
+	background-color: #f9f9f9;
+}
+.tab{
+	float: left;
+}
+.tab-box{
+	width: 4.5rem;
+	display: none;
+}
+.tab-box-show{
+	display: block;
+}
+.tab-line{
+	height: 2.3rem;
+}
+.things-box{
+	text-decoration: none;
+	width: 1.5rem;
+	height: 1.7rem;
+	float: left;
+}
+.things img{
+	width: 1.5rem;
+	height: 1.5rem;
+}
+.things{
+	width: 1.5rem;
+}
+.things p{
+	font-size: 0.17rem;
+	color:#292929;
+	text-align: center;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+   .example {
+    position:relative;
+    margin:150px auto;
+    width:50px;
+    height:50px;
+    }
+  .dot:before{
+    content:' ';
+    position: absolute;
+    z-index:2;
+    left:0;
+    top:0;
+    width:10px;
+    height:10px; 
+    background-color: #ff4200;
+    border-radius: 50%;
+  }
+ 
+  .dot:after {
+    content:' ';
+    position: absolute;
+    z-index:1;
+    width:10px;
+    height:10px; 
+    background-color: #ff4200;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,.3) inset;
+    -webkit-animation: waveCircle 1s ease infinite normal ;
+    /*-webkit-animation-name: ripple;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: ease; 
+    -webkit-animation-delay: 0s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: normal;*/
+  }
+ 
+  @keyframes waveCircle {
+     0% {
+      left:5px;
+      top:5px;
+      width:0;
+      height:0;
+    }
+    100% {
+      left:-20px;
+      top:-20px;
+      opacity: 0;
+      width:50px;
+      height:50px;
+    }
+  }
+    </style>
+</head>
+<body>
+	<div class="example">
+		<div class="dot"></div>
+	</div>
+</body>
+</html>

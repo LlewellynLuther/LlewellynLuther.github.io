@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mouse事件base - JQ</title>
+	<style>
+		/*模拟点击*/
+		.mndj{
+			margin: 4px;
+			float: left;
+			border: 1px solid #ccc;
+			cursor: pointer;
+		}
+		.mndj:hover{
+			background-color: #ccc;
+		}
+		/*中间盒子*/
+		.out_box{
+			width: 230px;
+			height: 270px;
+			box-sizing: border-box;
+			border: 1px solid #000;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+		.show{
+			display: block;
+			margin: 0 auto;
+			margin-top: 10px;
+			width: 210px;
+			height: 26px;
+			color: #555;
+			text-align: center;
+			line-height: 26px;
+			border: 1px solid #000;
+			box-sizing: border-box;
+		}
+		.box{
+			float: left;
+			width: 100px;
+			height: 100px;
+			cursor: pointer;
+			text-align: center;
+			box-sizing: border-box;
+			border: 1px solid #000;
+			margin: 10px 0 0 10px;
+		}
+		#pos{
+			width: 400px;
+			height: 400px;
+			border:1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div class="monidianji mndj">点我等于点它 trigger →</div>
+	<div class="beidianji mndj" onclick="alert('弹出了1')">点击弹1</div>
+	<div class="out_box">
+		<span class="show"></span>
+		<div class="box box1" title="mousedown,mouseup,mouseover,mouseout">
+			mousedown<br>
+			mouseup<br>
+			mouseover<br>
+			mouseout<br>
+		</div>
+		<div class="box box2" title="mouseenter,mouseleave">
+			mouseenter<br>
+			mouseleave<br>
+		</div>
+		<div class="box box3">
+			hover(进入)<br>
+			hover(离开)<br>
+			click<br>
+		</div>
+		<div class="box box4">
+			dblclick双击<br>
+		</div>
+	</div>
+	<div id="pos"></div>
+	<h1 class="x">x<span></span></h1>
+	<h1 class="y">y<span></span></h1>
+
+	<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+	<script>
+		$(".monidianji").click(function(){ $(".beidianji").trigger("click"); })
+		$(".box1").mousedown(function(){ $(".show").text("mousedown") })
+		$(".box1").mouseup(function(){ $(".show").text("mouseup") })
+		$(".box1").mouseover(function(){ $(".show").text("mouseover") })
+		$(".box1").mouseout(function(){ $(".show").text("mouseout") })
+		$(".box2").mouseenter(function(){ $(".show").text("mouseenter") })
+		$(".box2").mouseleave(function(){ $(".show").text("mouseleave") })
+		$(".box3").hover(
+			function(){$(".show").text("hover(进入)")},
+			function(){$(".show").text("hover(离开)")}
+		)
+		$(".box3").click(function(){
+			$(".show").text("click")
+		})
+		$(".box4").dblclick(function(){
+			$(".show").text("dblclick")
+		})
+
+		$("#pos").mousemove(function(event){
+			var x = event.pageX;
+			var y = event.pageY;
+			$(".x span").text(x);
+			$(".y span").text(y);
+		})
+	</script>
+</body>
+</html>

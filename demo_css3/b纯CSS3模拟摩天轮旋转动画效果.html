@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>纯CSS3模拟摩天轮旋转动画效果</title>
+	<style>
+	div.lanren{
+		margin: 100px auto;
+		width: 800px;
+		animation: a 1000s;
+		position: relative;
+	}
+	img:nth-child(2){
+		position: absolute;
+		top: 80px;
+		left: 400px;
+		animation: b 1000s;
+		transform-origin:top center;
+	}
+	img:nth-child(3){
+		position: absolute;
+		top: 700px;
+		left: 400px;
+		animation: b 1000s;
+		transform-origin:top center;
+	}
+	img:nth-child(4){
+		position: absolute;
+		top: 300px;
+		left: 0px;
+		animation: b 1000s;
+		transform-origin:top center;
+	}
+	@keyframes a{
+		form{transform: rotate(0deg)}
+		to{transform: rotate(36000deg)}
+	}
+	@keyframes b{
+		form{transform: rotate(0deg)}
+		to{transform: rotate(-36000deg)}
+	}
+	</style>
+</head>
+<body>
+	<!-- <script src="b/googlegg.js"></script> -->
+	<div class="lanren">
+		<img src="b/fsw.png">
+		<img src="b/boy.png">
+		<img src="b/girl.png">
+        <img src="b/shamegirl.png">
+	</div>
+</body>
+</html>

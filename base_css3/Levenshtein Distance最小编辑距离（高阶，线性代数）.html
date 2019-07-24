@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<a href="https://www.jianshu.com/p/16a82e756aba">原地址</a>
+	<script>
+		static Minimum = (a, b, c) => {
+		    return a < b ? (a < c ? a : c) : (b < c ? b : c);
+		};
+
+		static LevenshteinDistance = (v1, v2) => {
+		    const len1 = v1.length;
+		    const len2 = v2.length;
+		    const matrix = [];  // matrix
+		    let i;              // iterates through v1
+		    let j;              // iterates through v2
+		    let sIndex;         // ith character of v1
+		    let tIndex;         // jth character of v2
+		    let cost;           // cost
+
+		    // Step 1
+		    if (len1 === 0) return len2;
+		    if (len2 === 0) return len1;
+
+		    // Step 2
+		    for (i = 0; i <= len1; i++) {
+		        matrix[i] = [];
+		        matrix[i][0] = i;
+		    }
+
+		    for (j = 0; j <= len2; j++) {
+		        matrix[0][j] = j;
+		    }
+
+		    // Step 3
+		    for (i = 1; i <= len1; i++) {
+		        sIndex = v1.charAt(i - 1);
+		        for (j = 1; j <= len2; j++) {
+		            tIndex = v2.charAt(j - 1);
+		            if (sIndex === tIndex) {
+		                cost = 0;
+		            } else {
+		                cost = 1;
+		            }
+
+		            matrix[i][j] = Demo.Minimum(
+		                matrix[i - 1][j] + 1,
+		                matrix[i][j - 1] + 1,
+		                matrix[i - 1][j - 1] + cost,
+		            );
+		        }
+		    }
+
+		    // Step 4
+		    return matrix[len1][len2];
+		};
+	</script>
+</body>
+</html>

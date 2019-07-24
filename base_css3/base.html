@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3基础知识</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		body{background-color: #ccc;}
+		#main{width: 100%;overflow: hidden;}
+		#nav{width: 1200px;margin: 0 auto;}
+		li{list-style-type: none;float: left;margin: 5px;}
+		.main_inner{width: 1200px;margin: 0 auto;}
+		.box{width: 180px;height: 180px;margin: 10px;float: left;border: 1px solid #eee;box-sizing: border-box;background-color: #fff;position: relative;}
+		.black_box{background-color: #333;position: relative;color: #fff;}
+		.title{width: 100%;height: 22px;float:left;text-align: center;margin-top: 20px;}
+		.explain{width: 100%;float: left;margin-top: 20px;overflow: hidden;}
+		.explain_inner{width: 1160px;margin: 0 auto;display: block;background-color: #fff;padding: 10px 10px;}
+		.trans{width: 50px;height: 50px;background-color: #0f0;}
+		.trans-orange{width: 50px;height: 50px;background-color: orange;}
+		.border{width: 100px;height: 100px;background-color: #0f0;margin-left: 10px;border: 2px solid green;}
+		.shadow{width: 50px;height: 50px;background-color: #0f0;margin-top: 10px;}
+		.keyf{width: 50px;height: 50px;background-color: #0f0;}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<span class="title">一、transform</span>
+		<div class="main_inner">
+			<div class="box">1旋转rotate(30deg)<div class="trans trans1"></div></div>
+			<style>.trans1{transform:rotate(30deg);}</style>
+			<div class="box">hover<div class="trans-orange box6"></div></div>
+			<style>.box6:hover{transform:rotate(30deg) scale(1.2);}</style>
+			<div class="box">2移动translate(80px,80px)<div class="trans trans2"></div></div>
+			<style>.trans2{transform:translate(80px,80px);}</style>
+			<div class="box">3移动translateX(100px)<div class="trans trans3"></div></div>
+			<style>.trans3{transform:translateX(100px);}</style>
+			<div class="box">hover<div class="trans-orange box7"></div></div>
+			<style>.box7:hover{transform:translateX(20px);}</style>
+			<div class="box">4移动translateY(100px)<div class="trans trans4"></div></div>
+			<style>.trans4{transform:translateY(100px);}</style>
+			<div class="box">5缩放scale(1.2,1.2)<div class="trans trans5"></div></div>
+			<style>.trans5{transform:scale(1.2,1.2);}</style>
+			<div class="box">6缩放scaleX(1.2)<div class="trans trans6"></div></div>
+			<style>.trans6{transform:scaleX(1.2);}</style>
+			<div class="box">7缩放scaleY(1.2)<div class="trans trans7"></div></div>
+			<style>.trans7{transform:scaleY(1.2);}</style>
+			<div class="box">hover<div class="trans-orange box5"></div></div>
+			<style>.box5:hover{transform:scale(1.2);}</style>
+			<div class="box">8扭曲skew(30deg,10deg)<div class="trans trans8"></div></div>
+			<style>.trans8{transform:skew(30deg,10deg);}</style>
+			<div class="box">9扭曲skewX(-30deg)<div class="trans trans9"></div></div>
+			<style>.trans9{transform:skewX(-30deg);}</style>
+			<div class="box">10扭曲skewY(-10deg)<div class="trans trans10"></div></div>
+			<style>.trans10{transform:skewY(-10deg);}</style>
+
+			<span class="title">2、矩阵matrix</span>
+			<div class="box">1</div>
+		</div>
+		<span class="title">二、圆角border-radios</span>
+		<div class="main_inner">
+		<!-- border-top-left-radius: <length>  <length>     左上角
+			border-top-right-radius: <length>  <length>     右上角
+			border-bottom-right-radius:<length>  <length>   右下角
+			border-bottom-left-radius:<length>  <length>    左下角 
+			-webkit- -moz- -o- -->
+			<div class="box">1 10<div class="border radio1"></div></div>
+			<style>.radio1{border-radius: 10px;}</style>
+			<div class="box">2 10 20<div class="border radio2"></div></div>
+			<style>.radio2{border-radius: 10px 20px;}</style>
+			<div class="box">3 10 20 30<div class="border radio3"></div></div>
+			<style>.radio3{border-radius: 10px 20px 30px;}</style>
+			<div class="box">4 10 20 30 40<div class="border radio4"></div></div>
+			<style>.radio4{border-radius: 10px 20px 30px 40px;}</style>
+			<div class="box">5 10 / 20<div class="border radio5"></div></div>
+			<style>.radio5{border-radius: 10px / 20px;}</style>
+			<div class="box">“/”前的四个数值表示圆角的水平半径，<br>后面四个值表示圆角的垂直半径</div>
+			<div class="box">6 10 20 / 20 10<div class="border radio6"></div></div>
+			<style>.radio6{border-radius: 10px 20px / 20px 10px;}</style>
+			<div class="box">7 10 20 30 / 50 60<div class="border radio7"></div></div>
+			<style>.radio7{border-radius: 10px 20px 30px / 50px 60px;}</style>
+			<div class="box">8 10 15 20 30 / 20 30 10 15<div class="border radio8"></div></div>
+			<style>.radio8{border-radius: 10px 15px 20px 30px / 20px 30px 10px 15px;}</style>
+			<div class="box">9 border15 radius15<div class="border radio9"></div></div>
+			<style>.radio9{border: 15px solid green;border-radius: 15px;}</style>
+			<div class="box">10 border15 radius25<div class="border radio10"></div></div>
+			<style>.radio10{border: 15px solid green;border-radius: 25px;}</style>
+			<div class="box">11 border-width: 10px 5px 20px 3px<div class="border radio11"></div></div>
+			<style>.radio11{border-width: 10px 5px 20px 3px;border-radius: 30px;}</style>
+			<div class="box">12<div class="border radio12"></div></div>
+			<style>.radio12{border-color: red green blue orange;border-width: 10px 20px 20px 30px;border-radius: 50px;}</style>
+			<div class="box">13 border-collapse<div class="border radio13"></div></div>
+			<style>.radio13{border-collapse: collapse;border: 2px solid green;background: #0f0;border-radius: 15px;}</style>
+			<!-- 另外table的样式属性border-collapse是collapse时,border-radius不能正常显示,只有border-collapse: separate; -->
+		</div>
+		<span class="title">三、盒阴影</span>
+		<span class="explain">
+			<span class="explain_inner">说明：<br>
+				语法：box-shadow: h-shadow v-shadow blur spread color inset;<br>
+				h-shadow    必需。水平阴影的位置。允许负值。<br>
+				v-shadow    必需。垂直阴影的位置。允许负值。<br>
+				blur        可选。模糊距离。<br>
+				spread      可选。阴影的尺寸。<br>
+				color       可选。阴影的颜色。请参阅 CSS 颜色值。<br>
+				inset       可选。将外部阴影 (outset) 改为内部阴影。
+			</span>
+		</span>
+		<div class="main_inner">
+			<div class="box">1、10px 0 0 0 blue<div class="shadow shadow1"></div></div>
+			<style>.shadow1{box-shadow: 10px 0 0 0 blue;}</style>
+			<div class="box">2、-10px 0 0 0 blue<div class="shadow shadow2"></div></div>
+			<style>.shadow2{box-shadow: -10px 0 0 0 blue;}</style>
+			<div class="box">3、0 10px 0 0 blue<div class="shadow shadow3"></div></div>
+			<style>.shadow3{box-shadow: 0 10px 0 0 blue;}</style>
+			<div class="box">4、0 -10px 0 0 blue<div class="shadow shadow4"></div></div>
+			<style>.shadow4{box-shadow: 0 -10px 0 0 blue;}</style>
+			<div class="box">5、0 0 10px 0 blue<div class="shadow shadow5"></div></div>
+			<style>.shadow5{box-shadow: 0 0 10px 0 blue;}</style>
+			<div class="box">6、0 0 0 10px blue<div class="shadow shadow6"></div></div>
+			<style>.shadow6{box-shadow: 0 0 0 10px blue;}</style>
+			<div class="box">7、0 0 5px 5px blue<div class="shadow shadow7"></div></div>
+			<style>.shadow7{box-shadow: 0 0 5px 5px blue;}</style>
+		</div>
+		<span class="title">四、渐变色 Gradient</span>
+		<span class="explain">
+			<span class="explain_inner">说明：<br>
+				background:-moz-linear-gradient(left,#ace,#f96);/*Mozilla*/<br>
+				background:-webkit-gradient(linear,0 50%,100% 50%,from(#ace),to(#f96));/*Old gradient for webkit*/<br>
+				background:-webkit-linear-gradient(left,#ace,#f96);/*new gradient for Webkit*/<br>
+				background:-o-linear-gradient(left,#ace,#f96); /*Opera11*/
+			</span>
+		</span>
+		<div class="main_inner">
+			<span class="title">1、-webkit-linear-gradient 线性渐变</span>
+			<div class="box gradient1">1(top,red,blue)</div>
+			<style>.gradient1{background: -webkit-linear-gradient(top,red,blue);}</style>
+			<!-- top:上到下，left:左到右，left top:左上角到右下角 -->
+			<div class="box gradient2">2</div>
+			<style>.gradient2{background: -webkit-gradient(linear,top,from(red),to(blue));}</style>
+			<div class="box gradient3">3(linear,0 50%,100% 50%,from(red),to(blue))</div>
+			<style>.gradient3{background: -webkit-gradient(linear,0 50%,100% 50%,from(red),to(blue));}</style>                          
+												<!-- start point:x y,end point:x y -->
+			<div class="box gradient4">4(left top, red, blue)</div>
+			<style>.gradient4{background: -webkit-linear-gradient(left top, red, blue)}</style>
+			<div class="box gradient7">7 0 0, 100% 100%</div>
+			<style>.gradient7{background: -webkit-gradient(linear, 0 0, 100% 100%, from(red),to(blue));}</style>
+			<div class="box gradient5">5</div>
+			<style>.gradient5{background: -webkit-gradient(linear, left top, right top, from(red), color-stop(0.25, blue), color-stop(0.5, red), color-stop(0.75, blue), to(red));}</style>
+			<div class="box gradient6">6</div>
+			<style>.gradient6{background: -webkit-gradient(linear, left top, right top, from(red), color-stop(0.05, blue), color-stop(0.5, red), color-stop(0.95, blue), to(red));}</style>
+			<div class="box gradient8">8 IE</div>
+			<style>.gradient8{filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#1471da, endColorstr=#1C85FB);}/*IE<9>*/
+				.gradient8{-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#1471da, endColorstr=#1C85FB)";/*IE8+*/}
+			</style>            
+			<div class="box">9
+				<div class="gradient9">
+					IE依靠滤镜实现渐变。startColorstr表示起点的颜色,endColorstr 表示终点颜色。
+					GradientType 表示渐变类型,0为缺省值,表示垂直渐变,1表示水平渐变。
+				</div>
+			</div>
+			<a href="https://www.cnblogs.com/lhb25/archive/2013/01/30/css3-linear-gradient.html">参考</a>
+			<span class="title">2、-webkit-linear-gradient 线性渐变（度数）</span>
+			<span class="title">3、radial-gradient（径向渐变）</span>
+			<div class="box">1</div>
+		</div>      
+		<span class="title">五、keyframes</span>
+		<div class="main_inner">
+			<span class="explain">
+				<span class="explain_inner">说明：<br>
+					1、animation-name  动画名<br>
+					2、animation-duration  动画时长<br>
+					3、animation-timing-function  速度曲线<br>
+					4、animation-delay 延迟<br>
+					5、animation-iteration-count 播放次数<br>
+					6、animation-direction 是否反向播放<br>
+					7、animation-play-state 状态(是否播放) <br>
+					8、animation-fill-mode 时间外属性<br>
+				</span>
+			</span>
+			<span class="title">1、animation-name</span>
+			<div class="box">1 animation-name<div class="keyf keyf1"></div></div>
+			<style>
+			.keyf1{             
+				animation-name: ani;  /*动画名*/
+				-o-animation-name: ani; 
+				-ms-animation-name: ani; 
+				-moz-animation-name: ani; 
+				-webkit-animation-name: ani; 
+
+				animation-duration: 2s;/*动画时间*/
+				-o-animation-duration: 2s;
+				-ms-animation-duration: 2s;
+				-moz-animation-duration: 2s;
+				-webkit-animation-duration: 2s;
+			}
+			@keyframes ani{100%{transform:translateX(100px);}}
+			@-webkit-keyframes ani{100%{transform:translateX(100px);}}
+			</style>
+			<div class="box">2 简写 2s<div class="keyf keyf2"></div></div>
+			<style>.keyf2{-webkit-animation: ani 2s;-moz-animation: ani 2s;-ms-animation: ani 2s;-o-animation: ani 2s;animation: ani 2s;}</style>
+
+			<span class="title">2、animation-timing-function 速度曲线</span>
+			<div class="box">1 ease<div class="keyf timing1"></div></div>
+			<style>.timing1{animation: ani 5s ease;}</style>
+			<div class="box">2 linear<div class="keyf timing2"></div></div>
+			<style>.timing2{animation: ani 5s linear;}</style>
+			<div class="box">3 ease-in<div class="keyf timing3"></div></div>
+			<style>.timing3{animation: ani 5s ease-in;}</style>
+			<div class="box">4 ease-out<div class="keyf timing4"></div></div>
+			<style>.timing4{animation: ani 5s ease-out;}</style>
+			<div class="box">5 ease-in-out<div class="keyf timing5"></div></div>
+			<style>.timing5{animation: ani 5s ease-in-out;}</style>
+
+			<span class="title">3、animation-delay 动画延迟</span>
+			<div class="box">1 0<div class="keyf delay1"></div></div>
+			<style>.delay1{animation: ani 5s ease 0s;}</style>
+			<div class="box">2 3s<div class="keyf delay2"></div></div>
+			<style>.delay2{animation: ani 5s ease 3s;}</style>
+			<div class="box">3 5000ms<div class="keyf delay3"></div></div>
+			<style>.delay3{animation: ani 5s ease 5000ms;}</style>
+
+			<span class="title">4、animation-play-state 动画暂停</span>
+			<div class="box">1 鼠标悬停可以暂停动画
+				<div class="statebox"></div>
+			</div>
+			<style type="text/css">
+				@keyframes myanim{
+					25%{transform:rotate(90deg);}
+					50%{width:200px;}
+					80%{background-color: blue;}
+				}
+				.statebox{
+					width:100px;
+					height:100px;
+					background-color: #f00;
+					animation:myanim 5s linear .1s;
+				}
+				.statebox:hover{
+					animation-play-state:paused;    /*动画暂停*/
+				}
+			</style>
+
+			<span class="title">5、同时多个动画</span>
+			<div class="box">1</div>
+		</div>
+		<span class="title">六、3D翻转</span>
+		<div class="main_inner">
+			<span class="explain">
+				<span class="explain_inner">说明：<br>
+				</span>
+			</span>
+			<span class="title">1、</span>
+			<div class="box" id="bigBox">
+				<div id="box1"><p>背面</p></div>
+				<div id="box2"><p>正面</p></div>
+			</div>
+			<style>
+				#bigBox{
+					position:relative;
+					perspective:800px;
+				}
+				#box1{
+					position:absolute;
+					width:100px;
+					height:100px;
+					left:50%;top:50%;
+					background-color: blue;
+					color:white;
+					transform:translate(-50%,-50%) rotateY(90deg);
+				}
+				#box2{
+					position:absolute;
+					width:100px;
+					height:100px;
+					left:50%;top:50%;
+					color:white;
+					background-color: red;
+					transition:transform 1.5s;
+					transform:translate(-50%,-50%);
+				}   
+			</style>
+			<script>
+				var box2=document.getElementById("box2");
+				var box1=document.getElementById("box1");
+				var bigBox=document.getElementById("bigBox");
+				bigBox.onclick=function(){
+					box1.style="transition:transform 1.5s  1.5s ;transform:translate(-50%,-50%) rotateY(180deg);";
+					box2.style="transform:translate(-50%,-50%) rotateY(90deg);";
+				}
+			</script>
+			<div class="box big-box">
+				<div class="small-box">
+					<div class="front">正面</div>
+					<div class="back">背面</div>
+				</div>
+			</div>
+			<style type="text/css">
+				.big-box{
+					width:180px;
+					height:180px;
+					perspective:500px;
+				}
+				.small-box{
+					color: #fff;
+					position: absolute;
+					left: 20%;
+					top: 20%;
+					width: 100px;
+					height: 100px;
+					transition:transform 1s linear;
+					transform-style:preserve-3d;  /*写在动画目标的父级，让目标在3d的系统中*/
+				}
+				.front{
+					width: 100px;
+					height: 100px;
+					background-color: red;
+					position: absolute;
+					z-index: 999;
+					backface-visibility:hidden; /*让处在背面时隐藏。3d特效。没有上面那句实现不了*/
+				}
+				.back{
+					width: 100px;
+					height: 100px;
+					background-color: blue;
+					position: absolute;
+					transform: rotateY(180deg);
+				}
+				.small-box:hover{transform:rotateY(180deg);}
+			</style>
+			<div class="box big-box2">
+				<div class="small-box2">正面</div>
+			</div>
+			<style type="text/css">
+				.big-box2{
+					width: 180px;
+					height: 180px;
+					perspective:300px;  /*3d翻转*/
+					color: #fff;
+				}
+				.small-box2{
+					width: 100px;
+					height: 80px;
+					background-color: red;
+					transition:transform 4s linear;
+				}
+				.small-box2:hover{
+					transform:rotateY(360deg);
+				}
+			</style>
+			<div class="box" id="bigBox2">
+				<div id="box_1"><p>你好</p></div>
+				<div id="box_2"><p>你好</p></div>
+				<div id="box_3"><p>你好</p></div>
+				<div id="box_4"><p>你好</p></div>
+			</div>
+			<style> 
+				#bigBox2{
+					position:relative;
+					width: 180px;
+					height: 180px;
+					perspective:800px;
+					transform-style:preserve-3d;
+					transition:transform 1.5s ease-in-out;
+				}
+				#box_1{
+					position:absolute;
+					width:100px;
+					height:100px;
+					left:50%;top:50%;
+					background-color: #000;
+					color:white;
+					transform:translate(-50%,-50%);     
+				}
+				#box_2{
+					position:absolute;
+					width:100px;
+					height:100px;
+					left:50%;top:50%;
+					color:white;
+					background-color: blue;
+					transform:translateZ(100px) translate(-50%,-50%);       
+				}
+				#box_3{
+					position:absolute;
+					width:100px;
+					height:100px;
+					left:50%;top:50%;
+					color:white;
+					background-color: green;
+					transform:rotateY(90deg)  translate(-50%,-50%);     
+				}
+				#box_4{
+					position:absolute;
+					width:100px;
+					height:100px;       
+					color:white;
+					left:50%;top:50%;
+					background-color: orange;
+					transform:rotateY(90deg) translateZ(-100px)  translate(-50%,-50%);
+				}
+				#bigBox2:hover{transform:rotateY(360deg);}
+			</style>
+		</div>
+		<span class="title">七、JS监听</span>
+		<div class="main_inner">
+			<span class="explain">
+				<span class="explain_inner">说明：<br>
+				</span>
+			</span>
+			<span class="title">1、JS在CSS3中的事件</span>
+			<div class="box">1
+				<div id="tempDiv"></div>
+			</div>
+			<style>
+				#tempDiv {
+					width: 100px;
+					height: 100px;
+					background-color: blue;
+					transition-property: padding;
+					transition-duration: 1s;
+					color: #fff;
+				}
+				#tempDiv:hover {
+					padding: 5px;
+				}
+			</style>
+			<script>
+				var element = document.getElementById("tempDiv");
+				function showMessage() {
+					element.innerText = "transitionend";    //过渡结束时触发打印log
+				}
+				element.addEventListener("transitionend", showMessage, false);
+			</script>
+
+			<div class="box">2
+				<div id="animator" class="animation"></div>
+				<style>
+					@keyframes longer { from {width: 60px;}to {width: 140px;} }
+					@-moz-keyframes longer { from {width: 60px;}to {width: 140px;} }
+					@-webkit-keyframes longer { from {width: 60px;}to {width: 140px;} }
+					@-o-keyframes longer { from {width: 60px;}to {width: 140px;} }
+					#animator {
+						width: 100px;
+						height: 100px;
+						background: red;
+					}
+					.animation {
+						animation: longer 0.5s;
+						-moz-animation: longer 0.5s;
+						-webkit-animation: longer 0.5s;
+						-o-animation: longer 0.5s;
+					}
+				</style>
+				<script>
+					var a = document.getElementById('animator');
+					a.addEventListener('animationend', endHandler);
+					function endHandler() {
+						a.removeEventListener('animationend', endHandler);
+						a.className = '';
+						setTimeout(function () {
+							a.className = 'animation';
+						}, 0);
+					}
+				</script>
+			</div>
+		</div>
+
+		<span class="title">八、动画结束停留位置</span>
+		<div class="main_inner">
+			<span class="explain">
+				<span class="explain_inner">说明：<br>
+				</span>
+			</span>
+			<div class="box">1
+				
+			</div>
+		</div>
+</body>
+</html>

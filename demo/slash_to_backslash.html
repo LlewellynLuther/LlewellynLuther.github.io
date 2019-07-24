@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>小功能</title>
+	<style>		
+		*{margin: 0;padding: 0;}
+		#inp{width: 400px;height: 30px;margin: 30px;margin-left: 6%;font-size: 24px;}
+		#shuo{width: 90%;float: left;margin-left: 6%;margin-top: 20px;}
+	</style>
+</head>
+<body>
+	<span id="shuo">替换 \ 为 / </span>
+	<input type="text" id="inp">
+	<script>
+		var num = 0;
+		function btn(){
+			var inp = document.getElementById("inp").value;
+			var show = document.getElementById("show");
+			var shuo = document.getElementById("shuo");
+			num++
+			if(num%2==0){
+				show.innerHTML = inp.replace(/\\/g,"/");
+				shuo.innerHTML = "替换 \\ 为 /"
+			}else{
+				show.innerHTML = inp.replace(/\//g,"\\");
+				shuo.innerHTML = "替换 / 为 \\"
+			}
+		};
+		function cle(){
+			inp.value = "";
+			show.innerHTML = "";
+		};
+	</script>
+</body>
+</html>

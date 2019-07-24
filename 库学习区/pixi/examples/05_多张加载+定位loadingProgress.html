@@ -1,0 +1,76 @@
+
+<!doctype html>
+<meta charset="utf-8">
+<title>Loading progress</title>
+<body>
+<script src="../pixi/pixi.min.js"></script>
+<script>
+
+let Application = PIXI.Application,
+    Container = PIXI.Container,
+    loader = PIXI.loader,
+    resources = PIXI.loader.resources,
+    TextureCache = PIXI.utils.TextureCache,
+    Sprite = PIXI.Sprite;
+
+let app = new Application({ 
+    width: 256, 
+    height: 256,                       
+    antialiasing: true, 
+    transparent: false, 
+    resolution: 1
+  }
+);
+
+document.body.appendChild(app.view);
+
+//Use Pixi's built-in `loader` module to load an image
+//使用pixi的内置“loader”模块加载图像
+loader
+  .add([
+    "images/cat.png",
+    "images/blob.png",
+    "images/explorer.png"
+  ])
+  .on("progress", loadProgressHandler)
+  .load(setup);
+
+function loadProgressHandler(loader, resource) {
+
+  //Display the file `url` currently being loaded
+  //显示当前正在加载的文件“url”
+  console.log("地址: " + resource.url); 
+
+  //If you gave your files names with the `add` method, you can access
+  //如果使用“add”方法提供文件名，则可以像这样访问它们
+  //them like this
+  console.log("loading: " + resource.name);
+
+  //Display the precentage of files currently loaded
+  //显示当前加载的文件的 百分比
+  console.log("progress: " + loader.progress + "%"); 
+}
+
+function setup() {
+  console.log("setup");
+
+  //Create the sprites  创建精灵
+  let cat = new Sprite(resources["images/cat.png"].texture),
+      blob = new Sprite(resources["images/blob.png"].texture),
+      explorer = new Sprite(resources["images/explorer.png"].texture);
+
+  //Add the sprites to the stage
+  //将精灵添加到舞台
+  app.stage.addChild(cat);
+  app.stage.addChild(blob);
+  app.stage.addChild(explorer);
+
+  //Position the sprites
+  //定位
+  blob.position.set(82, 82);
+  explorer.position.set(128, 128);
+  
+}
+</script>
+</body>
+

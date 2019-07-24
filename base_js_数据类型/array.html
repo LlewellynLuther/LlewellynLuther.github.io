@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组 - base</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		body{margin-bottom: 100px;}
+		span{float: left;}
+		.ins{width: 170px;}
+		.title{width: 120px;text-align: left;}
+		.info{width: 240px;text-align: left;}
+		.end{width: 240px;text-align: left;color: green;}
+		.shuo{color: #aaa;}
+	</style>
+</head>
+<body>
+	<h5>数组：数据的有序列化，与其他语言有很大不同</h5>
+	
+	<span class="ins">指令</span>
+	<span class="title">用途</span>
+	<span class="info">数组输出结果</span>
+	<span class="end">操作后的数组</span>
+	<span class="shuo">说明</span><br>
+
+	<span class="ins">new Array()</span>
+	<span class="title">创建数组：</span>
+	<span id="array" class="info"></span>
+	<span class="end">-</span>
+	<span class="shuo">var arr = new Array();或var arr = [];</span><br>	
+	
+	<span class="ins">arr.length</span>
+	<span class="title">数组长度：</span>
+	<span id="length" class="info"></span>
+	<span class="end">-</span><br>
+	
+	<span class="ins">arr[1]</span>
+	<span class="title">第2位：</span>
+	<span id="length1" class="info"></span>
+	<span class="end">-</span><br>
+
+	<span class="ins">arr.push</span>
+	<span class="title">插入数组：</span>
+	<span id="push" class="info"></span>
+	<span id="pushend" class="end"></span>	
+	<span class="shuo">arr.push("廿");末位插入两个就是("廿","卅")</span><br>
+
+	<span class="ins">arr.pop</span>
+	<span class="title">移除末位：</span>
+	<span id="pop" class="info"></span>
+	<span id="popend" class="end"></span>
+	<span class="shuo">只删除末位</span><br>
+	
+	<span class="ins">arr.unshift</span>
+	<span class="title">添加首位：</span>
+	<span id="unshift" class="info"></span>
+	<span id="unshiftend" class="end"></span>
+	<span class="shuo">arr.unshift("零");</span><br>
+	
+	<span class="ins">arr.shift</span>
+	<span class="title">移除首位：</span>
+	<span id="shift" class="info"></span>
+	<span id="shiftend" class="end"></span><br>
+	
+	<span class="ins">arr.reverse</span>
+	<span class="title">反转：</span>
+	<span id="reverse" class="info"></span>
+	<span class="end">-</span>
+	<span class="shuo">不够灵活</span><br>
+	
+	<span class="ins">arr.sort</span>
+	<span class="title">重新排序：</span>
+	<span id="sort" class="info"></span>
+	<span class="end">-</span>	
+	<span class="shuo">重新排序，需要函数指定排序方法</span><br>
+
+	<p> · 排序，有意思，注意数组作为形参调用的方法</p>
+	
+	<span class="ins">*arr_sort.sort</span>
+	<span class="title">大小排序：</span>
+	<span id="arr_sort" class="info"></span>	
+	<span class="shuo">var arr_sort = [2,1,6,4,3,5];可用于大多数数据类型</span><br>
+	
+	<span class="ins">*arr_sort.sort</span>
+	<span class="title">大小排序：</span>
+	<span id="arr_sort2" class="info"></span>	
+	<span class="shuo">利用了返回值是正数，负数或0来排序的原理</span><br>
+
+	<p>slice获取</p>
+	
+	<span class="ins">arr.slice()</span>
+	<span class="title">slice排序：</span>
+	<span id="slice" class="info"></span>
+	<span class="end">-</span>
+	<span class="shuo">不影响原arr。一位数表示从A到最后，两位数表示从A到B(不包括)</span><br>
+	
+	<span class="ins">arr.slice(1)</span>
+	<span class="title">slice获取：</span>
+	<span id="slice1" class="info"></span>
+	<span id="slice1end" class="end"></span>
+	<span class="shuo">获取2以后所有</span><br>
+	
+	<span class="ins">arr.slice(-2)</span>
+	<span class="title">slice获取：</span>
+	<span id="slice2" class="info"></span>
+	<span id="slice2end" class="end"></span>
+	<span class="shuo">获取倒数2位</span><br>
+	
+	<span class="ins">arr.slice(0,4)</span>
+	<span class="title">slice获取：</span>
+	<span id="slice3" class="info"></span>
+	<span id="slice3end" class="end"></span>
+	<span class="shuo">获取第1位到第4位</span><br>
+	
+	<span class="ins">arr.slice(1,-4)</span>
+	<span class="title">slice获取：</span>
+	<span id="slice4" class="info"></span>
+	<span id="slice4end" class="end"></span>
+	<span class="shuo">获取第1位到第-4位</span><br>
+	
+	<span class="ins">arr.slice(1,-4)</span>
+	<span class="title">slice获取：</span>
+	<span id="slice5" class="info"></span>
+	<span id="slice5end" class="end"></span>
+	<span class="shuo">获取第1位到第-4位</span><br>
+
+	<p>splice截取</p>
+	
+	<span class="ins">arr.splice()</span>
+	<span class="title">slice截取：</span>
+	<span id="splice" class="info">-</span>
+	<span class="end">-</span>
+	<span class="shuo">影响原arr。一位数表示从A到最后，两位数表示从A往后B位</span><br>
+	
+	<span class="ins">arr.splice(1)</span>
+	<span class="title">slice截取：</span>
+	<span id="splice1" class="info"></span>
+	<span id="splice1end" class="end"></span>
+	<span class="shuo">从第二位截取到最后一位</span><br>
+	
+	<span class="ins">arr.splice(-1)</span>
+	<span class="title">slice截取：</span>
+	<span id="splice2" class="info"></span>
+	<span id="splice2end" class="end"></span>
+	<span class="shuo">负数从后截取</span><br>
+	
+	<span class="ins">arr.splice(1,4)</span>
+	<span class="title">slice截取：</span>
+	<span id="splice3" class="info"></span>
+	<span id="splice3end" class="end"></span>
+	<span class="shuo">从第二位往后截4位</span><br>
+
+	<script>
+		var arrnum = ["一","二","三","四","五","六","七","八","九","十"];
+		var arrtg = ["甲","乙","丙","丁","戊","己","更","辛","癸","丑"];
+		var arrdz = ["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"];
+		var arrper = ["H","He","Li","Be","B","C","N","O","F","Ne","Na","Mg","Al","Si","P","S","Cl","Ar","K","Ca"];
+
+		// 数组操作：
+		
+		var arr = [];
+		document.getElementById("array").innerHTML = arr = ["一","二","三","四","五","六","七","八","九","十"];
+		document.getElementById("length").innerHTML = arr.length;
+		document.getElementById("length1").innerHTML = arr[1];
+
+		document.getElementById("push").innerHTML = arr.push("廿");
+		document.getElementById("pushend").innerHTML = arr;
+		
+		document.getElementById("pop").innerHTML = arr.pop();
+		document.getElementById("popend").innerHTML = arr;
+		
+		document.getElementById("unshift").innerHTML = arr.unshift("零");
+		document.getElementById("unshiftend").innerHTML = arr;
+		
+		document.getElementById("shift").innerHTML = arr.shift();
+		document.getElementById("shiftend").innerHTML = arr;
+		
+		document.getElementById("reverse").innerHTML = arr.reverse();
+		
+		document.getElementById("sort").innerHTML = arr.sort();
+
+		var arr_sort = [2,1,6,4,3,5];
+		function compare(value1,value2){
+			if(value1<value2)return -1;
+			else if(value1>value2) return 1;
+			else return 0;
+		}
+		arr_sort.sort(compare);
+		document.getElementById("arr_sort").innerHTML = arr_sort;
+		function compare2(value1,value2){
+			return value2 - value1;
+		}
+		arr_sort.sort(compare2);
+		document.getElementById("arr_sort2").innerHTML = arr_sort;
+
+		arr = ["一","二","三","四","五","六","七","八","九","十"];
+		document.getElementById("slice").innerHTML = arr.slice();
+		document.getElementById("slice1").innerHTML = arr.slice(1);
+		document.getElementById("slice1end").innerHTML = arr;		
+		document.getElementById("slice2").innerHTML = arr.slice(-2);
+		document.getElementById("slice2end").innerHTML = arr;
+		document.getElementById("slice3").innerHTML = arr.slice(0,4);
+		document.getElementById("slice3end").innerHTML = arr;
+		document.getElementById("slice4").innerHTML = arr.slice(1,-4);
+		document.getElementById("slice4end").innerHTML = arr;
+		document.getElementById("slice5").innerHTML = arr.slice(-5,-1);
+		document.getElementById("slice5end").innerHTML = arr;
+
+		document.getElementById("splice").innerHTML = arr.splice();
+		document.getElementById("splice1").innerHTML = arr.splice(1);
+		document.getElementById("splice1end").innerHTML = arr;
+
+		arr = ["一","二","三","四","五","六","七","八","九","十"];
+		document.getElementById("splice2").innerHTML = arr.splice(-2);
+		document.getElementById("splice2end").innerHTML = arr;
+
+		arr = ["一","二","三","四","五","六","七","八","九","十"];
+		document.getElementById("splice3").innerHTML = arr.splice(1,4);
+		document.getElementById("splice3end").innerHTML = arr;
+
+
+	</script>
+</body>
+</html>

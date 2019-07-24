@@ -1,0 +1,48 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Using aliases</title>
+<body>
+<div id="aaa"></div>
+<script src="../pixi/pixi.min.js"></script>
+<script>
+
+let Application = PIXI.Application,
+    loader = PIXI.loader,
+    resources = PIXI.loader.resources,
+    Sprite = PIXI.Sprite;
+
+let app = new Application({
+    width: 256, 
+    height: 256,
+    antialiasing: true,
+    transparent: false,
+    resolution: 1
+  }
+);
+
+document.body.appendChild(app.view);
+
+loader
+  .add("images/cat.png")
+  .load(setup);
+
+function setup() {
+
+  let cat = new Sprite(resources["images/cat.png"].texture);
+
+  // Pixi的BaseTexture和Texture类
+  let base = new PIXI.BaseTexture(cat),
+      texture = new PIXI.Texture(base),
+      sprite = new PIXI.Sprite(texture);
+      console.log(base);
+      console.log(texture);
+      console.log(sprite);
+
+  // 你可以使用BaseTexture.fromCanvas从任何已经存在canvas标签中创建纹理：
+  // let base = new PIXI.BaseTexture.fromCanvas(anyCanvasElement),
+
+  app.stage.addChild(cat);
+}
+</script>
+</body>
+

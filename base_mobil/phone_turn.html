@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.fceng{display: none;position: fixed;width: 100%;height: 100%;background: rgba(0,0,0,1);z-index: 99;overflow: hidden;}
+		.xsj{position: absolute;left:50%;top:50%;width: 4.175rem;height: 4.025rem;margin-top: -2.0125rem;margin-left: -2.0875rem;background:url(images/xsj.gif) no-repeat; background-size:100% 100%;}
+		.x-wz{color: white;position: absolute;left:15%;top:78%;width: 100%;font-size: 0.75rem;height: 1rem;}
+	</style>
+</head>
+<body>
+	<h5>说明：当手机遇到横竖屏转屏时显示xsj.gif，防止转屏导致的问题</h5>
+	<div class="fceng">
+		<div class="xsj"></div>
+		<p class="x-wz">为了更好地体验，请开启竖屏锁定功能！</p>
+	</div>
+	<div class="" id="J_wrapper" style="width: 100%;height: 100%;overflow: hidden;">
+		主体
+	</div>
+	<script>
+		// 利用 CSS3 旋转 对根容器逆时针旋转 90 度
+		var detectOrient = function() {
+		  var width = document.documentElement.clientWidth,
+		      height =  document.documentElement.clientHeight,
+		      $wrapper =  document.getElementById("J_wrapper"),
+		      style = "";
+		  if( width < height ){ // 横屏
+		    $(".fceng").hide();  
+		  }
+		  else{ // 竖屏
+		    $(".fceng").show();
+		  }
+		}
+		window.onresize = detectOrient;
+		detectOrient();
+	</script>
+</body>
+</html>
