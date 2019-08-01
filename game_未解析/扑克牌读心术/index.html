@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<title>jQuery扑克牌读心术网页游戏源码</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="full-screen" content="true"/>
+<meta name="screen-orientation" content="portrait"/>
+<meta name="x5-fullscreen" content="true"/>
+<meta name="360-fullscreen" content="true"/>
+<link rel="stylesheet" type="text/css" href="css/xcConfirm.css"/>
+<style>
+#main{float:left;}
+#container{height: 350px;}
+.pokerlists {list-style:none;overflow:hidden;} 
+.pokerlists li{float: left;margin: 5px 0px 5px 0px;text-align:center;}
+.pokerlists li.img{width:14%;}
+.lists {list-style:none;margin:0px;} 
+.lists li{float: left;margin: 5px;}
+.lists li.img{width:75px;}
+.tips{font-size: 10px;width:98%;margin: 0 auto;padding: 10px 10px;text-align:center;}
+.btn{width:98%;margin: 0 auto;padding: 10px 10px;text-align: center;}
+</style>
+</head>
+<body><script src="/demos/googlegg.js"></script>
+
+<div id="main">
+	<center><h1>扑克牌读心术</h1></center>
+	<div id="container"></div>
+	<div class="tips">
+		游戏规则:从上面的牌库中随机记住一张牌(<font color="red">一定要心里记住,不要说出来，否则系统会听到哦</font>)，然后点击开始按钮开始游戏，
+		从弹出来的牌判断您记住的牌是否在其中，在的话点击在按钮，不在点击不在按钮。
+	</div>
+	<div class="btn">
+		<input type="button" value="重置" onClick="ser.reset()" />
+		<input type="button" value="开始" onClick="ser.start()" />
+	</div>
+</div>
+
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/poker.js"></script>
+<script src="js/service.js"></script>
+<script src="js/xcConfirm.js"></script>
+</body>
+</html>

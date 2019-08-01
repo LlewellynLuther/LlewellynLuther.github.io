@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{margin: 0;padding: 0;}
+		.cro3{width: 66px;height: 66px;border-radius: 50%;border: 1px solid red;animation:throw1 4s linear infinite;}
+		.cro2{width: 60px;height: 60px;border-radius: 50%;border: 1px solid red;animation:throw2 4s linear infinite;
+			position: absolute;left: 3px;top: 3px;
+		}
+		.cro1{width: 54px;height: 54px;border-radius: 50%;border: 1px solid red;animation:throw3 4s linear infinite;
+			position: absolute;left: 6px;top: 6px;
+		}
+		.btn{width: 46px;height: 46px;border-radius: 50%;background-color: red;border:2px solid #fff;opacity: 1;
+			position: absolute;left: 9px;top: 9px;
+		}
+		@keyframes throw1{
+			0%{opacity: .1}
+			70%{opacity: .1}
+			80%{opacity: 1}
+			90%{opacity: .1}
+			100%{opacity: .1}
+		}
+		@keyframes throw2{
+			0%{opacity: .1}
+			60%{opacity: .1}
+			70%{opacity: 1}
+			80%{opacity: .1}
+			100%{opacity: .1}
+		}
+		@keyframes throw3{
+			0%{opacity: .1}
+			50%{opacity: .1}
+			60%{opacity: 1}
+			70%{opacity: .1}
+			100%{opacity: .1}
+		}
+	</style>
+</head>
+<body>
+	<div class="cro3"></div>
+	<div class="cro2"></div>
+	<div class="cro1"></div>
+	<div class="btn"></div>
+</body>
+</html>

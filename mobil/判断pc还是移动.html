@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="fontsizeset.js"></script>
+	<style>
+		@media screen and(max-width: 750px) and (min-width: 560px){
+			body{
+				background: 
+			}
+			
+		}
+		
+	</style>
+</head>
+<body>
+	<script src="zepto.js"></script>
+	<script src="zepto-touch.js"></script>
+	<script>
+		$(".box").tap(function(){
+			alert("OK")
+		})
+
+		//js判断是PC还是移动
+		var ua = navigator.userAgent;
+		var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+		    isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+		    isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+		    isMobile = isIphone || isAndroid;
+		    if(isMobile) {
+		        location.href = 'http://m.domain.com';
+		    }else{
+		        location.href = 'http://www.domain.com';
+		    ｝
+		    //或者单独判断iphone或android 
+		    if(isIphone){
+		        //code 
+		    else if(isAndroid){
+		        //code
+		    }else{
+		        //code
+		    }
+	</script>
+</body>
+</html>

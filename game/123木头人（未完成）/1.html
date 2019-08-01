@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		body{}
+		.start{border: 1px solid #ccc;width: 80px;height: 20px;text-align: center;border-radius: 8px;cursor: pointer;}
+		.start:hover{background-color: #eee;}
+		.girlbox{width: 100%;float: left;}
+		.girl{width: 450px;height: 350px;background-image: url(girl1.png);float: right;}
+		.boy{width: 350px;height: 450px;background-image: url(boy1.png);float: left;margin-left: 100px;margin-top: -200px;}
+		.btn{width: 350px;height: 130px;background-image: url(btn.png);float: left;margin-top: 100px;cursor: pointer;}
+	</style>
+</head>
+<body>
+	<div class="girlbox">
+		<div class="start">开始</div>
+		<p>倒计时:<span class="time">60</span></p>
+		<p>分数:<span class="fen">0</span></p>
+		<div class="girl"></div>
+	</div>
+	<div class="boy"></div>
+	<div class="btn"></div>
+	<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+	<script>
+		$(".start").click(function(){
+			$(this).css("background-color","red");
+			var dao = 60;
+			function setSeconds(){
+				dao--;
+				$(".time").text(dao);
+				if(dao == 0){
+					clearInterval(setSeconds);
+				}
+			}
+			setInterval(setSeconds,1000);
+		})
+	</script>
+</body>
+</html>

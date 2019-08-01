@@ -1,0 +1,154 @@
+/* 代码整理：懒人之家 lanrenzhijia.com */
+* {
+	font-size:12px;
+	font-family:宋体;
+	margin:0;
+	padding:0;
+}
+.piece {
+	width:110px;
+	height:110px;
+	border:1px solid red;
+}
+.win_piece {
+	background:rgba(255, 0, 0, 0.4) none repeat scroll 0 0 !important;
+	filter:alpha(opacity=40);
+	background-color:Red;
+	width:110px;
+	height:110px;
+	border:1px solid red;
+}
+.bet {
+	width:87px;
+	height:87px;
+	border:1px solid red;
+	display:block;
+	cursor:pointer;
+}
+.b_bar {
+	background:url(../images/b_bar.png) no-repeat;
+}
+.s_bar {
+	background:url(../images/s_bar.png) no-repeat;
+}
+.bar {
+	background:url(../images/bar.png) no-repeat;
+}
+.b_seven {
+	background:url(../images/b_77.png) no-repeat;
+}
+.s_seven {
+	background:url(../images/s_77.png) no-repeat;
+}
+.seven {
+	background:url(../images/77.png) no-repeat;
+}
+.b_star {
+	background:url(../images/b_star.png) no-repeat;
+}
+.s_star {
+	background:url(../images/s_star.png) no-repeat;
+}
+.star {
+	background:url(../images/star.png) no-repeat;
+}
+.b_watermelons {
+	background:url(../images/b_watermelons.png) no-repeat;
+}
+.s_watermelons {
+	background:url(../images/s_watermelons.png) no-repeat;
+}
+.watermelons {
+	background:url(../images/watermelons.png) no-repeat;
+}
+.b_alarm {
+	background:url(../images/b_alarm.png) no-repeat;
+}
+.s_alarm {
+	background:url(../images/s_alarm.png) no-repeat;
+}
+.alarm {
+	background:url(../images/alarm.png) no-repeat;
+}
+.b_coconut {
+	background:url(../images/b_coconut.png) no-repeat;
+}
+.s_coconut {
+	background:url(../images/s_coconut.png) no-repeat;
+}
+.coconut {
+	background:url(../images/coconut.png) no-repeat;
+}
+.b_orange {
+	background:url(../images/b_orange.png) no-repeat;
+}
+.s_orange {
+	background:url(../images/s_orange.png) no-repeat;
+}
+.orange {
+	background:url(../images/orange.png) no-repeat;
+}
+.b_apple {
+	background:url(../images/b_apple.png) no-repeat;
+}
+.s_apple {
+	background:url(../images/s_apple.png) no-repeat;
+}
+.apple {
+	background:url(../images/apple.png) no-repeat;
+}
+.cha {
+	background:url(../images/cha.png) no-repeat;
+}
+.lhj_bet_table td {
+	padding:3px;
+	text-align:center;
+}
+.lhj_input {
+	border-left:1px solid #999;
+	border-top:1px solid #999;
+	border-right:1px solid #eee;
+	border-bottom:1px solid #eee;
+	text-align:center;
+}
+.lhj_money_input {
+	width:170px;
+	height:40px;
+	font-size:38px;
+	margin:0;
+	padding:0;
+	line-height:40px;
+	display:block;
+}
+.lhj_span {
+	font-size:16px;
+	width:180px;
+	display:inline-block;
+	text-align:center;
+	padding:3px;
+}
+.lhj_bet_table .lhj_bet_input {
+	width:85px;
+	height:20px;
+	margin:0;
+	padding:0;
+	line-height:20px;
+	font-size:16px;
+}
+.lhj_bet_btn {
+	display:inline-block;
+	cursor:pointer;
+	width:182px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	background-color:#fff;
+	margin:3px;
+	color:Black;
+	font-size:24px;
+	border-left:1px solid #eee;
+	border-top:1px solid #eee;
+	border-right:1px solid #999;
+	border-bottom:1px solid #999;
+}
+/* 代码整理：懒人之家 lanrenzhijia.com */
