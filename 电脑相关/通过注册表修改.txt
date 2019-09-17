@@ -1,0 +1,13 @@
+
+1.右键添加菜单
+win+R		输入regedit进入注册表
+计算机\HKEY_CLASSES_ROOT\Directory\Background\shell
+在这里可以添加。
+然后需要创建字符串，编辑值找到对应位置
+
+
+
+2.注册表清除我的电脑中的多余图标
+win+R		输入regedit进入注册表
+计算机\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\
+这里都是后添入的图标

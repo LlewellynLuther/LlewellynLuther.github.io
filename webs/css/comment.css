@@ -1,0 +1,44 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+h1{
+	margin: .5em 0;
+}
+main{
+	width: 100%;
+	overflow: hidden;
+}
+p,a{
+	float: left;
+}
+pre{
+	float: left;
+	width: 100%;
+}
+.main_inner{
+	width: 1000px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.hljs{
+	margin: .5em 0;
+}
+h3{
+	width: 1000px;
+	float: left;
+	margin-top: 24px;
+}
+.shuoming{
+	background-color: #ccc;
+	width: 988px;
+	float: left;
+	height: 20px;
+	padding: 6px 6px;
+}
+span.sTitle{
+	width: 988px;
+	float: left;
+	height: 20px;
+	padding: 10px 6px 2px;
+}

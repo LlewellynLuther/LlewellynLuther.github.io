@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload=function(){
+            var word = document.getElementById('word');
+            var show = document.getElementById('show');
+            var i = 0;
+            var timer = setInterval(function(){
+                show.innerHTML = word.innerHTML.substring(0,i++);
+                if(show.innerHTML == word.innerHTML){
+                    clearInterval(timer);
+                }
+            },100);
+        }
+    </script>
+</head>
+<body>
+    <p id="word" style="display:none;">大家好，我是小旭，旭是旭日东升的旭。</p>
+    <p id="show"></p>
+</body>
+</html>

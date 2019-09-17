@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>gulp-less基础</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/8.4/styles/monokai_sublime.min.css">
+	<link rel="stylesheet" href="../webs/css/comment.css">
+	<script src="https://cdn.bootcss.com/highlight.js/8.4/highlight.min.js"></script>
+</head>
+<body>
+<main>
+<div class="main_inner">
+	<h1>安装gulp</h1>
+	1. 全局安装 gulp：
+	<pre><code class="language-sh hljs">$ npm install --global gulp</code></pre>
+	2. 作为项目的开发依赖（devDependencies）安装：
+	<pre><code class="language-sh hljs">$ npm install --save-dev gulp</code></pre>
+	3. 在项目根目录下创建一个名为 gulpfile.js 的文件：
+	<pre><code class="language-js hljs">
+	var gulp = require('gulp');
+	gulp.task('default', function() {
+	  // 将你的默认的任务代码放在这
+	});
+	</code></pre>
+	4. 运行 gulp：
+	<pre><code class="language-sh hljs">$ gulp</code></pre>
+	默认的名为 default 的任务（task）将会被运行，在这里，这个任务并未做任何事情。
+	<pre><code class="language-sh hljs">$ npm install --global gulp</code></pre>
+
+	<h1>单独压缩CSS</h1>
+	1. 创建压缩目标文件夹 src，创建生成文件夹 dist。下载gulp和gulp-clean-css
+	<pre><code class="language-sh hljs">$ </code></pre>
+	2. 创建gulpfile.js文件，与上面两个文件夹并列关系。
+	<pre><code class="language-sh hljs">
+	var gulp = require('gulp');
+	var cleanCSS = require("gulp-clean-css");
+	gulp.task("default",function(){
+		return gulp.src("src/style/*.css").pipe(cleanCSS()).pipe(gulp.dest("dist/style"));
+	})
+	</code></pre>
+	指定一个压缩任务,task方法用来定义任务  第一个参数"default(默认)"叫任务名。必须有一个defult的默认任务，会从默认任务开始执行。<br>
+	gulp.src 为目标文件夹("引用文件夹的路径") <br>
+	gulp.dest 为输出文件夹("生成文件夹的路径") <br>
+	3. 运行：git目标文件夹，执行
+	<pre><code class="language-sh hljs">$ gulp</code></pre>
+
+	<h1>单独压缩JS</h1>
+	1. 创建文件夹方式同上
+	2. 创建gulpfile.js文件，与上面两个文件夹并列关系。
+	<pre><code class="language-sh hljs">
+	var gulp = require('gulp');
+	var uglify = require("gulp-uglify");
+	gulp.task("default",function(){
+		return gulp.src("src/script/*.js").pipe(uglify()).pipe(gulp.dest("dist/script"));
+	});
+	</code></pre>
+
+	<h1>同时压缩CSS和JS</h1>
+	1. 文件夹格式依然同上<br>
+	2. 创建gulpfile.js文件，与上面两个文件夹并列关系。
+	<pre><code class="language-sh hljs">
+	var gulp = require('gulp');
+	var cleanCSS = require("gulp-clean-css");
+	var uglify = require("gulp-uglify");
+
+	gulp.task("cleanCSS",function(){
+		return gulp.src("src/style/*.css").pipe(cleanCSS()).pipe(gulp.dest("dist/style"));
+	});
+
+	gulp.task("uglify",function(){
+		return gulp.src("src/script/*.js").pipe(uglify()).pipe(gulp.dest("dist/script"));
+	});
+
+	gulp.task("default",["cleanCSS","uglify"]);
+	</code></pre>
+	3. 运行：git目标文件夹，执行
+	<pre><code class="language-sh hljs">$ gulp</code></pre>
+
+	<h1>监听</h1>
+	1. 文件夹格式依然同上<br>
+	2. 创建gulpfile.js文件，与上面两个文件夹并列关系。
+	<pre><code class="language-sh hljs">
+	var gulp = require('gulp');
+	var cleanCSS = require("gulp-clean-css");
+	var uglify = require("gulp-uglify");
+
+	gulp.task("cleanCSS",function(){
+		return gulp.src("src/style/*.css").pipe(cleanCSS()).pipe(gulp.dest("dist/style"));
+	});
+
+	gulp.task("uglify",function(){
+		return gulp.src("src/script/*.js").pipe(uglify()).pipe(gulp.dest("dist/script"));
+	});
+
+	gulp.task("watch",function(){		//监听，当变化时执行。
+		gulp.watch("src/script/*.js",["uglify"]);
+		gulp.watch("src/style/*.css",["cleanCSS"]);
+	})
+
+	gulp.task("default",["cleanCSS","uglify","watch"]);
+	</code></pre>
+	3. 运行：git目标文件夹，执行
+	<pre><code class="language-sh hljs">$ gulp</code></pre>
+
+	<h1>用gulp-less插件，写less文件</h1>
+	1.文件夹关系同上，这次在src里加less文件夹，新建header.less<br>	
+	src/less+script+style <br>
+	dist/script+style <br>
+	index.html <br>
+	2. 创建gulpfile.js文件，与上面两个文件夹并列关系。
+	<pre><code class="language-sh hljs">
+	var gulp = require('gulp');
+	var cleanCSS = require("gulp-clean-css");
+	var uglify = require("gulp-uglify");
+	var less = require("gulp-less");
+
+	gulp.task("clean",function(){
+		return gulp.src("src/style/*.css").pipe(cleanCSS()).pipe(gulp.dest("dist/style"));
+	});
+
+	gulp.task("uglify",function(){
+		return gulp.src("src/script/*.js").pipe(uglify()).pipe(gulp.dest("dist/script"));
+	});
+
+	gulp.task("less",function(){
+		return gulp.src("src/less/*.less").pipe(less()).pipe(gulp.dest("src/style"));
+	});
+
+	gulp.task("watch",function(){
+		gulp.watch("src/script/*.js",["uglify"]);
+		gulp.watch("src/style/*.css",["clean"]);
+		gulp.watch("src/less/*.less",["less"]);
+	});
+
+	gulp.task("default",["less","cleanCSS","uglify","watch"]);
+	</code></pre>
+	<h1>less用法</h1>
+	<pre><code class="language-css hljs">
+	@color: red;
+	@width1: 100px;
+	h1{
+		color: @red;
+		width: @width1;
+	}
+	</code></pre>
+	li的样式直接写ul里，伪类写{}里用&相当于this
+	<pre><code class="language-css hljs">
+	ul#list{
+		list-style: none;
+		li{
+			width:100px;
+			&:hover{
+				.bgr(#00f);		//相当于给一个返回值。如果下面写了颜色这里省略（）内容
+				//或者写个css效果
+			}
+		}
+	}
+	.bgr(@col){
+		background-color: @col;		//@col结果就是#00f。传什么是什么
+	}
+
+	.box1{
+		.bgr(green);
+		&:hover{
+			.transform(scale(1.5));
+		}
+	}
+
+	.transform(@val){
+	// .，不能用#类似于一个函数，但叫混合  结果就是缩放1.5倍
+		-webkit-transform:@val;
+		-o-transform:@val;
+		-ms-transform:@val;
+		-moz-transform:@val;
+		transform:@val;
+	}
+	</code></pre>
+	关于注释：less支持//和/* */两种，单行、多行注释方法。后者less后保留，前一种会被清掉。<br>
+	less的全局和局部变量
+	<pre><code class="language-css hljs">
+	@color:red;		//全局的
+	.box{
+		color: @color;
+		@color: green;
+	}
+	</code></pre>
+	结果是绿色。跟js原理一样，先找本级，找不到找上一级，找到了直接用。<br>
+	less的混合
+	<pre><code class="language-css hljs">
+	.box{
+		width: 100px;
+	}
+	.colorbox{
+		.box;
+		color: red;
+	}
+	</code></pre>
+	结果为
+	<pre><code class="language-css hljs">
+	.box{
+		width: 100px;
+	}
+	.colorbox{
+		width: 100px;
+		color: red;
+	}
+	</code></pre>
+	也可以加参数混合
+	<pre><code class="language-css hljs">
+	.box(@val){
+		width: @val;
+	}
+	.colorbox{
+		.box(200px);
+		color: red;
+	}
+	</code></pre>
+	结果为
+	<pre><code class="language-css hljs">
+	.colorbox{
+		width: 200px;
+		color: red;
+	}
+	</code></pre>
+	注：带参数的是不会被转成css的，调用参数的才会被转成css。<br>
+	less设置默认值
+	<pre><code class="language-css hljs">
+	.box(@val:300px){
+		width: @val;
+	}
+	.colorbox{
+		.box;
+	}
+	</code></pre>
+	结果为
+	<pre><code class="language-css hljs">
+	.colorbox{
+		width: 300px;
+	}
+	</code></pre>
+	也可以.box()调用。
+	<pre><code class="language-css hljs">
+	.colorbox{
+		.box();
+	}
+	</code></pre>
+	还可以覆盖默认值（给一个赋的值）。
+	<pre><code class="language-css hljs">
+	.colorbox{
+		.box(500px);
+	}
+	</code></pre>
+</div>
+</main>
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
