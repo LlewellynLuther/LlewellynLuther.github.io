@@ -7,6 +7,9 @@
 	<link rel="stylesheet" href="../webs/css/comment.css">
 	<script src="https://cdn.bootcss.com/highlight.js/8.4/highlight.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<style>
+		body{font-family: "微软雅黑";}
+	</style>
 </head>
 <body>
 <div class="main_inner">
@@ -635,10 +638,488 @@
 		})
 	</code></pre>
 
+	<span class="sTitle">3_2_2 getter和setter用法</span>
+	<div id="app3_2_2">
+		姓名： {{ fullName }}
+	</div>
+	<pre><code class="language-html hljs">
+	&lt;div id="app3_2_2"&gt;
+		姓名： {{ fullName }}
+	&lt;/div&gt;
+	</code></pre>
+	<script>
+		var app = new Vue({
+			el: "#app3_2_2",
+			data:{
+				firstName: "Jake",
+				lastName: "Green"
+			},
+			computed: {
+				fullName: {
+					//getter,用于读取
+					get: function(){
+						return this.firstName + ' ' + this.lastName;
+					},
+					//setter,写入时触发
+					set: function(newValue){
+						var names = newValue.split(' ');
+						this.firstName = names[0];
+						this.lastName = names[names.length - 1];
+					}
+				}
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		var app = new Vue({
+			el: "#app3_2_2",
+			data:{
+				firstName: "Jake",
+				lastName: "Green"
+			},
+			computed: {
+				fullName: {
+					//getter,用于读取
+					get: function(){
+						return this.firstName + ' ' + this.lastName;
+					},
+					//setter,写入时触发
+					set: function(newValue){
+						var names = newValue.split(' ');
+						this.firstName = names[0];
+						this.lastName = names[names.length - 1];
+					}
+				}
+			}
+		})
+	</code></pre>
 
+	<span class="sTitle">3_2_3 getter和setter依赖其它实例的数据</span>
+	<div id="app3_2_3a"></div>
+	<div id="app3_2_3b">
+		{{ reversedText }}
+	</div>
+	<pre><code class="language-html hljs">
+		&lt;div id="app3_2_3a"&gt;&lt;/div&gt;
+		&lt;div id="app3_2_3b"&gt;
+			{{ reversedText }}
+		&lt;/div&gt;
+	</code></pre>
+	<script>
+		var app1 = new Vue({
+			el: "#app3_2_3a",
+			data: {
+				text: "123,456"
+			}
+		});
+		var app2 = new Vue({
+			el: "#app3_2_3b",
+			computed: {
+				reversedText: function(){
+					// 这里依赖的是实例 app1 的数据 text
+					return app1.text.split(',').reverse().join(',');
+				}
+			}
+		});
+	</script>
+	<pre><code class="language-js hljs">
+		var app1 = new Vue({
+			el: "#app3_2_3a",
+			data: {
+				text: "123,456"
+			}
+		});
+		var app2 = new Vue({
+			el: "#app3_2_3b",
+			computed: {
+				reversedText: function(){
+					// 这里依赖的是实例 app1 的数据 text
+					return app1.text.split(',').reverse().join(',');
+				}
+			}
+		});
+	</code></pre>
 
+	<span class="sTitle">3_3 计算属性缓存</span>
+	<div id="app3_3">
+		{{ reversedText() }}
+	</div>
+	<pre><code class="language-html hljs">
+		{{ reversedText() }}		
+	</code></pre>
+	<span class="shuoming">reversedText 是方法，所以带()</span>
+	<script>
+		var app = new Vue({
+			el: "#app3_3",
+			data: {
+				text: "123,456"
+			},
+			methods: {
+				reversedText: function(){
+					// 这里的this指向的是当前Vue实例
+					return this.text.split(',').reverse().join(',');
+				}
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		var app = new Vue({
+			el: "#app3_3",
+			data: {
+				text: "123,456"
+			},
+			methods: {
+				reversedText: function(){
+					// 这里的this指向的是当前Vue实例
+					return this.text.split(',').reverse().join(',');
+				}
+			}
+		})
+	</code></pre>
 
+	<h3>v-bind及class与style绑定</h3>
+	<span class="sTitle">4_1 了解v-bind指令</span>
+	<span class="sTitle">4_2 绑定class的几种方法</span>
+	<span class="sTitle">4_2_1 属性动态切换class（对象语法）</span>
+	<div id="app4_2_1-1">
+		<div :class="{ 'active': isActive }">一个class</div>
+	</div>
+	<pre><code class="language-html hljs">
+		&lt;div :class="{ 'active': isActive }"&gt; 一个class &lt;/div&gt;
+	</code></pre>
+	<style>.active{ color: red; }</style>
+	<pre><code class="language-style hljs">
+		.active{ color: #f00; }
+	</code></pre>
+	<script>
+		var app = new Vue({
+			el: "#app4_2_1-1",
+			data: {
+				isActive: 1
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		var app = new Vue({
+			el: "#app4_2_1-1",
+			data: {
+				isActive: true
+			}
+		})		
+	</code></pre>
+	<span class="shuoming">isActive为true 或 1，class就是active，否则为空</span>
+	<span class="sTitle">(2) 多个属性</span>
+	<div id="app4_2_1-2">
+		<div :class="{ 'active': isActive , 'error': isError }">两个class</div>
+	</div>
+	<pre><code class="language-html hljs">
+		&lt;div :class="{ 'active': isActive , 'error': isError }"&gt; 两个class &lt;/div&gt;
+	</code></pre>
+	<style>.active{ color: red; }.error{ margin-left: 10px; }</style>
+	<pre><code class="language-style hljs">
+		.active{ color: #f00; }
+		.error{ margin-left: 10px; }
+	</code></pre>
+	<script>
+		var app = new Vue({
+			el: "#app4_2_1-2",
+			data: {
+				isActive: true,
+				isError: true
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		var app = new Vue({
+			el: "#app4_2_1-2",
+			data: {
+				isActive: true,
+				isError: false
+			}
+		})
+	</code></pre>
 
+	<span class="sTitle">(3) class名可以是变量</span>
+	<div id="app4_2_1-3">
+		<div :class="classes">class是个多条件计算结果</div>
+	</div>
+	<pre><code class="language-html hljs">
+		&lt;div :class="classes"&gt; class是个多条件计算结果 &lt;/div&gt;
+	</code></pre>
+	<script>
+		var app = new Vue({
+			el: "#app4_2_1-3",
+			data: {
+				isActive: true,
+				error: null
+			},
+			computed: {
+				classes: function(){
+					return{
+						active: this.isActive && !this.error,
+						'text-fail': this.error && this.error.type === "fail"
+					}
+				}
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		var app = new Vue({
+			el: "#app4_2_1-3",
+			data: {
+				isActive: true,
+				error: null
+			},
+			computed: {
+				classes: function(){
+					return{
+						active: this.isActive && !this.error,
+						'text-fail': this.error && this.error.type === "fail"
+					}
+				}
+			}
+		})
+	</code></pre>
+
+	<span class="sTitle">4_2_2 数组语法</span>
+	<div id="app4_2_2-1">
+		<div :class="[ activeCls,errorCls ]"> 数组方法写class </div>
+	</div>
+	<pre><code class="language-html hljs">
+		&lt;div :class="[ activeCls,errorCls ]"&gt; 数组方法写class &lt;/div&gt;
+	</code></pre>
+	<script>
+		var app = new Vue({
+			el: "#app4_2_2-1",
+			data: {
+				activeCls: "active",
+				errorCls: "error"
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		var app = new Vue({
+			el: "#app4_2_2-1",
+			data: {
+				activeCls: "active",
+				errorCls: "error"
+			}
+		})
+	</code></pre>
+
+	<div id="app4_2_2-2">
+		<div :class="[ isActive ? activeCls : '', errorCls ]"> 三目方法写class </div>
+	</div>
+	<pre><code class="language-html hljs">
+		&lt;div :class="[ isActive ? activeCls : '', errorCls ]"&gt; 三目方法写class &lt;/div&gt;
+	</code></pre>
+	<script>
+		var app = new Vue({
+			el: "#app4_2_2-2",
+			data: {
+				isActive: true,
+				activeCls: "active",
+				errorCls: "error"
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		var app = new Vue({
+			el: "#app4_2_2-2",
+			data: {
+				isActive: true,
+				activeCls: "active",
+				errorCls: "error"
+			}
+		})
+	</code></pre>
+
+	<div id="app4_2_2-3">
+		<div :class="[ {'active' : isActive }, errorCls]"> 数组语法写class </div>
+	</div>
+	<pre><code class="language-html hljs">
+		&lt;div :class="[ {'active' : isActive }, errorCls]"&gt; 数组语法写class &lt;/div&gt;
+	</code></pre>
+	<script>
+		var app = new Vue({
+			el: "#app4_2_2-3",
+			data: {
+				isActive: true,
+				errorCls: "error"
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		var app = new Vue({
+			el: "#app4_2_2-3",
+			data: {
+				isActive: true,
+				errorCls: "error"
+			}
+		})
+	</code></pre>
+
+	<div id="app4_2_2-4">
+		<button :class="classes">按钮</button>
+	</div>
+	<pre><code class="language-html hljs">
+	&lt;button :class="classes"&gt;按钮&lt;/button&gt;
+	</code></pre>
+	<script>
+		var app = new Vue({
+			el: "#app4_2_2-4",
+			data: {
+				size: 'large',
+				disabled: true
+			},
+			computed: {
+				classes: function(){
+					return [
+						'btn',
+						{
+							['btn-' + this.size] : this.size !== '',
+							['btn-disabled'] : this.disabled
+						}
+					];
+				}
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		var app = new Vue({
+			el: "#app4_2_2-4",
+			data: {
+				size: 'large',
+				disabled: true
+			},
+			computed: {
+				classes: function(){
+					return [
+						'btn',
+						{
+							['btn-' + this.size] : this.size !== '',
+							['btn-disabled'] : this.disabled
+						}
+					];
+				}
+			}
+		})
+	</code></pre>
+
+	<span class="sTitle">4_2_3 在组件上使用</span>
+	<div id="app4_2_3">
+		<my-component :class="{active:isActive}"></my-component>
+	</div>
+	<pre><code class="language-html hljs">
+		&lt;my-component :class="{active:isActive}"&gt;&lt;/my-component&gt;
+	</code></pre>
+	<script>
+		Vue.component('my-component',{
+			template: '<p class="article">一些文本</p>'
+		});
+		var app = new Vue({
+			el: '#app4_2_3',
+			data: {
+				isActive: true
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		Vue.component('my-component',{
+			template: '&lt;p class="article"&gt;一些文本&lt;/p&gt;'
+		});
+		var app = new Vue({
+			el: '#app4_2_3',
+			data: {
+				isActive: true
+			}
+		})
+	</code></pre>
+	<span class="shuoming">会有两个 class: article 和 active</span>
+
+	<span class="sTitle">4_3 绑定内联样式</span>
+	<div id="app4_3">
+		<div :style=" {'color': color,'fontSize': fontSize + 'px' } ">文本</div>
+	</div>
+	<pre><code class="language-html hljs">
+		&lt;div :style=" {'color': color,'fontSize': fontSize + 'px' } "&gt;文本&lt;/div&gt;
+	</code></pre>
+	<script>
+		var app = new Vue({
+			el: '#app4_3',
+			data: {
+				color: 'red',
+				fontSize: 14
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		var app = new Vue({
+			el: '#app4_3',
+			data: {
+				color: 'red',
+				fontSize: 14
+			}
+		})
+	</code></pre>
+
+	<span class="sTitle">简写(对象语法)</span>
+	<div id="app4_3-2">
+		<div :style=" styles ">文本</div>
+	</div>
+	<pre><code class="language-html hljs">
+		&lt;div :style=" styles "&gt;文本&lt;/div&gt;
+	</code></pre>
+	<script>
+		var app = new Vue({
+			el: '#app4_3-2',
+			data: {
+					styles:{
+					color: 'red',
+					fontSize: 14
+				}
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		var app = new Vue({
+			el: '#app4_3-2',
+			data: {
+				styles:{
+					color: 'red',
+					fontSize: 14
+				}
+			}
+		})
+	</code></pre>
+
+	<span class="sTitle">简写(数组语法)</span>
+	<div id="app4_3-3">
+		<div :style=" styles ">文本</div>
+	</div>
+	<pre><code class="language-html hljs">
+		&lt;div :style=" [ color,fontSize ] "&gt;文本&lt;/div&gt;
+	</code></pre>
+	<script>
+		var app = new Vue({
+			el: '#app4_3-3',
+			data: {
+					styles:{
+					color: 'red',
+					fontSize: 14
+				}
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		var app = new Vue({
+			el: '#app4_3-3',
+			data: {
+				color: 'red',
+				fontSize: 14
+			}
+		})
+	</code></pre>
 
 	<script>
 		hljs.initHighlightingOnLoad();

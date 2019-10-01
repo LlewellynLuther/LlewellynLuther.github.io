@@ -9,9 +9,9 @@ main{
 	width: 100%;
 	overflow: hidden;
 }
-p,a{
+/*p,a{
 	float: left;
-}
+}*/
 pre{
 	float: left;
 	width: 100%;
@@ -29,12 +29,20 @@ h3{
 	float: left;
 	margin-top: 24px;
 }
-.shuoming{
+span.shuoming{
 	background-color: #ccc;
 	width: 988px;
 	float: left;
 	height: 20px;
 	padding: 6px 6px;
+}
+span.shuomings{
+	float: left;
+	background-color: #ccc;
+	width: 960px;
+	padding: 10px 20px;
+	font-size: 14px;
+	line-height: 26px;
 }
 span.sTitle{
 	width: 988px;

@@ -1,0 +1,19 @@
+  // 首页时间进度轮播图
+  var total1 = 0;
+  var index1t = setInterval(settime1,1000);
+  var ind1 = 0;
+  function settime1(){
+      total1++;
+      if(total1 == 3){
+          ind1++;
+          if(ind1 == 6){
+            ind1 = 0
+          }
+          change_index1(ind1 + 1);
+          total1 = 0;
+      }
+  }
+  function change_index1(ind1){
+    $("#solid").removeClass().addClass("index-main1-swiper" + ind1);
+    $("#index-main1-pages").removeClass().addClass("index-main1-pages" + ind1);
+  }
