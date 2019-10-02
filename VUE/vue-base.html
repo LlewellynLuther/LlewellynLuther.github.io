@@ -49,6 +49,7 @@
 
 	<h3>1_2_2 Vue.js如何使用</h3>
 	<span class="sTitle">(1) v-for</span>
+	<span class="shuoming">下面有相同的<a href="#app5_3">5_3</a></span>
 	<div id="app1_2_2"><ul><li v-for="book in books">{{ book.name }}</li></ul></div>
 	<pre><code class="language-html hljs">
 		&lt;li v-for="book in books"&gt; {{ book.name }}&lt;/li&gt;
@@ -777,7 +778,7 @@
 		})
 	</code></pre>
 
-	<h3>v-bind及class与style绑定</h3>
+	<h3>第四章 v-bind 及 class 与 style 绑定</h3>
 	<span class="sTitle">4_1 了解v-bind指令</span>
 	<span class="sTitle">4_2 绑定class的几种方法</span>
 	<span class="sTitle">4_2_1 属性动态切换class（对象语法）</span>
@@ -1121,9 +1122,499 @@
 		})
 	</code></pre>
 
+
+	<!-- 第五章 -->
+	<h3>第五章 内置指令</h3>
+	<span class="sTitle">5.1 基本指令</span>
+	<span class="shuoming">指令(Directive)概念v-html v-pre v-bind等</span>
+	<span class="sTitle">v-cloak</span>
+	<span class="shuoming">v-cloak是用来处理初始化慢导致的 {{ message }} 闪动的</span>
+	<div id="app5_1_1" v-cloak>{{ message }}</div>
+	<pre><code class="language-html hljs">
+		<div id="app5_1_1" v-cloak>{{ message }}</div>
+	</code></pre>
+	<style>
+		[v-clock]{
+			display: none;
+		}
+	</style>
+	<pre><code class="language-css hljs">
+		[v-clock]{
+			display: none;
+		}
+	</code></pre>
 	<script>
-		hljs.initHighlightingOnLoad();
+		var app = new Vue({
+			el: '#app5_1_1',
+			data: {
+				message: "这是一段文字"
+			}
+		})
 	</script>
+	<pre><code class="language-js hljs">
+		var app = new Vue({
+			el: '#app5_1_1',
+			data: {
+				message: "这是一段文字"
+			}
+		})
+	</code></pre>
+
+	<span class="sTitle"> v-once </span>
+	<span class="shuoming">只渲染一次，设计之初用于静态内容，很少用，进一步优化性能时可能会用</span>
+	<div id="app5_1_2">
+		<span v-once>{{ message }}</span>
+		<div v-once>
+			<span>{{ message }}</span>
+		</div>
+	</div>
+	<pre><code class="language-html hljs">
+		&lt;span v-once&gt;{{ message }}&lt;/span&gt;
+		&lt;div v-once&gt;
+			&lt;span&gt;{{ message }}&lt;/span&gt;
+		&lt;/div&gt;
+	</code></pre>
+	<script>
+		var app = new Vue({
+			el: '#app5_1_2',
+			data: {
+				message: "这是一段文字"
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		var app = new Vue({
+			el: '#app5_1_2',
+			data: {
+				message: "这是一段文字"
+			}
+		})
+	</code></pre>
+
+	<span class="sTitle">5_2 条件渲染指令</span>
+	<span class="shuoming">v-if v-else-if v-else</span>
+	<div id="app5_2_1">
+		<p v-if="status === 1">当status为1显示该行</p>
+		<p v-else-if="statues === 2">当status为2显示该行</p>
+		<p v-else>否则显示该行</p>
+	</div>
+	<pre><code class="language-html hljs">
+		&lt;p v-if="status === 1"&gt;当status为1显示该行&lt;/p&gt;
+		&lt;p v-else-if="statues === 2"&gt;当status为2显示该行&lt;/p&gt;
+		&lt;p v-else&gt;否则显示该行&lt;/p&gt;
+	</code></pre>
+	<script>
+		var app = new Vue({
+			el: '#app5_2_1',
+			data: {
+				status: 1
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		var app = new Vue({
+			el: '#app5_2_1',
+			data: {
+				status: 1
+			}
+		})		
+	</code></pre>
+
+	<span class="sTitle">key属性</span>
+	<span class="shuoming">vue会尽可能复用已有元素，为了避免，需要使用key属性，key的值必须是唯一的。</span>
+	<div id="app5_2_1-2">
+		<template v-if="type === 'name'">
+			<label>用户名：</label>
+			<input placeholder="输入用户名" key="name-input">
+		</template>
+		<template v-else>
+			<label>邮箱：</label>
+			<input placeholder="输入邮箱" key="mail-input">
+		</template>
+		<button @click="handleToggleClick">切换输入类型</button>
+	</div>
+	<pre><code class="language-html hljs">
+		&lt;template v-if="type === 'name'"&gt;
+			&lt;label&gt;用户名：&lt;/label&gt;
+			&lt;input placeholder="输入用户名" key="name-input"&gt;
+		&lt;/template&gt;
+		&lt;template v-else&gt;
+			&lt;label&gt;邮箱：&lt;/label&gt;
+			&lt;input placeholder="输入邮箱" key="mail-input"&gt;
+		&lt;/template&gt;
+		&lt;button @click="handleToggleClick">切换输入类型&lt;/button&gt;
+	</code></pre>
+	<script>
+		var app = new Vue({
+			el: '#app5_2_1-2',
+			data: {
+				type: "name"
+			},
+			methods: {
+				handleToggleClick: function(){
+					this.type = this.type === "name" ? "main" : "name";
+				}
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		var app = new Vue({
+			el: '#app5_2_1-2',
+			data: {
+				type: "name"
+			},
+			methods: {
+				handleToggleClick: function(){
+					this.type = this.type === "name" ? "main" : "name";
+				}
+			}
+		}）
+	</code></pre>
+
+	<span class="sTitle">v-show</span>
+	<div id="app5_2_2">
+		<p v-show="status === 1">当status为1时显示该行，如果是别的就会有 display:none</p>
+	</div>
+	<pre><code class="language-html hljs">
+		&lt;p v-show="status === 1"&gt;当status为1时显示该行，如果是别的就会有 display:none&lt;/p&gt;
+	</code></pre>
+	<script>
+		var app = new Vue({
+			el: "#app5_2_2",
+			data: {
+				status: 1
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		var app = new Vue({
+			el: "#app5_2_2",
+			data: {
+				status: 1
+			}
+		})
+	</code></pre>
+	<span class="shuoming">v-if与v-show基本一致。v-show改变css样式 display: none;</span>
+
+	<span class="sTitle">v-for</span>
+	<span class="shuoming">上面有相同的<a href="#app1_2_2">1_2_2</a></span>
+
+	<div id="app5_3"><ul><li v-for="book in books">{{ book.name }}</li></ul></div>
+	<pre><code class="language-html hljs">
+		&lt;li v-for="book in books"&gt; {{ book.name }}&lt;/li&gt;
+	</code></pre>
+	<script>
+		new Vue({
+			el: "#app5_3",
+			data:{
+				books: [
+					{ name: '《Vue.js 实战》' },
+					{ name: '《JavaScript 语言精粹》' },
+					{ name: '《JavaScript 高级程序设计》' },
+				]
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		data:{
+			books: [
+				{ name: '《Vue.js 实战》' },
+				{ name: '《JavaScript 语言精粹》' },
+				{ name: '《JavaScript 高级程序设计》' },
+			]
+		}
+	</code></pre>
+	
+	<span class="sTitle">加索引写法</span>
+	<div id="app5_3-2">
+		<ul>
+			<li v-for="(book,index) in books">{{ index }} - {{ book.name }}</li>
+		</ul>
+	</div>
+	<pre><code class="language-html hljs">
+		&lt;ul&gt;&lt;li v-for="(book,index) in books"&gt;{{ index }} - {{ book.name }}&lt;/li&gt;&lt;/ul&gt;
+	</code></pre>
+	<script>
+		new Vue({
+			el: "#app5_3-2",
+			data:{
+				books: [
+					{ name: '《Vue.js 实战》' },
+					{ name: '《JavaScript 语言精粹》' },
+					{ name: '《JavaScript 高级程序设计》' },
+				]
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		data:{
+			books: [
+				{ name: '《Vue.js 实战》' },
+				{ name: '《JavaScript 语言精粹》' },
+				{ name: '《JavaScript 高级程序设计》' },
+			]
+		}
+	</code></pre>
+
+	<span class="sTitle">2.x后改变写法，可用在template标签上</span>
+	<div id="app5_3-3">
+		<ul>
+			<template v-for="book in books">
+				<li>书名：{{ book.name }}</li>
+				<li>作者：{{ book.author }}</li>
+			</template>
+		</ul>
+	</div>
+	<pre><code class="language-html hljs">
+		&lt;template v-for="book in books"&gt;
+			&lt;li&gt;书名：{{ book.name }}&lt;/li&gt;
+			&lt;li&gt;作者：{{ book.author }}&lt;/li&gt;
+		&lt;/template&gt;
+	</code></pre>
+	<script>
+		new Vue({
+			el: "#app5_3-3",
+			data: {
+				books: [
+					{
+						name: '《Vue.js 实战》',
+						author: '123'
+					},
+					{
+						name: '《JavaScript 语言精粹》',
+						author: '223'
+					},
+					{
+						name: '《JavaScript 高级程序设计》',
+						author: '323'
+					}
+				]
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		new Vue({
+			el: "#app5_3-3",
+			data: {
+				books: [
+					{
+						name: '《Vue.js 实战》',
+						author: '123'
+					},
+					{
+						name: '《JavaScript 语言精粹》',
+						author: '223'
+					},
+					{
+						name: '《JavaScript 高级程序设计》',
+						author: '323'
+					}
+				]
+			}
+		})
+	</code></pre>
+
+	<span class="sTitle">遍历对象属性</span>
+	<div id="app5_3-4">
+		<span v-for="value in user">{{ value }}</span>
+	</div>
+	<pre><code class="language-js hljs">
+		&lt;span v-for="value in user"&gt;{{ value }}&lt;/span&gt;
+	</code></pre>
+	<script>
+		new Vue({
+			el: "#app5_3-4",
+			data: {
+				user: {
+					name: '《Vue.js 实战》',
+					author: '123'
+				}
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		new Vue({
+			el: "#app5_3-4",
+			data: {
+				user: {
+					name: '《Vue.js 实战》',
+					author: '123',
+					name: '《JavaScript 高级程序设计》',
+					author: '323'
+				}
+			}
+		})
+	</code></pre>
+
+	<span class="sTitle">键名和索引</span>
+	<div id="app5_3-5">
+		<ul>
+			<li v-for="(value,key,index) in user">
+				{{ index }} - {{ key }} : {{ value }}
+			</li>
+		</ul>
+	</div>
+	<pre><code class="language-html hljs">
+		&lt;li v-for="(value,key,index) in user"&gt;
+			{{ index }} - {{ key }} : {{ value }}
+		&lt;/li&gt;
+	</code></pre>
+	<script>
+		new Vue({
+			el: "#app5_3-5",
+			data: {
+				user: {
+					name: 'Aresn',
+					gender: '难',
+					age: 26
+				}
+			}
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		new Vue({
+			el: "#app5_3-5",
+			data: {
+				user: {
+					name: 'Aresn',
+					gender: '难',
+					age: 26
+				}
+			}
+		})
+	</code></pre>
+
+	<span class="sTitle">迭代整数</span>
+	<div id="app5_3-6">
+		<span v-for="n in 10">{{ n }}</span>
+	</div>
+	<pre><code class="language-js hljs">
+		&lt;span v-for="n in 10"&gt;{{ n }}&lt;/span&gt;
+	</code></pre>
+	<script>
+		new Vue({
+			el: "#app5_3-6"
+		})
+	</script>
+	<pre><code class="language-js hljs">
+		new Vue({
+			el: "#app5_3-6"
+		})
+	</code></pre>
+
+	<span class="sTitle">5_3_2 数组更新</span>
+	<span class="shuoming">vue包含了一组观察数组变异的方法。(非js原生)</span>
+	<span class="sTitle">phsh()</span>
+	<span class="sTitle">pop()</span>
+	<span class="sTitle">shift()</span>
+	<span class="sTitle">unshift()</span>
+	<span class="sTitle">splice()</span>
+	<span class="sTitle">sort()</span>
+	<span class="sTitle">reverse()</span>
+	<span class="shuoming">这些方法会改变原有数据</span>
+	<span class="sTitle">不改变原有数据的</span>
+	<span class="sTitle">filter()</span>
+	<span class="sTitle">concat()</span>
+	<span class="sTitle">slice()</span>
+	<span class="shuoming">这类不改变原有数据的也会有尽可能重复使用Dom的问题</span>
+	<div id="app5_3-6">
+		<ul>
+			<template v-for="book in books">
+				<li>书名：{{ book.name }}</li>
+				<li>作者：{{ book.author }}</li>
+			</template>
+		</ul>
+	</div>
+	<pre><code class="language-html hljs">
+		&lt;template v-for="book in books"&gt;
+			&lt;li&gt;书名：{{ book.name }}&lt;/li&gt;
+			&lt;li&gt;作者：{{ book.author }}&lt;/li&gt;
+		&lt;/template&gt;
+	</code></pre>
+	<script>
+		var app5_3_6 = new Vue({
+			el: "#app5_3-6",
+			data: {
+				books: [
+					{
+						name: '《Vue.js 实战》',
+						author: '123'
+					},
+					{
+						name: '《JavaScript 语言精粹》',
+						author: '223'
+					},
+					{
+						name: '《JavaScript 高级程序设计》',
+						author: '323'
+					}
+				]
+			}
+		});
+		app5_3_6.books = app5_3_6.books.filter(function(item){
+			return item.name.match(/《JavaScript/);
+		});
+	</script>
+	<pre><code class="language-js hljs">
+		var app = new Vue({
+			el: "#app5_3-6"
+			data: {
+				books: [
+					{
+						name: '《Vue.js 实战》',
+						author: '123'
+					},
+					{
+						name: '《JavaScript 语言精粹》',
+						author: '223'
+					},
+					{
+						name: '《JavaScript 高级程序设计》',
+						author: '323'
+					}
+				]
+			}
+		});
+		app.books = app.books.filter(function(item){
+			return item.name.match(/《JavaScript/);
+		});
+	</code></pre>
+	<span class="shuoming">这类不改变原有数据的也会有尽可能重复使用Dom的问题</span>
+	<span class="sTitle">解决方法（Vue内置的set方法）</span>
+	<script>
+	Vue.set(app.books,3,{
+		name: '《Vue.js 实战》',
+		author: '123'		
+	})
+	</script>
+
+	<span class="sTitle">webpack 中使用组件化的方式 可用$set</span>
+	<script>
+		this.$set(app.books,3,{
+			name: '《Vue.js 实战》',
+			author: '123'
+		})
+	</script>
+	<span class="sTitle">或</span>
+	<script>
+		this.books.splice(3,1,{
+			name: '《Vue.js 实战》',
+			author: '123'
+		})
+	</script>
+
+	<span class="sTitle">5_3_3 过滤与排序</span>
+	
+
+
+
+
+
+
+	<div class="endbox" style="width: 100%;height: 60px;float: left;"></div>
 </div>
 </body>
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
 </html>
