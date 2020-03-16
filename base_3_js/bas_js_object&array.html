@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="sp"></div>
+	<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		var pass = [
+			{
+				"user":[
+					{"num": 001,
+					"name":"zhanwanting",
+					"password":"zhanwanting"},
+					{"num": 002,
+					"name":"wufandi",
+					"password":"wufandi"},
+					{"num": 003,
+					"name":"mayiping",
+					"password":"mayiping"}
+				]
+			}
+		]
+		var a = pass[0].user[1].name
+		$(".sp").text(a);
+
+		var neto = 0
+	})		
+	</script>
+</body>
+</html>

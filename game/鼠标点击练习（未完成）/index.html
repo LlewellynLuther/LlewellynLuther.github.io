@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标点击速度练习</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		#main{width: 600px;height: 600px;float: left;margin: 40px 0 0 40px;border: 1px solid #000;}
+		#right{float: left;width: 200px;height: 400px;margin-top: 40px;margin-left: 10px;}
+		.box{width: 260px;height: 40px;line-height: 40px;color: #333;float: left;}
+		.left{width: 84px;float: left;}
+		.box p{width: 30px;float: left;text-align: center;}
+		.button{float: left;border: 2px solid #666;box-sizing: border-box;width: 24px;height: 24px;text-align: center;line-height: 16px;margin-top: 8px;cursor: pointer;border-radius: 50%;font-size: 26px;color: #666;}
+		.button:hover{background-color: #ccc;}
+		.right{width: 50px;float: left;text-align: right;}
+
+		.point{width: 20px;height: 20px;border-radius: 50%;background-color: #0f0;position: absolute;}
+		#pause{width: 80px;height: 30px;line-height: 30px;text-align: center;float: left;border: 1px solid #333;border-radius: 6px;cursor: pointer;}
+		#pause:hover{background-color: #ccc;}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<!-- <div class="point"></div> -->
+	</div>
+	<div id="right">
+		<div class="box">
+			<span class="left">点数总计：</span>
+			<p id="total">0</p>
+			<span class="right">次</span>
+		</div>
+		<div class="box">
+			<span class="left">点中次数：</span>
+			<p id="geted">0</p>
+			<span class="right">次</span>
+		</div>
+		<div class="box">
+			<span class="left">错失次数：</span>
+			<p id="missed">0</p>
+			<span class="right">次</span>
+		</div>
+		<div class="box">
+			<span class="left">当前速度：</span>
+			<div id="leftBtn" class="button">-</div><p id="speed">1</p><div id="rightBtn" class="button">+</div>
+			<span class="right">个/秒</span>
+		</div>
+		<div id="pause">暂停</div>
+	</div>
+	<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+	<script>
+			// 生成按钮
+			$(document).ready(function(){
+				speedX();
+			});
+
+			// 速度加减	
+			$("#leftBtn").click(function(){
+				var speed = Math.floor($("#speed").text());
+				if(speed>1){
+					$("#speed").text(speed-1);
+				}
+				speedX();
+			});
+			$("#rightBtn").click(function(){
+				var speed = Math.floor($("#speed").text());
+				if(speed<5){
+					$("#speed").text(speed+1);
+				}
+				speedX();
+			});
+
+			// 速度调整后
+			function speedX(){
+				var speed = Math.floor($("#speed").text());
+				var s = 0;
+				if(speed == 1){
+					var t1 = setInterval(time,3000);
+					clearInterval(t2)
+					clearInterval(t3)
+					clearInterval(t4)
+					clearInterval(t5)
+				}
+				else if(speed == 2){
+					var t2 = setInterval(time,2800);
+					clearInterval(t1)
+					clearInterval(t3)
+					clearInterval(t4)
+					clearInterval(t5)
+				}
+				else if(speed == 3){
+					var t3 = setInterval(time,2600);
+					clearInterval(t1)
+					clearInterval(t2)
+					clearInterval(t4)
+					clearInterval(t5)
+				}
+				else if(speed == 4){
+					var t4 = setInterval(time,2400);
+					clearInterval(t1)
+					clearInterval(t2)
+					clearInterval(t3)
+					clearInterval(t5)
+				}
+				else if(speed == 5){
+					var t5 = setInterval(time,2200);
+					clearInterval(t1)
+					clearInterval(t2)
+					clearInterval(t3)
+					clearInterval(t4)
+				}
+
+				$("#pause").click(function(){
+					if($("#pause").text()=="暂停"){
+						clearInterval(t1);
+						clearInterval(t2);
+						clearInterval(t3);
+						clearInterval(t4);
+						clearInterval(t5);
+						$("#pause").text("开始");
+					}else{
+						$("#pause").text("暂停");
+						speedX();
+					}
+				})
+			};
+
+			// 计时
+			function time(){
+				var chamberWidth = Math.floor($("#main").width()) - 20;
+				var chamberHeight = Math.floor($("#main").height()) - 20;
+				var pointW = Math.floor(Math.random() * (chamberWidth/10 )) * 10 + 40;
+				var pointH = Math.floor(Math.random() * (chamberHeight/10 )) * 10 + 40;
+				appPoint(pointW,pointH);
+			};
+
+			function appPoint(pointW,pointH){
+				var total = Math.floor($("#total").text()) + 1
+				$("#total").text(total);
+				$("#main").append('<div class="point" id="a' + total + '" onclick="pointC($(this))" style="left:' + pointW + 'px;top:' + pointH +'px"></div>');
+			};
+
+			// 点中
+			function pointC(th){
+				var getTime = Number($("#geted").text());
+				$("#geted").text(getTime + 1);
+				th.remove();
+			};
+	</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+	*{
+		margin:0px;
+		padding:0px;
+	}
+	body{
+		overflow:hidden;
+	}
+	.game{
+		width:560px;
+		margin:50px auto;
+	}
+	.ccc{font-size: 16px;}
+	.bbb{font-size: 40px;}
+	.aaa{font-size: 250%;}
+</style>
+</head>
+<body>
+	<div class="ccc">123</div><div class="bbb">123</div><div class="aaa">123</div>
+	<div class="game">
+		<img src="images/2.jpg" class="tulip">
+		<canvas id="canvas" width="560" height="560"></canvas>
+	</div>	
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+	<script>
+		var can = document.getElementById("canvas");
+		var cxt = can.getContext("2d");
+		var img = document.getElementById("tulip");
+		console.log(img)
+
+		$("document").ready(drawimg())
+		function drawimg(){
+			var w = 178;
+			var h = 173;
+			var images = {};
+			for (var i=0;i<3;i++){
+				images[i] = new Image();
+				images[i].src = "images/" + (i+1) + ".jpg";
+				cxt.drawImage(images[i],w*i,h*i)	
+			}
+		}
+	</script>
+</body>
+</html>

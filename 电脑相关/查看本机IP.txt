@@ -1,0 +1,16 @@
+cmd
+ipconfig
+
+示例:
+    > ipconfig                       ... 显示信息
+    > ipconfig /all                  ... 显示详细信息
+    > ipconfig /renew                ... 更新所适配器
+    > ipconfig /renew EL*            ... 更新所名称 EL 
+                                         连接
+    > ipconfig /release *Con*        ... 释放所匹配连接
+                                         例 "Local Area Connection 1" 或
+                                             "Local Area Connection 2"
+    > ipconfig /allcompartments      ... 显示关所段
+                                         信息
+    > ipconfig /allcompartments /all ... 显示关所段
+                                         详细信息

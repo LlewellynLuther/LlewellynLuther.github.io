@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mouse事件base - js</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		/*模拟点击*/
+		.mndj{
+			margin: 4px;
+			float: left;
+			border: 1px solid #ccc;
+			cursor: pointer;
+		}
+		.mndj:hover{
+			background-color: #ccc;
+		}
+		/*中间盒子*/
+		.out_box{
+			width: 230px;
+			height: 270px;
+			box-sizing: border-box;
+			border: 1px solid #000;
+			/*position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);*/
+		}
+		.show{
+			display: block;
+			margin: 0 auto;
+			margin-top: 10px;
+			width: 210px;
+			height: 26px;
+			color: #555;
+			text-align: center;
+			line-height: 26px;
+			border: 1px solid #000;
+			box-sizing: border-box;
+		}
+		.box{
+			float: left;
+			width: 100px;
+			height: 100px;
+			cursor: pointer;
+			text-align: center;
+			box-sizing: border-box;
+			border: 1px solid #000;
+			margin: 10px 0 0 10px;
+		}
+		#ondbox{
+			width: 100px;height: 100px;background-color: red;
+		}
+
+		#blueBox{ 
+			margin: 20px auto; 
+			position: relative; 
+			width: 400px; 
+			height: 400px; 
+			background: #ccc; 
+			border: 1px solid #333;
+		}
+		#dragBox{ 
+			width: 50px; 
+			height: 50px; 
+			text-align: center; 
+			line-height: 50px;
+			position: absolute; 
+			background: blue; 
+			cursor: move; 
+			font-size: 12px; 
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="monidianji" class="mndj">点我等于点它 dispatchEvent →</div>
+	<div id="beidianji" class="mndj" onclick="alert('弹出了1')">点击弹1</div><br><br>
+	<input type="text" id="focus"><br>
+	1.onfocus  获取焦点<br>
+	2.onblur   失去焦点<br>
+	3.onchange 回车改变内容时<br>
+	4.onselect 内容被选中<br>
+	5.oncopy   内容被复制<br>
+	6.oncut    内容被剪切<br>
+	7.onpaste  内容被粘贴<br>
+	8.oninput  内容输入
+	<div class="out_box">
+		<span class="show" id="show"></span>
+		<div class="box" id="box1" title="mousedown,mouseup,mouseover,mouseout">
+			mousedown<br>
+			mouseup<br>
+		</div>
+		<div class="box" id="box2" title="mouseenter,mouseleave">
+			mouseenter<br>
+			mouseleave<br>
+		</div>
+		<div class="box" id="box3">
+			mouseover<br>
+			mouseout<br>
+			click<br>
+		</div>
+		<div class="box" id="box4">
+			dblclick双击<br>
+			右键点击
+		</div>
+	</div>
+	<div class="out_box">
+		<div id="ondbox"></div>
+	</div>
+	<div id="blueBox">
+		<div id="dragBox">拖我</div>
+	</div>
+	<script>
+		window.onload = function(){ show.innerHTML = "onload加载完成" }
+
+		var monidianji = document.getElementById('monidianji');
+		var beidianji = document.getElementById('beidianji');
+		monidianji.onclick = function () {
+			var myEvent = new Event('click');
+			beidianji.dispatchEvent(myEvent);		//dispatchEvent自定义事件的触发
+		}
+		beidianji.onclick = function () {
+			show.innerHTML = "点击了1"
+		// do something
+		}
+
+		// window.onunload = function(){ confirm("你确定要离开本页?") }
+		var show = document.getElementById("show");
+		var box1 = document.getElementById("box1");
+		var box2 = document.getElementById("box2");
+		var box3 = document.getElementById("box3");
+		var box4 = document.getElementById("box4");
+
+		box1.onmousedown = function(){ show.innerHTML = "onmousedown" }
+		box1.onmouseup = function(){ show.innerHTML = "onmouseup" }
+		box2.onmouseenter = function(){ show.innerHTML = "onmouseenter" }
+		box2.onmouseleave = function(){ show.innerHTML = "onmouseleave" }
+		box3.onmouseover = function(){ show.innerHTML = "onmouseover" }
+		box3.onmouseout = function(){ show.innerHTML = "onmouseout" }
+		box3.onclick = function(){ show.innerHTML = "onclick" }
+		box4.ondblclick = function(){ show.innerHTML = "ondblclick" }
+		box4.oncontextmenu = function(e){
+			e.preventDefault();
+		};
+		//在这里你就可以自己定义事件的函数啦
+		box4.onmouseup=function(oEvent) {
+			if (!oEvent) oEvent=window.event;
+			if (oEvent.button==2) {
+				show.innerHTML = "鼠标右击了" 
+			}
+		}
+
+		var focus = document.getElementById("focus");
+		focus.onfocus = function(){ show.innerHTML = "onfocus" };
+		focus.onblur = function(){ show.innerHTML = "onblur" };
+		focus.onchange = function(){ show.innerHTML = "onchange" };
+		focus.onselect = function(){ show.innerHTML = "onselect" };
+		focus.oncopy = function(){ show.innerHTML = "oncopy"};
+		focus.oncut = function(){ show.innerHTML = "oncut"};
+		focus.onpaste = function(){ show.innerHTML = "onpaste"};
+		focus.oninput = function(){ show.innerHTML = "oninput"};
+
+		var ondbox = document.getElementById("ondbox");
+		ondbox.ondrag = function(){ }
+	</script>
+	<script type="text/javascript">
+		var VVG = {};  //命名空间
+		VVG.DOM = {
+			$: function(id) { //创建方便的选择符
+				return typeof id == "string" ? document.getElementById(id) : id;
+			},
+			bindEvent: function(node, type, func) { //事件绑定方法
+				if (node.addEventListener) {
+					node.addEventListener(type, func, false);
+				} else if (node.attachEvent) {
+					node.attachEvent("on" + type, func);
+				} else {
+					node["on" + type] = func;
+				}
+			},
+			getEvent: function(event) { //获取事件
+				return event ? event : window.event;
+			},
+			getTarget: function(event) { //获取事件目标
+				return event.target || event.srcElement;
+			}
+		}
+		var DragDrop = function() { //新建一个返回对象的函数
+			var box = VVG.DOM.$("blueBox"); //获取外围BOX
+			var dragBox = VVG.DOM.$("dragBox");//获取需要拖动的BOX
+			var dragging = null; //初始化对象
+			function drag(event) { //事件执行函数
+				event = VVG.DOM.getEvent(event); 
+				var target = VVG.DOM.getTarget(event);
+				switch (event.type) {//判断事件类型
+				case "mousedown":
+					if(target.id == "dragBox"){ //当事件对象的ID等于要拖动的BOX的ID时
+						dragging = target; //赋值到拖动目标
+					}
+					break;
+				case "mousemove":
+					if(dragging){ //当有拖动目标时执行
+						sTop = document.documentElement.scrollTop || document.body.scrollTop; //当有滚动条的时候卷去页面的高度
+						dragging.style.left = (event.clientX - box.offsetLeft - dragBox.offsetWidth/2) + "px";
+						dragging.style.top = (event.clientY + sTop - box.offsetTop  - dragBox.offsetHeight/2 ) + "px";
+						var left = parseInt(dragging.style.left);
+						var top = parseInt(dragging.style.top);
+						//console.log("left:"+left+"-----top:"+top + "-------sTop:"+sTop);
+						// 比较坐标是否超出外围的BOX
+						if(left < 0){
+							dragging.style.left = 0 +"px";
+						}
+						if(top < 0){
+							dragging.style.top = 0+"px";
+						}
+						if(left > box.offsetWidth - dragBox.offsetWidth){
+							dragging.style.left = (box.offsetWidth - dragBox.offsetWidth - 2 )+"px";
+						}
+						if(top >  box.offsetHeight - dragBox.offsetHeight){
+							dragging.style.top = ( box.offsetHeight - dragBox.offsetHeight - 2 )+"px";
+						}
+					}
+					break;
+				case "mouseup":
+					// 清空拖动目标
+					dragging = null;
+					break;
+				}
+			};
+			return {
+				dragStart: function() {
+					// 绑定事件
+					VVG.DOM.bindEvent(document, "mousedown", drag);
+					VVG.DOM.bindEvent(document, "mousemove", drag);
+					VVG.DOM.bindEvent(document, "mouseup", drag);
+				}
+			}
+		}();
+		DragDrop.dragStart();
+	</script>
+</body>
+</html>

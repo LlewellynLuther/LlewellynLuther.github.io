@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/8.4/styles/monokai_sublime.min.css">
+	<link rel="stylesheet" href="../../webs/css/comment.css">
+	<script src="https://cdn.bootcss.com/highlight.js/8.4/highlight.min.js"></script>
+</head>
+<body>
+<div class="main_inner">
+	<pre><code class="language-js hljs">
+	<!-- <template> -->
+		<video
+			class="myvideo"
+			v-if="mobile=='android'"
+			id="myVideo"
+			width="100%"
+			height="100%"
+			x5-video-player-fullscreen="true"
+			x5-playsinline
+			playsinline
+			webkit-playsinline
+			controls
+		><source src="http://video.cnnjidc.com/cpjx_hp.mp4" type="video/mp4"></video>
+		<video
+			class="myvideo"
+			v-if="mobile=='iPhone'"
+			id="myVideo"
+			width="100%"
+			height="100%"
+			controls
+			webkit-playsinline
+			playsinline="true"
+		><source src="http://video.cnnjidc.com/cpjx_hp.mp4" type="video/mp4"></video>
+	<!-- </template> -->
+	</code></pre>
+	<pre><code class="language-js hljs">		
+		export default {
+			name: 'home',
+			data () {
+				return {
+					mobile: "",
+					text: ""
+				}
+			},
+			created() {
+				this.videoSrc = localStorage.getItem("remark");
+				this.text = navigator.appVersion;
+				this.mobile =
+				navigator.appVersion.indexOf("iPhone") !== -1 ? "iPhone" : "android";
+			},
+		}
+	</code></pre>
+</div>
+</body>
+</html>
+
+
+
+
+
+

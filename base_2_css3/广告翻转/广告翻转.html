@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>广告牌效果10张图</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		.outBox{width: 1000px;height: 400px;overflow: hidden;border: 1px solid #000;}
+		li.group{float: left;width: 100px;height: 400px;list-style: none;position: relative;
+			perspective-origin: 50% 50%;	/*翻转中心*/
+	        transform-style: preserve-3d;
+	    }
+		.thing{width: 101%;height: 100%;position: absolute;transform-style: preserve-3d;}
+		.thing1{top: 1px;transform: translateZ(29px)}
+		.thing2{top: 1px;transform: rotateY(-120deg) translateZ(29px)}
+		.thing3{top: 1px;transform: rotateY(120deg) translateZ(29px)}
+	    .group1 .thing1{left: 1px;background: url(1.jpg) no-repeat;background-position-x:0;}
+	    .group2 .thing1{background: url(1.jpg) no-repeat;background-position-x:11%;}
+	    .group3 .thing1{background: url(1.jpg) no-repeat;background-position-x:22%;}
+	    .group4 .thing1{background: url(1.jpg) no-repeat;background-position-x:33%;}
+	    .group5 .thing1{background: url(1.jpg) no-repeat;background-position-x:44%;}
+	    .group6 .thing1{background: url(1.jpg) no-repeat;background-position-x:55%;}
+	    .group7 .thing1{background: url(1.jpg) no-repeat;background-position-x:66%;}
+	    .group8 .thing1{background: url(1.jpg) no-repeat;background-position-x:77%;}
+	    .group9 .thing1{background: url(1.jpg) no-repeat;background-position-x:88%;}
+	    .group10 .thing1{background: url(1.jpg) no-repeat;background-position-x: 99%;}
+	    .group1 .thing2{left: 1px;background: url(2.jpg) no-repeat;background-position-x:0;}
+	    .group2 .thing2{background: url(2.jpg) no-repeat;background-position-x:11%;}
+	    .group3 .thing2{background: url(2.jpg) no-repeat;background-position-x:22%;}
+	    .group4 .thing2{background: url(2.jpg) no-repeat;background-position-x:33%;}
+	    .group5 .thing2{background: url(2.jpg) no-repeat;background-position-x:44%;}
+	    .group6 .thing2{background: url(2.jpg) no-repeat;background-position-x:55%;}
+	    .group7 .thing2{background: url(2.jpg) no-repeat;background-position-x:66%;}
+	    .group8 .thing2{background: url(2.jpg) no-repeat;background-position-x:77%;}
+	    .group9 .thing2{background: url(2.jpg) no-repeat;background-position-x:88%;}
+	    .group10 .thing2{background: url(2.jpg) no-repeat;background-position-x: 99%;}
+	    .group1 .thing3{left: 1px;background: url(3.jpg) no-repeat;background-position-x:0;}
+	    .group2 .thing3{background: url(3.jpg) no-repeat;background-position-x:11%;}
+	    .group3 .thing3{background: url(3.jpg) no-repeat;background-position-x:22%;}
+	    .group4 .thing3{background: url(3.jpg) no-repeat;background-position-x:33%;}
+	    .group5 .thing3{background: url(3.jpg) no-repeat;background-position-x:44%;}
+	    .group6 .thing3{background: url(3.jpg) no-repeat;background-position-x:55%;}
+	    .group7 .thing3{background: url(3.jpg) no-repeat;background-position-x:66%;}
+	    .group8 .thing3{background: url(3.jpg) no-repeat;background-position-x:77%;}
+	    .group9 .thing3{background: url(3.jpg) no-repeat;background-position-x:88%;}
+	    .group10 .thing3{background: url(3.jpg) no-repeat;background-position-x: 99%;}
+	</style>
+	<style></style>
+</head>
+<body>
+	<div class="outBox">
+		<li class="group group1">
+			<div class="thing thing1"></div>
+			<div class="thing thing2"></div>
+			<div class="thing thing3"></div>
+		</li>
+		<li class="group group2">
+			<div class="thing thing1"></div>
+			<div class="thing thing2"></div>
+			<div class="thing thing3"></div>
+		</li>
+		<li class="group group3">
+			<div class="thing thing1"></div>
+			<div class="thing thing2"></div>
+			<div class="thing thing3"></div>
+		</li>
+		<li class="group group4">
+			<div class="thing thing1"></div>
+			<div class="thing thing2"></div>
+			<div class="thing thing3"></div>
+		</li>
+		<li class="group group5">
+			<div class="thing thing1"></div>
+			<div class="thing thing2"></div>
+			<div class="thing thing3"></div>
+		</li>
+		<li class="group group6">
+			<div class="thing thing1"></div>
+			<div class="thing thing2"></div>
+			<div class="thing thing3"></div>
+		</li>
+		<li class="group group7">
+			<div class="thing thing1"></div>
+			<div class="thing thing2"></div>
+			<div class="thing thing3"></div>
+		</li>
+		<li class="group group8">
+			<div class="thing thing1"></div>
+			<div class="thing thing2"></div>
+			<div class="thing thing3"></div>
+		</li>
+		<li class="group group9">
+			<div class="thing thing1"></div>
+			<div class="thing thing2"></div>
+			<div class="thing thing3"></div>
+		</li>
+		<li class="group group10">
+			<div class="thing thing1"></div>
+			<div class="thing thing2"></div>
+			<div class="thing thing3"></div>
+		</li>
+	</div>
+		<div class="btn" onclick="play()"> 按钮</div>
+	<script>
+		var btn = document.querySelectorAll('li');
+		var css = document.getElementsByTagName('style')[1];
+		var n = 0;
+		function play() {
+	        n++;
+	        css.innerHTML = 'li{transition: 2s;transform: rotateY(' + (n * 120) + 'deg);}';
+		}
+	</script>
+</body>
+</html>
